@@ -1,8 +1,14 @@
-var current$ection;
+var current$ection,
+    queueArray,
+    queuePos = 0;
 
 $(document).ready(function () {
 
     $('#display').css('right', '-80rem');
+    $('#queue').css({
+        'display': 'none',
+        'top': H + 'px'
+    });
     $('section').css('display', 'none');
 
     var queries = location.search.substr(1).split('&'),
@@ -57,7 +63,20 @@ function addLinkListeners($ection) {
                     console.log("link leads to section '" + section + "'")
                 }
             }
-            callSection(section, arg);
+
+            if (section == 'PREV') {
+                if (queuePos > 0) {
+                    callSection(queueArray[queuePos - 1]);
+                    queuePos--;
+                }
+            } else if (section == 'NEXT') {
+                if (queuePos < queueArray.length - 2) {
+                    callSection(queueArray[queuePos + 1]);
+                    queuePos++;
+                }
+            } else {
+                callSection(section, arg);
+            }
 
             var stateObj = {
                 pageTitle: '',
@@ -75,6 +94,15 @@ function addLinkListeners($ection) {
 var letterSpinInterval = 0;
 
 function ajaxSection(section, arg) {
+
+    if (section == 'works') {
+        $.get('includes/queue_works.inc.php', 'tag=' + arg, function (data) {
+            $('#queue .works-tray').empty();
+            $(data).appendTo('#queue .works-tray');
+            $('.queue-tag').attr('class', 'queue-tag ' + arg + '-tag');
+            $('#queue').css('display', 'block').animate({'top': '0'}, 1000);
+        });
+    }
 
     var filePath = 'sections/' + section + '/' + section + '.php' + ((arg) ? '?arg=' + arg : ''),
         $ection;
