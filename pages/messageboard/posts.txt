@@ -1,0 +1,14 @@
+PanseyBoy:This is a great feature. What kind of things can we message about?!
+Beb:Da beb hai
+Other Beb:Oh hai, beb!
+Aaron:Whoops! I was trying to style my own textarea, but there was one in Materialize.css after all!
+Aaron on Mobile:Testing the messageboard on mobile; everything looks good!
+Aaron:Testing to see whether the form fields are correctly cleared after the post is submitted.
+Aaron:That didn't work; how about now?
+Aaron:Okay I think it was a caching issue. Now does it work?!
+MeaI:;)
+Aaron:Attempted to add a SPICY text animation.
+Aaron:Forgot some quotation marks lmao. Does it work now?
+Aaron:Forgot even MORE quotation marks.
+Aaron:Nvm, I realised it wasn't possible due to the fact that text colour can't be animated.
+Non:Oh hey MeaI

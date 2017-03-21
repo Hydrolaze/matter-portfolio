@@ -1,0 +1,13 @@
+All
+	Quality button doesn't highlight when clicked unless dropdowns are open
+	Clicking in a contact box does not highlight or erase default text
+		- Afterwards, clicking the submit button should probably clear the text 		  too, or give you an alert that your message was sent.
+	Arrows need to rotate
+	Codeine fuccup after Copyright in footer
+
+Chrome
+	Older Version(s) Incredibly laggy scroll/bar drag, New is fine
+
+Firefox
+	Scroll broken
+	Rightclick broken

@@ -1,0 +1,290 @@
+html {
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    background: black;
+}
+
+body,
+html {
+    height: 100%;
+    overflow: hidden;
+}
+
+#frame {
+    height: 100%;
+    overflow: hidden:
+}
+
+.planet {
+    position: absolute;
+}
+
+#neptune {
+    z-index: 0;
+}
+
+#uranus {
+    z-index: 1;
+}
+
+#saturn {
+    z-index: 2;
+}
+
+#jupiter {
+    z-index: 3;
+}
+
+#mars {
+    z-index: 4;
+}
+
+#earth {
+    z-index: 5;
+}
+
+#venus {
+    z-index: 6;
+}
+
+#mercury {
+    z-index: 7;
+}
+
+#sun {
+    z-index: 8;
+}
+
+.scale {
+    margin: 0.5rem 0 0 2rem;
+    float: left;
+    z-index: 9;
+    position: relative;
+}
+
+#wrapper {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 720px;
+    height: 100vh;
+    z-index: 10;
+}
+
+header {
+    position: fixed;
+    width: 780px;
+    right: 17px;
+    height: 7.5rem;
+    background: rgba(225, 221, 170, 0.5);
+    /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(left, rgba(225, 221, 170, 1), rgba(255, 255, 255, 0.2));
+    /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(right, rgba(225, 221, 170, 1), rgba(255, 255, 255, 0.2));
+    /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(right, rgba(225, 221, 170, 1), rgba(255, 255, 255, 0.2));
+    /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to right, rgba(225, 221, 170, 1), rgba(255, 255, 255, 0.2));
+    /* Standard syntax */
+    color: black;
+    overflow: hidden;
+}
+
+h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3.25rem;
+    margin-top: 1rem;
+    margin-left: 24px;
+}
+
+h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    margin-top: -12px;
+    margin-left: 48px;
+}
+
+#content {
+    height: 100vh;
+    padding-top: 7.5rem;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+#inner {
+    min-height: 10000px;
+}
+
+.post {
+    background: rgba(128, 128, 128, 0.5);
+    color: white;
+    padding: 12px;
+    width: 648px;
+    margin-top: 14px;
+    margin-left: 14px;
+}
+
+.post div,
+p {
+    margin-top: 12px;
+}
+
+h3 {
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    font-size: 2.25rem;
+    line-height: 2rem;
+    margin-top: 4px;
+    color: #ffddaa;
+}
+
+h4 {
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    font-size: 1rem;
+    margin-top: -2px;
+    margin-bottom: 12px;
+    margin-left: 12px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.post .text-link {
+    color: #ffcc66;
+}
+
+.post .text-link:hover {
+    text-shadow: 0 0 3px #ffffff;
+}
+
+.post .text-link:visited {
+    color: #ffddaa;
+}
+
+.button {
+    cursor: pointer;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+    color: #ffcc66;
+    transition: color 0.25s;
+}
+
+.box-button {
+    width: 16rem;
+    padding: 1rem;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 12px;
+    background-color: rgba(255, 221, 170, 0);
+    border: solid 6px black;
+    transition: background-color 0.25s;
+}
+
+.button:hover {
+    color: white;
+}
+
+.button:active {
+    color: black;
+}
+
+.box-button:hover {
+    background-color: rgba(255, 221, 170, 0.25);
+}
+
+.box-button:active {
+    background-color: rgba(255, 221, 170, 1);
+}
+
+@media screen and (max-width: 1600px) {
+    #wrapper {
+        width: 600px;
+    }
+    header {
+        width: 700px;
+    }
+    .post {
+        width: 528px;
+    }
+}
+
+@media screen and (max-width: 1488px) {
+    
+    .scale {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 1280px) {
+    html {
+        font-size: 14px;
+    }
+    #wrapper {
+        width: 480px;
+    }
+    header {
+        width: 560px;
+    }
+    .post {
+        width: 408px;
+    }
+}
+
+@media screen and (max-width: 960px) {
+    #wrapper {
+        width: 360px;
+    }
+    .post {
+        width: 288px;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 640px),
+(-webkit-min-device-pixel-ratio: 2) and (max-width: 1080px),
+(min-resolution: 192dpi) and (max-width: 1080px) {
+    #wrapper {
+        width: 100%;
+    }
+    header {
+        width: 100%;
+        margin-left: 0;
+    }
+    h1,
+    h2 {
+        text-align: center;
+    }
+    h1 {
+        font-size: 2.75rem;
+    }
+    h2 {
+        font-size: 1.25rem;
+    }
+    .post {
+        width: calc(100% - 72px);
+        margin: 0 auto;
+        margin-top: 14px;
+    }
+}
+
+@media (-webkit-min-device-pixel-ratio: 2),
+(min-resolution: 192dpi) {
+    html {
+        font-size: 48px;
+    }
+}
+
+@media (-webkit-min-device-pixel-ratio: 2) and (max-width: 1080px),
+(min-resolution: 192dpi) and (max-width: 1080px) {
+    html {
+        font-size: 36px;
+    }
+}

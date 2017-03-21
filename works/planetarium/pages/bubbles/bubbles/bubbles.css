@@ -1,0 +1,54 @@
+#bubble-box {
+    position: fixed;
+    right: 36px;
+    bottom: 36px;
+}
+
+.bubble {
+    height: 133px;
+    
+    display: flex;
+    flex-direction: row-reverse;
+    margin-top: 36px;
+}
+
+.bubble img {
+    height: 133px;
+}
+
+.bubble-menu {
+    width: 180px;
+    position: fixed;
+    right: 200px;
+}
+
+.bubble-menu li {
+    list-style-type: none;
+    text-transform: uppercase;
+    text-align: center;
+    color: white;
+    
+    margin-bottom: 12px;
+    padding: 6px;
+    border-radius: 16px
+}
+
+#parents-menu {
+    bottom: 380px;
+}
+
+#supporters-menu {
+    bottom: 210px;
+}
+
+#parents-menu li {
+    background: #0080CE;
+}
+
+#supporters-menu li {
+    background: #499E1F;
+}
+
+#contact-page {
+    background: #F0AA00;
+}

@@ -1,0 +1,32 @@
+/*
+     0
+    000  ==================
+   00000  SUNYHAKAS DESIGN
+  000 000  May 2016
+ 000   000  
+000     000  SUNYHAKAS-PALETTE.JSON
+ 000   000  Names and hex codes for 
+  000 000  Sunyhakas colours.
+   00000  
+    000  ==================
+     0
+*/
+
+"department colours":[
+    {"name":"vivid clarity", "hex":"00AF41"},
+    {"name":"dim clarity", "hex":"007934"},
+    {"name":"vivid sorrow", "hex":"0099A8"},
+    {"name":"dim sorrow", "hex":"006580"},
+    {"name":"vivid torment", "hex":"0813DC"},
+    {"name":"dim torment", "hex":"001970"},
+    {"name":"lustrous fortitude", "hex":"FFD980"}
+]
+
+"shades":[
+    {"name":"bone white", "hex":"F2F1F0"},
+    {"name":"ash grey", "hex":"CFCECD"}, 
+    {"name":"steel grey", "hex":"8A8C8C"},
+    {"name":"stone grey", "hex":"555759"},
+    {"name":"carbon grey", "hex":"262729"},
+    {"name":"void black", "hex":"111820"}
+]

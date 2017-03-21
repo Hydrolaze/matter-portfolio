@@ -1,0 +1,103 @@
+html {
+    background: #3E2EFF;
+}
+
+header {
+    position: fixed;
+    background: 
+    height: 108px;
+    width: 100vw;
+    top: 0px;
+    left: 0;
+}
+
+#block-container,
+.block,
+.block-label {
+/*        outline: 1px solid rgba(255, 255, 255, 1);*/
+}
+
+#block-container {
+    font-size: 16px;
+    width: 27em;
+    position: absolute;
+    left: calc(50vw - 13.5em);
+    top: 0;
+    padding-top: 1.5em;
+    display: flex;
+    flex-direction: row;
+}
+
+/*SHADOWS*/
+
+.block img, .block-menu li {
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.50);
+}
+
+.block-label {
+    text-shadow: 0 5px 5px rgba(0, 0, 0, 0.50);
+}
+
+/*BLOCK STYLES*/
+
+.block {
+    width: 25%;
+    cursor: pointer;
+}
+
+.block + .block {
+    margin-left: 12.5%;
+}
+
+.block img {
+    width: 100%;
+    
+}
+
+.block-label {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    color: white;
+    display: block;
+    text-align: center;
+    font-size: 1em;
+    
+}
+
+/*BLOCK MENU STYLES*/
+
+.block-menu {
+    width: 9em;
+    position: absolute;
+    top: 11.5em;
+}
+
+.block-menu li {
+    list-style-type: none;
+    text-transform: uppercase;
+    text-align: center;
+    color: white;
+    margin-bottom: 0.75em;
+    padding: 0.3em;
+    cursor: pointer;
+}
+
+#parents-menu {
+    left: -1.13em;
+}
+
+#supporters-menu {
+    left: 9em;
+}
+
+#parents-menu li {
+    background: #0080CE;
+}
+
+#supporters-menu li {
+    background: #499E1F;
+}
+
+#contact-page {
+    background: #F0AA00;
+}

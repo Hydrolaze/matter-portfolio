@@ -1,0 +1,22 @@
+PanseyBoy:This is a great feature. What kind of things can we message about?!
+Beb:Da beb hai
+Other Beb:Oh hai, beb!
+Aaron:Whoops! I was trying to style my own textarea, but there was one in Materialize.css after all!
+Aaron on Mobile:Testing the messageboard on mobile; everything looks good!
+Aaron:Testing to see whether the form fields are correctly cleared after the post is submitted.
+Aaron:That didn't work; how about now?
+Aaron:Okay I think it was a caching issue. Now does it work?!
+MeaI:;)
+Aaron:Attempted to add a SPICY text animation.
+Aaron:Forgot some quotation marks lmao. Does it work now?
+Aaron:Forgot even MORE quotation marks.
+Aaron:Nvm, I realised it wasn't possible due to the fact that text colour can't be animated.
+Non:Oh hey MeaI
+Aaron:I'll add dynamic post refreshing and timestamps too eventually.
+Pellinore Winthrop:Oh how I love raspberry scones! Snap to, Will Henry!
+Will Henry:Right away, sir!
+Aaron:I need to put the text on the left in a .col; it gets too close to the left of the page.
+Aaron:There! Change made.
+Aaron:People totally lost interest in posting on my messageboard. Sad!
+Aaron:Adrienne and Julio, leave a message!
+Adrienne:Hellooo helloo hello! Is anybody out there?

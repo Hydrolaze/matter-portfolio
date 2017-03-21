@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>Lozenge Demo</title>
+    <meta name="description" content="A scene with the Sunyhakas lozenge">
+    <meta name="author" content="Aaron Clement">
+
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+        canvas {
+            width: 100vw;
+            height: 100vh;
+        }
+    </style>
+
+</head>
+
+<body>
+    <script src="three.min.js"></script>
+    <script>
+        var scene = new THREE.Scene();
+        var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+
+        var renderer = new THREE.WebGLRenderer();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.body.appendChild(renderer.domElement);
+
+
+        loader = new THREE.JSONLoader();
+        var lozenge;
+        loader.load('Sunyhakas-lozenge.json', function (geometry, materials) {
+            var material = new THREE.MeshLambertMaterial({
+                color: 0x007934
+            });
+
+            lozenge = new THREE.Mesh(geometry, material);
+            lozenge.position.z = -10;
+            scene.add(lozenge);
+        });
+                    
+            
+
+
+
+                    var pointLightOne = new THREE.PointLight(0xffffff);
+
+                    pointLightOne.position.x = 5;
+                    pointLightOne.position.y = 5;
+                    pointLightOne.position.z = 5;
+                    scene.add(pointLightOne);
+
+                    var pointLightTwo = new THREE.PointLight(0xffffff);
+
+                    pointLightTwo.position.x = -5;
+                    pointLightTwo.position.y = -5;
+                    pointLightTwo.position.z = 5;
+                    scene.add(pointLightTwo);
+
+                    camera.position.z = 5;
+
+                    function render() {
+                        requestAnimationFrame(render);
+
+                        if (mouseMoved) {
+                            var delta = [(newCoords[0] - coords[0]), (newCoords[1] - coords[1])];
+                            coords[0] = newCoords[0];
+                            coords[1] = newCoords[1];
+
+                            lozenge.rotation.y += -0.005 * delta[0];
+                            lozenge.rotation.x += 0.005 * delta[1];
+
+                            mouseMoved = false;
+                        };
+
+                        renderer.render(scene, camera);
+                    };
+
+                    render();
+
+                    var coords = [0, 0];
+                    var newCoords = [];
+                    var mouseMoved = false;
+                    document.onmousemove = getCoords;
+
+                    function getCoords(e) {
+                        var x = e.clientX;
+                        var y = e.clientY;
+
+                        newCoords = [x, y];
+                        mouseMoved = true;
+                    };
+    </script>
+</body>
+
+</html>

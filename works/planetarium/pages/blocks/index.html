@@ -1,0 +1,66 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <link href='https://fonts.googleapis.com/css?family=Poppins:300,500,700' rel='stylesheet' type='text/css'>
+
+    <title>Blocks</title>
+    <meta name="description" content="A webpage">
+    <meta name="author" content="Aaron Clement">
+
+    <link rel="stylesheet" href="reset.css" type='text/css'>
+    <link rel="stylesheet" href="blocks/blocks.css" type='text/css'>
+
+    <script src="jquery-2.1.4.js"></script>
+
+    <style>
+        html {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+        }
+    </style>
+
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+    <header>
+        <div id="block-container">
+            <div class="block" id="parents">
+                <img src="blocks/parents.svg">
+                <span class="block-label">PARENTS</span>
+            </div>
+            <div class="block" id="supporters">
+                <img src="blocks/supporters.svg" alt="supporters">
+                <span class="block-label">SUPPORTERS</span>
+            </div>
+            <div class="block" id="contact-us">
+                <img src="blocks/contact-us.svg" alt="contact us">
+                <span class="block-label">CONTACT US</span>
+            </div>
+
+            <ul class="block-menu" id="parents-menu">
+                <li class="link">Eligibility</li>
+                <li class="link">Parent Portal</li>
+            </ul>
+            <ul class="block-menu" id="supporters-menu">
+                <li class="link">Volunteer</li>
+                <li class="link">donate</li>
+            </ul>
+        </div>
+    </header>
+
+
+    <div id="contact-page">
+        
+    </div>
+
+    <script src="blocks/blocks.js"></script>
+</body>
+
+</html>

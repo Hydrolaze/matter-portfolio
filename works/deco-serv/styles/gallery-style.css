@@ -1,0 +1,46 @@
+.gallery {
+    width: 960px;
+    height: 360px;
+    margin-top: -12px;
+    background-color: #d1d3d3; /*cirrus grey*/
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.tray {
+    position: relative;
+    pointer-events: all;
+    cursor: pointer;
+}
+
+.tray img + img {
+    margin-left: 24px;
+}
+ 
+.arrow {
+    width: 67px;
+    pointer-events: all;
+    cursor: pointer;
+}
+
+.left-arrow {
+    float: left;
+    transition: margin-left 0.2s;
+}
+.left-arrow:hover {
+    margin-left: 4px;
+}
+.left-arrow:active {
+    margin-left: -12px;
+}
+
+.right-arrow {
+    float: right;
+    transition: margin-right 0.2s;
+}
+.right-arrow:hover {
+    margin-right: 4px;
+}
+.right-arrow:active {
+    margin-right: -12px;
+}

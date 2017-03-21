@@ -1,0 +1,93 @@
+html {
+    overflow: hidden;
+    font-family: Tinos, serif;
+    font-size: 14px;
+}
+
+.page {
+    width: 50vw;
+    height: 100vh;
+}
+
+#left-page {
+    background-image: url(jpg.JPG);
+    background-position: center;
+    background-size: cover;
+    float: left;
+}
+
+#right-page {
+    float: right;
+}
+
+.attribution {
+    margin-left: 4vw;
+    margin-top: 48px;
+    font-family: "Playfair Display", serif;
+    font-style: italic;
+    font-weight: 700;
+}
+
+#doot {
+    width: 124px;
+    position: absolute;
+    right: 4vw;
+    top: 48px;
+}
+
+.line {
+    width: 100%;
+    height: 1px;
+    background-color: grey;
+    margin: 1px 0;
+}
+
+#doot h1,
+h2 {
+    font-family: "Raleway", sans-serif;
+}
+
+#doot h1 {
+    font-weight: 700
+}
+
+#doot h3 {
+    font-style: italic;
+    font-size: 11px;
+}
+
+.body {
+    width: 42vw;
+    position: absolute;
+    margin: 0 4vw;
+    bottom: 120px;
+    -webkit-column-count: 2;
+    -moz-column-count: 2;
+    column-count: 2;
+}
+
+.body p {
+    text-align: justify;
+}
+
+.body .first-sentence {
+    font-family: "Playfair Display", serif;
+    font-size: 24px;
+    text-align: left;
+    line-height: 26px;
+    margin-bottom: 6px;
+    margin-top: -140px;
+}
+
+.body p + p {
+    text-indent: 12px;
+}
+
+.caption {
+    font-family: Arial, sans-serif;
+    position: absolute;
+    margin-left: 4vw;
+    bottom: 48px;
+    font-size: 10px;
+    width: 25vw;
+}

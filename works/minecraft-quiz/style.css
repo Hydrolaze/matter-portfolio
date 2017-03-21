@@ -1,0 +1,128 @@
+@font-face {
+    font-family: Minecraftia;
+    src: url(typefaces/Minecraftia.ttf);
+}
+
+html {
+    font-family: 'Minecraftia', sans-serif;
+    font-size: 12px;
+}
+
+body {
+    background: url(sprites/blocks/flower_rose.png)96px 0px no-repeat, url(sprites/blocks/sky.png)0px 0px repeat-x, url(sprites/blocks/grass_side.png)0px 48px repeat-x, url(sprites/blocks/dirt.png)0px 96px repeat-x, url(sprites/blocks/diamond_ore.png)48px 480px no-repeat, url(sprites/blocks/diamond_ore.png)96px 528px no-repeat, url(sprites/blocks/diamond_ore.png)48px 528px no-repeat, url(sprites/blocks/iron_ore.png)144px 433px no-repeat, url(sprites/blocks/stone.png);
+}
+
+#wrapper {
+    width: 674px;
+    margin: auto;
+    /*	background:rgba(204,19,22,0.59);
+*/
+}
+
+header {
+    text-align: center;
+    width: 400px;
+    color: #fff;
+    margin: 64px auto;
+    margin-bottom: -40px;
+}
+
+h1,
+h2 {
+    margin: 0;
+}
+
+h2 {
+    line-height: 28px;
+}
+
+p {
+    margin-top: 12px;
+}
+
+.centred {
+    margin: 50px auto;
+}
+
+#tray {
+    overflow-y: scroll;
+    background: url(sprites/blocks/bedrock.png) top left;
+    border-bottom: 16px solid #F4F4F4;
+    border-top: 16px solid #F4F4F4;
+    border-left: 16px solid #F4F4F4;
+    width: 667px;
+    height: 144px;
+}
+
+#craft-area {
+    width: 240px;
+}
+
+.grid {
+    background: url(sprites/blocks/bedrock.png) top left;
+    width: 216px;
+    height: 216px;
+    padding: 12px;
+    margin: 0 auto;
+}
+
+#button {
+    border: 1px #000 solid;
+    background: url(sprites/blankSprite.png) left top;
+    background-size: auto;
+    color: #cecece;
+    margin: 4px auto;
+    width: 240px;
+    height: 48px;
+    font-family: 'Minecraftia', sans-serif;
+    text-align: center;
+    font-size: 24px;
+    line-height: 62px;
+    cursor: pointer;
+}
+
+#button:hover,
+#button:focus {
+    background: url(sprites/blankSprite.png)left bottom;
+    color: #ffffa0;
+}
+
+td,
+.frame {
+    width: 48px;
+    height: 48px;
+}
+
+.frame {
+    background-color: #a8a8a8;
+    padding: 10px;
+    margin: 2px;
+    float: left;
+}
+
+.frame img {
+    width: 48px;
+    height: 48px;
+}
+
+#craft-this {
+    float: left;
+    background: url(sprites/blocks/bedrock.png);
+    padding: 16px;
+    height: 72px;
+    width: 72px;
+}
+
+#craft-this p {
+    text-align: center;
+    color: white;
+    min-width: 75px;
+}
+
+#target {
+    height: 48px;
+    width: 48px;
+    padding: 12px;
+    background: #C6C6C6;
+    margin: 0;
+}

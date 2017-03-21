@@ -1,0 +1,24 @@
+body > .row, #sidebar, #posts {
+    height: 100vh;
+}
+
+#sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#posts {
+    overflow-y: scroll;
+}
+
+@media only screen and (max-width: 600px) {
+    #posts {
+        float: left;
+        overflow-y: visible;
+    }
+}
+
+#post-form > .row {
+    margin-bottom: 0;
+}

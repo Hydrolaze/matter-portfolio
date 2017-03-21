@@ -1,0 +1,163 @@
+html {
+    overflow: hidden;
+    font-family: "Tinos", serif;
+    font-size: 12px;
+}
+
+.page {
+    width: 50vw;
+    height: 100vh;
+}
+
+#left-page {
+    background-image: url(jpg.JPG);
+    background-position: center;
+    background-size: cover;
+    float: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#left-page span {
+    font-family: "Helvetica", sans-serif;
+    font-size: 10vw;
+    color: darkcyan;
+    mix-blend-mode: multiply;
+}
+
+#right-page {
+    float: right;
+}
+
+.attribution {
+    font-size: 1.1667rem; /*14px*/
+    margin-left: 4vw;
+    margin-top: 4rem;
+    font-family: "Playfair Display", serif;
+    font-style: italic;
+    font-weight: 700;
+}
+
+#doot {
+    width: 10.3334rem;
+    position: absolute;
+    right: 4vw;
+    top: 4rem;
+    font-size: 1.1667rem;
+}
+
+.line {
+    width: 100%;
+    height: 0.0834rem; /*1px*/
+    background-color: grey;
+    margin: 0.0834rem 0;
+}
+
+#doot h1,
+h2 {
+    font-family: "Raleway", sans-serif;
+}
+
+#doot h1 {
+    font-weight: 700;
+}
+
+#doot h3 {
+    font-style: italic;
+    font-size: 0.9167rem; /*11px*/
+}
+
+.body {
+    width: 42vw;
+    position: absolute;
+    margin: 0 4vw;
+    bottom: 10rem; 
+    -webkit-column-count: 2;
+    -moz-column-count: 2;
+    column-count: 2;
+}
+
+.body p {
+    text-align: justify;
+    font-size: 1.1667rem;
+}
+
+.first-sentence {
+    font-family: "Playfair Display", serif;
+    font-size: 2rem;
+    text-align: left;
+    line-height: 2.1667rem; /*26px*/
+    margin-bottom: 0.5rem;
+    margin-top: -11.6667rem; /*140px*/
+ }
+
+.body p + p {
+    text-indent: 1rem;
+}
+
+.caption {
+    font-family: Arial, sans-serif;
+    position: absolute;
+    margin-left: 4vw;
+    bottom: 4rem;
+    font-size: 0.8334; /*10px*/
+    width: 25vw;
+}
+
+#notice {
+    background: white;
+    width: 70vw;
+    height: calc(100vh - 30vw);
+    position: fixed;
+    left: 10vw;
+    top: 10vw;
+    display: none;
+    padding: 5vw 5vw;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#notice p {
+    font-size: 4vh;
+}
+
+#notice span {
+    font-size: 6vh;
+    margin-top: 6vh;
+    font-family: "Playfair Display", serif;
+    font-style: italic;
+}
+
+/*MEDIA QUERY*/
+
+@media screen and (max-width: 1300px) {
+    html {
+        font-size: 11px;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    html {
+        font-size: 10px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    html {
+        font-size: 9px;
+    }
+}
+
+@media screen and (max-width: 600px), (max-height: 500px) {
+    html {
+        font-size: 8px;
+    }
+    
+    #notice {
+        display: flex;
+    }
+}

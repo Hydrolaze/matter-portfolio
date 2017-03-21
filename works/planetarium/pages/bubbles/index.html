@@ -1,0 +1,61 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,700,700italic|Roboto+Condensed:400italic,300|Montserrat:400,700|Roboto+Slab:400,300,700' rel='stylesheet' type='text/css'>
+
+    <title>Bubbles</title>
+    <meta name="description" content="A webpage">
+    <meta name="author" content="Aaron Clement">
+
+    <link href="jquery-ui.css" rel="stylesheet">
+    <link rel="stylesheet" href="reset.css" type='text/css'>
+    <link rel="stylesheet" href="bubbles/bubbles.css" type='text/css'>
+
+    <script src="jquery-2.1.4.min.js"></script>
+
+    <style>
+        html {
+            font-family: 'Roboto', sans-serif;
+        }
+    </style>
+
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+    <div id="bubble-box">
+        <div class="bubble" id="parents">
+            <img src="bubbles/parents.svg" alt="parents">
+        </div>
+        <div class="bubble" id="supporters">
+            <img src="bubbles/supporters.svg" alt="supporters">
+        </div>
+        <div class="bubble" id="contact-us">
+            <img src="bubbles/contact-us.svg" alt="contact us">
+        </div>
+    </div>
+
+    <ul class="bubble-menu" id="parents-menu">
+        <li class="link">Eligibility</li>
+        <li class="link">Parent Portal</li>
+    </ul>
+    <ul class="bubble-menu" id="supporters-menu">
+        <li class="link">Volunteer</li>
+        <li class="link">donate</li>
+    </ul>
+    <div id="contact-page">
+
+    </div>
+
+    <script src="external/jquery/jquery.js"></script>
+    <script src="jquery-ui.js"></script>
+    <script src="bubbles/bubbles.js"></script>
+</body>
+
+</html>
