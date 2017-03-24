@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <link href='https://fonts.googleapis.com/css?family=Lato:400,400italic,700,700italic|Roboto+Mono:300|Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,400italic,900,900italic|Roboto+Mono:300|Montserrat:400,700' rel='stylesheet' type='text/css'>
 
     <title>A A R O N</title>
     <meta name="description" content="A webpage">
@@ -63,15 +63,15 @@
         </div>
 
         <div id="display">
-            <section id="hello">
-                <img src="rasters/hello-graphic.png" id="graphic">
+            <section id="hello" class="intro-section">
+                <img src="rasters/hello-graphic.png" class="hello-graphic">
                 <header>
                     <span class="line-one">Hello and welcome</span>
                     <span class="line-two">I'm Aaron Clement</span>
                     <span class="line-three">graphic designer &amp; web developer</span>
                 </header>
 
-                <p>I'm looking to join a team of talented professionals where I can channel my passions into exciting projects, and to grow in skill while contributing to the thriving design industry.</p>
+                <p>I'm looking to join a team of talented professionals where I can channel my passions into exciting projects, and to grow in skill while contributing to the thriving web industry.</p>
 
                 <p>Pick an option below to explore my work and history.</p>
                 <div class="icon-tray">
@@ -100,7 +100,8 @@
 
 
         <div id="queue">
-                <h5>Queue of works tagged</h5>
+                <h1>QUEUE</h1>
+                <h5>of works tagged</h5>
                 <div class="queue-tag all-tag"></div>
                 <div class="queue-control">
                     <span class="span-icon prev-link link"></span>
