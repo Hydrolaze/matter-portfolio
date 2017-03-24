@@ -298,6 +298,10 @@ function pullTo(body, x, y, angle, strength) {
 function continueToSite() {
     rollCall();
     $('#welcome').fadeOut(2000);
+    //Add link listeners to any sections already in the display panel on page load.
+    $('#display section').each(function () {
+        addLinkListeners($(this));
+    });
     setTimeout(displayEnter, 3000);
 }
 
@@ -352,16 +356,17 @@ function rollCall() {
 }
 
 function horzAnimation(delta) {
+    //Simple animation to move all letters left.
     var edge = W - delta;
     for (t in targets) {
         targets[t].x = edge - (5 - t) * 100;
     }
 }
 
-function vertAnimation(delta) {
+function vertAnimation(delta, displaySpace) {
+    //More complicated animation to move all letters along quadratic paths into a vertical orientation for small screens.
     var edge = W - delta,
-        percent = delta / 960,
-        quadratic = Math.pow(percent * 1e+8, 1 / 4);
+        percent = delta / displaySpace,
         quadratic = Math.pow(percent * 1e+8, 1 / 4);
     for (t in targets) {
         targets[t].x = edge - (4 - t) * (100 * (1 - percent)) - 100;
@@ -371,29 +376,34 @@ function vertAnimation(delta) {
 
 function displayEnter(dur) {
     
-    $('#hello').css('display', 'flex');
-    centreSection($('#hello'));
+    var introSection = $('.intro-section');
+    var displaySpace = (introSection.attr('id') == 'custom-queue') ? 1224 : 960;
+    introSection.css('display', 'flex');
+    centreSection(introSection);
     $('#display').animate({
         'right': '0'
     }, {
         duration: 2000,
         progress: function () {
-            if (W > 1550) {
-                horzAnimation(parseFloat(document.getElementById('display').style.right) + 960);
+            if (W > 570 + displaySpace) {
+                horzAnimation(parseFloat(document.getElementById('display').style.right) + displaySpace);
             } else {
-                vertAnimation(parseFloat(document.getElementById('display').style.right) + 960);
+                vertAnimation(parseFloat(document.getElementById('display').style.right) + displaySpace, displaySpace);
             }
         },
         complete: function () {
             fields.push({
-                angle: Math.PI,
+                angle: 7 * Math.PI / 6,
                 magnitude: 0.01,
                 x: W - $('#display').width(),
                 y: 0,
                 w: $('#display').width(),
                 h: $('#display').height()
             })
-            current$ection = $('#hello');
+            current$ection = introSection;
+            if (current$ection.attr('id') == 'custom-queue') {
+                populateQueue();
+            }
         }
     });
 }
@@ -402,7 +412,7 @@ function displayEnter(dur) {
 
 $(document).ready(function () {
 
-    //place the matter canvas behind the display element so that the display div can be interacted with
+    //place the matter canvas behind the display element so that the display panel can be interacted with
     $('#matter').insertBefore($('#display'))
 
     //initialise letter SVG so that they track the Matter bodies
@@ -415,9 +425,6 @@ $(document).ready(function () {
         $('#continue-icon').css('transform', 'perspective(6rem) rotateX(90deg)')
         continueToSite();
     })
-
-    //add the event listeners for section links
-    addLinkListeners($('#hello'));
 
     // add a mouse controlled constraint
     mouse = Mouse.create(document.getElementById('matter'));
