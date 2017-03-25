@@ -294,6 +294,11 @@ a {
     color: #FFD980;
 }
 
+.variable-info {
+    color: #8086ff;
+    font-weight: 900;
+}
+
 /*ICON STYLES ||||||||||||*/
 
 .span-icon {
