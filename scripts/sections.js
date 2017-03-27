@@ -311,7 +311,7 @@ function populateQueue() {
         $('.queue-tag').attr('class', 'queue-tag ' + queue.arg + '-tag').html('');
     } else if (queue.section == 'custom-queue') {
         $('#queue h5').html("CREATED FOR");
-        $('.queue-tag').attr('class', 'queue-tag custom-tag').html(queue.arg);
+        $('.queue-tag').attr('class', 'queue-tag custom-tag').html($('#company-name').html());
     }
 
     //Animate queue in if not already on screen, also add force field.

@@ -21,7 +21,7 @@ if (isset($_GET['arg'])) {
     
     <p><?php echo $company['copy']; ?></p>
 
-    <p>I hand-selected the pieces below for you at <span class="variable-info"><?php echo $company['name']; ?></span> to demonstrate my qualification for the position of <span class="variable-info"><?php echo $company['position']; ?></span>. You may use the panel to the left to navigate the queue. Enjoy!</p>
+    <p>I hand-selected the pieces below for you at <span class="variable-info" id="company-name"><?php echo $company['name']; ?></span> to demonstrate my qualification for the position of <span class="variable-info"><?php echo $company['position']; ?></span>. You may use the panel to the left to navigate the queue. Enjoy!</p>
     
     <span class="span-icon link begin-link" style="font-size:2rem;">BEGIN QUEUE</span>
     
