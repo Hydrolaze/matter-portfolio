@@ -12,6 +12,10 @@ $works_list = array(
         'desc' => 'Company Branding',
         'tags' => array('design')
     ),
+    'wp-portfolio' => array(
+        'desc' => 'Wordpress Site',
+        'tags' => array('web', 'code')
+    ),
     'nccs-brand' => array(
         'desc' => 'Organization Branding',
         'tags' => array('design','web')
