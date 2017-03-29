@@ -8,10 +8,11 @@ html {
     box-sizing: border-box;
 }
 
+
 /*SECTION STYLES ||||||||||||*/
 
 section {
-    background: rgba(38,39,41,0.9);
+    background: rgba(38, 39, 41, 0.9);
     position: absolute;
     flex-direction: column;
     align-items: center;
@@ -31,10 +32,11 @@ nav {
     font-size: 2rem;
 }
 
+
 /*QUEUE PANEL STYLES ||||||||||||*/
 
 #queue {
-    background: rgba(0,25,112,0.9);
+    background: rgba(0, 25, 112, 0.9);
     color: #CFCECD;
     padding-top: 2rem;
     font-size: 2rem;
@@ -45,8 +47,8 @@ nav {
     overflow-y: scroll;
 }
 
-#queue .works-tray::-webkit-scrollbar { 
-    display: none; 
+#queue .works-tray::-webkit-scrollbar {
+    display: none;
 }
 
 .displayed-work {
@@ -148,6 +150,7 @@ nav {
     outline: 1px solid #0813DC;
 }
 
+
 /*CONTINUE BUTTON STYLES ||||||||||||*/
 
 #continue-icon {
@@ -241,14 +244,16 @@ header span {
     opacity: 0.9;
 }
 
-#hello header > span, 
+#hello header > span,
 #custom-queue header > span {
     display: block;
     text-align: center;
 }
 
-#hello .line-one, #hello .line-two,
-#custom-queue .line-one, #custom-queue .line-two {
+#hello .line-one,
+#hello .line-two,
+#custom-queue .line-one,
+#custom-queue .line-two {
     font-family: 'Montserrat', Verdana, sans-serif;
     font-weight: 400;
     text-transform: uppercase;
@@ -276,6 +281,11 @@ header span {
     color: #CFCECD;
 }
 
+#custom-queue .line-three {
+    text-transform: lowercase;
+}
+
+
 /*TEXT STYLES ||||||||||||*/
 
 p {
@@ -298,6 +308,7 @@ a {
     color: #8086ff;
     font-weight: 900;
 }
+
 
 /*ICON STYLES ||||||||||||*/
 
@@ -414,7 +425,7 @@ a {
 }
 
 #display .works-tray {
-    width: 80rem;   
+    width: 80rem;
 }
 
 #queue .works-tray {
@@ -531,6 +542,7 @@ a {
     font-size: 1rem;
 }
 
+
 /*COPY STYLES ||||||||||||*/
 
 .copy {
@@ -551,6 +563,7 @@ video {
     display: block;
 }
 
+
 /*PHOTO STYLES ||||||||||||*/
 
 .photo-centre {
@@ -570,7 +583,8 @@ video {
     margin-right: 6rem;
 }
 
-.caption, .photo-caption {
+.caption,
+.photo-caption {
     display: block;
     margin-top: 1rem;
     text-align: center;
@@ -595,7 +609,8 @@ video {
     flex-wrap: wrap;
 }
 
-.tilt-two, .tilt-one {
+.tilt-two,
+.tilt-one {
     transform: perspective(12rem);
     transform-origin: center bottom;
     transition: transform 0.5s;
@@ -627,4 +642,6 @@ video {
 .photogrid div {
     background-size: cover;
     height: 100%;
-};
+}
+
+;

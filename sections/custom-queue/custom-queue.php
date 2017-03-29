@@ -14,7 +14,7 @@ if (isset($_GET['arg'])) {
     <header>
         <span class="line-one">Hello and welcome</span>
         <span class="line-two">I'm Aaron Clement</span>
-        <span class="line-three">graphic designer &amp; web developer</span>
+        <span class="line-three"><?php echo $company['my_title']; ?></span>
     </header>
 
     <p>I'm looking to join a team of talented professionals where I can channel my passion for the web into exciting projects, and to grow in skill while contributing to the thriving web industry.</p>
