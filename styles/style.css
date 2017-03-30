@@ -38,7 +38,6 @@ nav {
 #queue {
     background: rgba(0, 25, 112, 0.9);
     color: #CFCECD;
-    padding-top: 2rem;
     font-size: 2rem;
     overflow-y: hidden;
 }
@@ -84,8 +83,7 @@ nav {
 
 #queue header {
     width: 20rem;
-    padding: 2rem;
-    font-size: 2rem;
+    padding-top: 2rem;
 }
 
 .queue-tag {
@@ -221,11 +219,6 @@ h4 {
 h5 {
     font-size: 1rem;
 }
-
-header span {
-    color: #8086ff;
-}
-
 
 /*INTRO SECTION HEADER STYLES ||||||||||||*/
 
@@ -430,6 +423,10 @@ a {
 
 #queue .works-tray {
     width: 20rem;
+    height: calc(100vh - 16.4167rem);
+    /* NOTE
+    The value subtracted here is the default outerHeight of the queue header when the queue-tag contains one line of text. The height of the queue's works-tray is dynamically modified by the populateQueue function in sections.js, but this is a default value that is set in case the function fails for whatever reason.
+    */
 }
 
 .work {

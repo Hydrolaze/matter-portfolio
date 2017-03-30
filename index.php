@@ -100,6 +100,7 @@
 
 
         <div id="queue">
+            <header>
                 <h1>QUEUE</h1>
                 <h5>of works tagged</h5>
                 <div class="queue-tag all-tag"></div>
@@ -107,8 +108,9 @@
                     <span class="span-icon prev-link link"></span>
                     <span class="span-icon next-link link"></span>
                 </div>
+            </header>
             <div class="works-tray">
-            
+
             </div>
         </div>
 

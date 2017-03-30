@@ -144,7 +144,6 @@ function ajaxSection(section, arg) {
 
     $.ajax(filePath, {
         success: function (data, textStatus, jqXHR) {
-            clearInterval(letterSpinInterval);
             $ection = $(data);
         },
         error: function (jqXHR, textStatus, errorThrown) {
@@ -152,13 +151,14 @@ function ajaxSection(section, arg) {
             $ection = $('<section id="error"><header><h1><span class="span-icon hello-link link">AARON</span> / ' + textStatus + '</h1><h2>' + errorThrown + '</h2></header><div class="copy"><p>Unfortunately, there was an AJAX error. Sorry about that! You may use the "AARON" link above to return to the home section.</p></div></section>');
         },
         complete: function () {
+            clearInterval(letterSpinInterval);
             $ection.css({
                 'display': 'none'
             });
             swapSection($ection, true);
 
             //Determine if the section is one that would contain a queue, and if so, reset the queue object and add the query info.
-            if (section == 'works') {
+            if (section == 'works' || section == 'custom-queue') {
                 prepQueue(section, arg);
             }
         }
@@ -256,15 +256,12 @@ function swapSection($ection, addLinks) {
                     if (current$ection != undefined) {
                         current$ection.fadeOut(1000);
                     }
-                    if ($ection.attr('id') == 'works' && $('#queue').css('display') == 'block') {
-                        $('#queue .work').fadeOut(500);
-                        queue.array = [];
-                    }
                 },
                 complete: function () {
                     current$ection = $ection;
                     //If the works section was called, calls copyWorks.
-                    if (current$ection.attr('id') == 'works') {
+                    var sectionID = current$ection.attr('id');
+                    if (sectionID == 'works' || sectionID == 'custom-queue') {
                         populateQueue();
                     };
                 }
@@ -282,6 +279,9 @@ function prepQueue(section, arg) {
     queue.pos = 0;
     queue.section = section;
     queue.arg = arg;
+    if ($('#queue').css('display') == 'block') {
+        $('#queue .work').fadeOut(500);
+    }
 }
 
 function populateQueue() {
@@ -328,9 +328,17 @@ function populateQueue() {
                     y: 0,
                     w: $('#queue').width(),
                     h: H
-                })
+                });
+
+                //Adjust .works-tray height so that it scrolls properly (this must be dynamically changed whenever a new queue is loaded because the contents of the queue-tag determine how much space remains after the header)
+                $('#queue .works-tray').height(H - $('#queue header').outerHeight());
+                console.log("queue header outer height is " + $('#queue header').outerHeight())
             }
         });
+    } else {
 
+        //Same script as above, executes even if queue is already displayed
+        $('#queue .works-tray').height(H - $('#queue header').outerHeight());
+        console.log("queue header outer height is " + $('#queue header').outerHeight())
     }
 }
