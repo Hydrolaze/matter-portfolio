@@ -16,6 +16,10 @@ $works_list = array(
         'desc' => 'Wordpress Site',
         'tags' => array('web', 'code')
     ),
+    'show-booth' => array(
+        'desc' => 'Trade Show Booth',
+        'tags' => array('design')
+    ),
     'nccs-brand' => array(
         'desc' => 'Organization Branding',
         'tags' => array('design','web')
@@ -24,9 +28,17 @@ $works_list = array(
         'desc' => 'PHP JSON messageboard',
         'tags' => array('code')
     ),
+    'fliers' => array(
+        'desc' => 'Assorted Fliers',
+        'tags' => array('design')
+    ),
     'ds-site' => array(
         'desc' => 'Company Website',
         'tags' => array('code','web')
+    ),
+    '3d-print' => array(
+        'desc' => '3D-Printed Case',
+        'tags' => array('design')
     ),
     'typography' => array(
         'desc' => 'Web Typography',

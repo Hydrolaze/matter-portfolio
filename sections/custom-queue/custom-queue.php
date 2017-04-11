@@ -5,7 +5,10 @@ if (isset($_GET['arg'])) {
     include('queues.php');
     
     $company = $queues[$_GET['arg']];
-
+    
+    if(!$_GET['dev']) {
+        mail('sunyhakas@gmail.com' , 'custom-queue', 'Hey Aaron! This is your script getting in touch to let you know that the custom-queue section was accessed by '.$company['name'].' for the position of '.$company['position'].' at '.date('d-M-Y G:i T').'. Congratulations!');
+    }
 };
 ?>
    
@@ -17,7 +20,7 @@ if (isset($_GET['arg'])) {
         <span class="line-three"><?php echo $company['my_title']; ?></span>
     </header>
 
-    <p>I'm looking to join a team of talented professionals where I can channel my passion for the web into exciting projects, and to grow in skill while contributing to the thriving web industry.</p>
+    <p>I'm looking for an opportunity to join a team of talented professionals where I can grow in skill and collaborate to create excellent work.</p>
     
     <p><?php echo $company['copy']; ?></p>
 

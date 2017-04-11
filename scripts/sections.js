@@ -19,7 +19,8 @@ $(document).ready(function () {
 
     var queries = location.search.substr(1).split('&'),
         arg = '',
-        section = '';
+        section = '',
+        dev = '';
     //If there are queries...
     if (queries.length > 0) {
         //Parse queries...
@@ -30,6 +31,9 @@ $(document).ready(function () {
             }
             if (queries[q].startsWith('arg=')) {
                 arg = queries[q].substr(queries[q].indexOf('=') + 1);
+            }
+            if (queries[q].startsWith('dev=')) {
+                dev = queries[q].substr(queries[q].indexOf('=') + 1);
             }
         }
 
@@ -57,7 +61,10 @@ $(document).ready(function () {
 
             $('#hello').removeClass('intro-section');
 
-            $.ajax('sections/custom-queue/custom-queue.php?arg=' + arg, {
+            var filePath = 'sections/custom-queue/custom-queue.php?arg=' + arg + (dev != '' ? '&dev=1' : '&dev=0');
+            console.log('GET filepath is ' + filePath);
+            
+            $.ajax(filePath, {
                 success: function (data, textStatus, jqXHR) {
                     $(data).css('display', 'none').addClass('intro-section').appendTo('#display');
                     prepQueue(section, arg);

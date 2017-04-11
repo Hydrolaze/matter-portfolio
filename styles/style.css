@@ -550,6 +550,10 @@ a {
     margin-top: 2rem;
 }
 
+.block {
+    clear: both;
+}
+
 pre {
     padding: 0 6rem;
 }
@@ -578,6 +582,10 @@ video {
     float: right;
     margin: 2rem;
     margin-right: 6rem;
+}
+
+.block .photo {
+    margin-top: 0;
 }
 
 .caption,
