@@ -224,6 +224,24 @@ $queues = array(
             'solarch',
             '3d-print'
         )
+    ),
+    'dbm-group' => array(
+        'name' => 'DBM Group',
+        'position' => 'Web Designer',
+        'my_title' => 'Web Designer & Developer',
+        'copy' => 'I\'m a web design major who loves to code! I\'m skilled with HTML, CSS and JavaScript, and I am very familiar with PHP and Wordpress. The web is my passion and I love creating engaging experiences that leave an impression.',
+        'queue' => array(
+            'matterjs',
+            'ds-site',
+            'ds-brand',
+            'nccs-brand',
+            'messageboard',
+            'wp-portfolio',
+            'roryquest',
+            'typography',
+            'planetarium',
+            
+        )
     )
 );
 

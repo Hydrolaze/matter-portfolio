@@ -39,7 +39,6 @@ $(document).ready(function () {
 
         //If there was a section in the querystring, then it will load and enter immediately.
         if (section != '' && section != 'custom-queue') {
-            console.log('section is ' + section + ((arg) ? ' with argument ' + arg : ''));
 
             callSection(section, arg);
             $('#display').css({
@@ -63,7 +62,7 @@ $(document).ready(function () {
 
             var filePath = 'sections/custom-queue/custom-queue.php?arg=' + arg + (dev != '' ? '&dev=1' : '&dev=0');
             console.log('GET filepath is ' + filePath);
-            
+
             $.ajax(filePath, {
                 success: function (data, textStatus, jqXHR) {
                     $(data).css('display', 'none').addClass('intro-section').appendTo('#display');
@@ -88,39 +87,34 @@ function addLinkListeners($elem) {
             for (c in classes) {
                 if (classes[c].endsWith('-arg')) {
                     arg = classes[c].substring(0, classes[c].lastIndexOf('-arg'));
-                    console.log("link has an argument of '" + arg + "'")
                 }
                 if (classes[c].endsWith('-link')) {
                     section = classes[c].substring(0, classes[c].lastIndexOf('-link'));
-                    console.log("link leads to section '" + section + "'")
                 }
             }
 
             //Checks for queue control links, and defaults to typical section call if not present.
             switch (section) {
-            case 'prev':
-                if (queue.pos > 0) {
-                    var newSection = queue.array[queue.pos - 1];
-                    callSection(newSection);
-                }
-                break;
-            case 'next':
-                if (queue.pos < queue.array.length - 1) {
-                    var newSection = queue.array[queue.pos + 1];
-                    callSection(newSection);
-                }
-                break;
-            case 'begin':
-                callSection(queue.array[0]);
-                break;
-            case 'works':
-                if (arg == '') {
-                    arg = 'all';
-                }
-                callSection(section, arg);
-                break;
-            default:
-                callSection(section, arg);
+                case 'prev':
+                    if (queue.pos > 0) {
+                        var newSection = queue.array[queue.pos - 1];
+                        callSection(newSection);
+                    }
+                    break;
+                case 'next':
+                    if (queue.pos < queue.array.length - 1) {
+                        var newSection = queue.array[queue.pos + 1];
+                        callSection(newSection);
+                    }
+                    break;
+                case 'begin':
+                    callSection(queue.array[0]);
+                    break;
+                case 'works':
+                    callSection(section, arg == '' ? 'all' : arg);
+                    break;
+                default:
+                    callSection(section, arg);
             }
         })
     })
@@ -232,13 +226,10 @@ function callSection(section, arg) {
     }
 }
 
-function centreSection($ection) {
-    if ($ection.outerHeight() < H) {
-        console.log("section " + $ection.attr('id') + "'s outerHeight of " + $ection.outerHeight() + " is less than the window's height of " + H);
-        var paddingTop = (H - $ection.height()) / 2;
-        console.log("new padding-top calculated to be " + paddingTop);
-        $ection.css('padding-top', paddingTop + 'px');
-    }
+function centreHello($ection) {
+    var helloPadding = ($ection.outerHeight() - 490) / 2  - 106.8;
+    $ection.css('padding-top', helloPadding + "px");
+    $('#hello-graphic').css('top', helloPadding + "px")
 }
 
 function swapSection($ection, addLinks) {
@@ -250,7 +241,9 @@ function swapSection($ection, addLinks) {
                 'display': 'flex',
                 'top': H + 'px'
             })
-            centreSection($ection);
+            if ($ection.attr('id') == 'hello') {
+                centreHello($ection);
+            }
             if (addLinks) {
                 addLinkListeners($ection);
             }
@@ -293,7 +286,7 @@ function prepQueue(section, arg) {
 
 function populateQueue() {
     //Clones works from the current queue section into the queue panel.
-    console.log('Populating queue with works...');
+    //console.log('Populating queue with works...');
     $('#' + queue.section + ' .work').each(function (i) {
         //Remove tags, set display to none, then fade in the works.
         var work = $(this).clone(true, true).css('display', 'none');
@@ -307,14 +300,20 @@ function populateQueue() {
         for (c in classes) {
             if (classes[c].endsWith('-link')) {
                 queue.array[i] = classes[c].substring(0, classes[c].lastIndexOf('-link'));
-                console.log('section ' + queue.array[i] + ' added to queue.array at index ' + i)
+                //console.log('section ' + queue.array[i] + ' added to queue.array at index ' + i)
             }
         }
     });
 
     //Change the header and queue tag to reflect the type of queue being displayed.
     if (queue.section == 'works') {
-        $('#queue h5').html("OF WORKS TAGGED");
+        if (queue.arg == 'all') {
+            $('#queue h5').html("OF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
+            console.log('queue arg is "all"');
+        } else {
+            $('#queue h5').html("OF WORKS TAGGED");
+            console.log('queue arg is a specific type');
+        }
         $('.queue-tag').attr('class', 'queue-tag ' + queue.arg + '-tag').html('');
     } else if (queue.section == 'custom-queue') {
         $('#queue h5').html("CREATED FOR");
@@ -339,13 +338,13 @@ function populateQueue() {
 
                 //Adjust .works-tray height so that it scrolls properly (this must be dynamically changed whenever a new queue is loaded because the contents of the queue-tag determine how much space remains after the header)
                 $('#queue .works-tray').height(H - $('#queue header').outerHeight());
-                console.log("queue header outer height is " + $('#queue header').outerHeight())
+                //console.log("queue header outer height is " + $('#queue header').outerHeight())
             }
         });
     } else {
 
         //Same script as above, executes even if queue is already displayed
         $('#queue .works-tray').height(H - $('#queue header').outerHeight());
-        console.log("queue header outer height is " + $('#queue header').outerHeight())
+        //console.log("queue header outer height is " + $('#queue header').outerHeight())
     }
 }

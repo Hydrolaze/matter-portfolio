@@ -5,7 +5,7 @@ $works_list = array(
         'tags' => array('code','web')
     ),
     'matterjs' => array(
-        'desc' => 'This Portfolio!',
+        'desc' => 'This Portfolio',
         'tags' => array('code', 'design', 'web')
     ),
     'ds-brand' => array(

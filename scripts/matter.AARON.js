@@ -136,6 +136,7 @@ Render.run(render);
 Events.on(render, "afterRender", function (e) {
 
     if (!begun) {
+        console.log("Simulation started!");
         $('#welcome .instruction').html('Drag the letters and have fun!');
         begun = true;
     }
@@ -385,7 +386,6 @@ function displayEnter(dur) {
     var introSection = $('.intro-section');
     var displaySpace = (introSection.attr('id') == 'custom-queue') ? 1224 : 960;
     introSection.css('display', 'flex');
-    centreSection(introSection);
     $('#display').animate({
         'right': '0'
     }, {
@@ -486,21 +486,18 @@ $(document).ready(function () {
         //R: run rollCall() script
         if (e.which == 82) {
             rollCall();
-            e.preventDefault();
         };
         //Q: twist anticlockwise
         if (e.which == 81) {
             for (l in letterBodies) {
                 letterBodies[l].torque = 1;
             }
-            e.preventDefault();
         };
         //E: twist clockwise
         if (e.which == 69) {
             for (l in letterBodies) {
                 letterBodies[l].torque = -1;
             }
-            e.preventDefault();
         };
     });
 

@@ -67,14 +67,14 @@
             echo '<div class="photogrid">';
             foreach ($image_set as $image) {
                 $no_ext = preg_replace('/\.[^.]+$/','',$image);
-                echo '<a href="sections/'.$ection.'/'.$set_name.'/'.$image.'" target="_blank" style="width:'.$tn_rem['width'].'rem;height:'.$tn_rem['height'].'rem;"><div style="background-image:url(\'sections/'.$ection.'/'.$set_name.'/'.$tn_tag.'/'.$no_ext.'-'.$tn_tag.'.jpg\');background-position:'.$bkg_pos.';"></div></a>';
+                echo '<a class="tilt-two" href="sections/'.$ection.'/'.$set_name.'/'.$image.'" target="_blank" style="width:'.$tn_rem['width'].'rem;height:'.$tn_rem['height'].'rem;"><div style="background-image:url(\'sections/'.$ection.'/'.$set_name.'/'.$tn_tag.'/'.$no_ext.'-'.$tn_tag.'.jpg\');background-position:'.$bkg_pos.';"></div></a>';
             }
             echo '</div>';
             
         };
     };
 
-    function single_photo($ection, $image_name, $width, $alignment) {
+    function single_photo($ection, $href, $image_name, $width, $alignment, $caption) {
         $width = (int) $width;
         
         if ($width < 1) { $width = 1; };
@@ -112,12 +112,29 @@
             //Calculates rem values.
             $width_rem = $width / 12;
             $height_rem = $width_rem / $ratio;
+            if ($height_rem > 40) {
+                $tilt = 'tilt-half';
+            } elseif ($height_rem > 20) {
+                $tilt = 'tilt-one';
+            } else {
+                $tilt = 'tilt-two';
+            };
             
             //Echo image
             echo '<div class="photo photo-'.$alignment.'" style="width:'.$width_rem.'rem;">';
             
             $no_ext = preg_replace('/\.[^.]+$/','',$image);
-            echo '<a href="sections/'.$ection.'/images/'.$image_name.'" target="_blank" style="width:'.$width_rem.'rem;height:'.$height_rem.'rem;"><img src="sections/'.$ection.'/images/'.$tn_name.'"></a>';
+            echo '<a class="'.$tilt;
+            if ($href != false) {
+                echo ' link-label" href="'.$href;
+            } else {
+                echo '" href="sections/'.$ection.'/images/'.$image_name;
+            };
+            echo '" target="_blank" style="width:'.$width_rem.'rem;height:'.$height_rem.'rem;"><img src="sections/'.$ection.'/images/'.$tn_name.'"></a>';
+            
+            if ($caption != false) {
+                echo '<span class="photo-caption">'.$caption.'</span>';
+            };
             
             echo '</div>';
             

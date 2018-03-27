@@ -8,7 +8,7 @@
     
     <div class="copy">
     
-    <?php single_photo($section_name, 'works/planetarium/index.html', 'planetarium-screenshot.png', 720, 'centre', 'An interesting twist on the mundane act of scrolling.'); ?>
+    <?php single_photo($section_name, 'http://aaron.sunyhakas.com/works/planetarium/index.html', 'planetarium-screenshot.png', 720, 'centre', 'An interesting twist on the mundane act of scrolling.'); ?>
     
     <p>The first project in my web design 3 class was a themed blog page where we would post updates on our projects. The theme was "exploration", so I set my sights on the biggest frontier that humanity has yet to explore: Outer Space.</p>
     

@@ -389,7 +389,7 @@ $.widget = function( name, base, prototype ) {
 
 	basePrototype = new base();
 	// we need to make the options hash a property directly on the new instance
-	// otherwise we'll modify the options hash on the prototype that we're
+	// otherwize we'll modify the options hash on the prototype that we're
 	// inheriting from
 	basePrototype.options = $.widget.extend( {}, basePrototype.options );
 	$.each( prototype, function( prop, value ) {
@@ -832,7 +832,7 @@ $.each( { show: "fadeIn", hide: "fadeOut" }, function( method, defaultEffect ) {
 		if ( typeof options === "number" ) {
 			options = { duration: options };
 		}
-		hasOptions = !$.isEmptyObject( options );
+		hasOptions = !$.izemptyObject( options );
 		options.complete = callback;
 		if ( options.delay ) {
 			element.delay( options.delay );
@@ -3454,7 +3454,7 @@ $.widget("ui.resizable", $.ui.mouse, {
 			this._proportionallyResize();
 		}
 
-		if ( !$.isEmptyObject( props ) ) {
+		if ( !$.izemptyObject( props ) ) {
 			this._updatePrevProperties();
 			this._trigger( "resize", event, this.ui() );
 			this._applyChanges();
@@ -6428,7 +6428,7 @@ var menu = $.widget( "ui.menu", {
 						this.element.trigger( "focus", [ true ] );
 
 						// If the active item is on the top level, let it stay active.
-						// Otherwise, blur the active item since it is no longer visible.
+						// Otherwize, blur the active item since it is no longer visible.
 						if ( this.active && this.active.parents( ".ui-menu" ).length === 1 ) {
 							clearTimeout( this.timer );
 						}
@@ -6699,7 +6699,7 @@ var menu = $.widget( "ui.menu", {
 		this.active = item.first();
 		focused = this.active.addClass( "ui-state-focus" ).removeClass( "ui-state-active" );
 		// Only update aria-activedescendant if there's a role
-		// otherwise we assume focus is managed elsewhere
+		// otherwize we assume focus is managed elsewhere
 		if ( this.options.role ) {
 			this.element.attr( "aria-activedescendant", focused.attr( "id" ) );
 		}
@@ -8666,7 +8666,7 @@ $.extend(Datepicker.prototype, {
 		}
 	},
 
-	/* Synchronise manual entry and field/alternate field. */
+	/* Synchronize manual entry and field/alternate field. */
 	_doKeyUp: function(event) {
 		var date,
 			inst = $.datepicker._getInst(event.target);
@@ -9033,7 +9033,7 @@ $.extend(Datepicker.prototype, {
 		}
 	},
 
-	/* Update any alternate field to synchronise with the main field. */
+	/* Update any alternate field to synchronize with the main field. */
 	_updateAlternate: function(inst) {
 		var altFormat, date, dateStr,
 			altField = this._get(inst, "altField");
@@ -9047,7 +9047,7 @@ $.extend(Datepicker.prototype, {
 	},
 
 	/* Set as beforeShowDay function to prevent selection of weekends.
-	 * @param  date  Date - the date to customise
+	 * @param  date  Date - the date to customize
 	 * @return [boolean, string] - is this date selectable?, what is its CSS class?
 	 */
 	noWeekends: function(date) {
@@ -9430,7 +9430,7 @@ $.extend(Datepicker.prototype, {
 			inst.settings[name] : this._defaults[name];
 	},
 
-	/* Parse existing date and initialise date picker. */
+	/* Parse existing date and initialize date picker. */
 	_setDateFromField: function(inst, noDefault) {
 		if (inst.input.val() === inst.lastVal) {
 			return;
@@ -9513,7 +9513,7 @@ $.extend(Datepicker.prototype, {
 			newDate.setHours(0);
 			newDate.setMinutes(0);
 			newDate.setSeconds(0);
-			newDate.setMilliseconds(0);
+			newDate.setMillizeconds(0);
 		}
 		return this._daylightSavingAdjust(newDate);
 	},
@@ -9521,7 +9521,7 @@ $.extend(Datepicker.prototype, {
 	/* Handle switch to/from daylight saving.
 	 * Hours may be non-zero on daylight saving cut-over:
 	 * > 12 when midnight changeover, but then cannot generate
-	 * midnight datetime, so jump to 1AM, otherwise reset.
+	 * midnight datetime, so jump to 1AM, otherwize reset.
 	 * @param  date  (Date) the date to check
 	 * @return  (Date) the corrected date
 	 */
@@ -10023,7 +10023,7 @@ $.fn.datepicker = function(options){
 		return this;
 	}
 
-	/* Initialise the date picker. */
+	/* Initialize the date picker. */
 	if (!$.datepicker.initialized) {
 		$(document).mousedown($.datepicker._checkExternalClick);
 		$.datepicker.initialized = true;
@@ -10418,7 +10418,7 @@ var dialog = $.widget( "ui.dialog", {
 
 		// We assume that any existing aria-describedby attribute means
 		// that the dialog content is marked up properly
-		// otherwise we brute force the content as the description
+		// otherwize we brute force the content as the description
 		if ( !this.element.find( "[aria-describedby]" ).length ) {
 			this.uiDialog.attr({
 				"aria-describedby": this.element.uniqueId().attr( "id" )
@@ -10501,7 +10501,7 @@ var dialog = $.widget( "ui.dialog", {
 		this.uiDialogButtonPane.remove();
 		this.uiButtonSet.empty();
 
-		if ( $.isEmptyObject( buttons ) || ($.isArray( buttons ) && !buttons.length) ) {
+		if ( $.izemptyObject( buttons ) || ($.isArray( buttons ) && !buttons.length) ) {
 			this.uiDialog.removeClass( "ui-dialog-buttons" );
 			return;
 		}
@@ -13054,7 +13054,7 @@ var tabs = $.widget( "ui.tabs", {
 		if ( !event.ctrlKey && !event.metaKey ) {
 
 			// Update aria-selected immediately so that AT think the tab is already selected.
-			// Otherwise AT may confuse the user by stating that they need to activate the tab,
+			// Otherwize AT may confuse the user by stating that they need to activate the tab,
 			// but the tab will already be activated by the time the announcement finishes.
 			focusedTab.attr( "aria-selected", "false" );
 			this.tabs.eq( selectedIndex ).attr( "aria-selected", "true" );
@@ -14677,7 +14677,7 @@ spaces.hsla.to = function( rgba ) {
 	}
 
 	// chroma (diff) == 0 means greyscale which, by definition, saturation = 0%
-	// otherwise, saturation is based on the ratio of chroma (diff) to lightness (add)
+	// otherwize, saturation is based on the ratio of chroma (diff) to lightness (add)
 	if ( diff === 0 ) {
 		s = 0;
 	} else if ( l <= 0.5 ) {
@@ -14995,7 +14995,7 @@ $.effects.animateClass = function( value, duration, easing, callback ) {
 		// apply original class
 		animated.attr( "class", baseClass );
 
-		// map all animated objects again - this time collecting a promise
+		// map all animated objects again - this time collecting a promize
 		allAnimations = allAnimations.map(function() {
 			var styleInfo = this,
 				dfd = $.Deferred(),
@@ -15007,7 +15007,7 @@ $.effects.animateClass = function( value, duration, easing, callback ) {
 				});
 
 			this.el.animate( this.diff, opts );
-			return dfd.promise();
+			return dfd.promize();
 		});
 
 		// once all animations have completed:

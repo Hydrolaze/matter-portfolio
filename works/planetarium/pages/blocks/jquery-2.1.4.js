@@ -289,7 +289,7 @@ jQuery.extend({
 		return true;
 	},
 
-	isEmptyObject: function( obj ) {
+	izemptyObject: function( obj ) {
 		var name;
 		for ( name in obj ) {
 			return false;
@@ -323,7 +323,7 @@ jQuery.extend({
 				script.text = code;
 				document.head.appendChild( script ).parentNode.removeChild( script );
 			} else {
-			// Otherwise, avoid the DOM node creation, insertion
+			// Otherwize, avoid the DOM node creation, insertion
 			// and removal by using an indirect global eval
 				indirect( code );
 			}
@@ -736,7 +736,7 @@ try {
 		} :
 
 		// Support: IE<9
-		// Otherwise append directly
+		// Otherwize append directly
 		function( target, els ) {
 			var j = target.length,
 				i = 0;
@@ -995,7 +995,7 @@ function createPositionalPseudo( fn ) {
 /**
  * Checks a node for validity as a Sizzle context
  * @param {Element|Object=} context
- * @returns {Element|Object|Boolean} The input node if acceptable, otherwise a falsy value
+ * @returns {Element|Object|Boolean} The input node if acceptable, otherwize a falsy value
  */
 function testContext( context ) {
 	return context && typeof context.getElementsByTagName !== "undefined" && context;
@@ -1312,7 +1312,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 		compare = ( a.ownerDocument || a ) === ( b.ownerDocument || b ) ?
 			a.compareDocumentPosition( b ) :
 
-			// Otherwise we know they are disconnected
+			// Otherwize we know they are disconnected
 			1;
 
 		// Disconnected nodes
@@ -1364,7 +1364,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 			return siblingCheck( a, b );
 		}
 
-		// Otherwise we need full lists of their ancestors for comparison
+		// Otherwize we need full lists of their ancestors for comparison
 		cur = a;
 		while ( (cur = cur.parentNode) ) {
 			ap.unshift( cur );
@@ -1383,7 +1383,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 			// Do a sibling check if the nodes have a common ancestor
 			siblingCheck( ap[i], bp[i] ) :
 
-			// Otherwise nodes in our document sort first
+			// Otherwize nodes in our document sort first
 			ap[i] === preferredDoc ? -1 :
 			bp[i] === preferredDoc ? 1 :
 			0;
@@ -2068,7 +2068,7 @@ tokenize = Sizzle.tokenize = function( selector, parseOnly ) {
 
 	// Return the length of the invalid excess
 	// if we're just parsing
-	// Otherwise, throw an error or return tokens
+	// Otherwize, throw an error or return tokens
 	return parseOnly ?
 		soFar.length :
 		soFar ?
@@ -2212,7 +2212,7 @@ function setMatcher( preFilter, selector, matcher, postFilter, postFinder, postS
 					// ...intermediate processing is necessary
 					[] :
 
-					// ...otherwise use results directly
+					// ...otherwize use results directly
 					results :
 				matcherIn;
 
@@ -2772,7 +2772,7 @@ var rootjQuery,
 							if ( jQuery.isFunction( this[ match ] ) ) {
 								this[ match ]( context[ match ] );
 
-							// ...and otherwise set as attributes
+							// ...and otherwize set as attributes
 							} else {
 								this.attr( match, context[ match ] );
 							}
@@ -3238,7 +3238,7 @@ jQuery.extend({
 				[ "notify", "progress", jQuery.Callbacks("memory") ]
 			],
 			state = "pending",
-			promise = {
+			promize = {
 				state: function() {
 					return state;
 				},
@@ -3254,37 +3254,37 @@ jQuery.extend({
 							// deferred[ done | fail | progress ] for forwarding actions to newDefer
 							deferred[ tuple[1] ](function() {
 								var returned = fn && fn.apply( this, arguments );
-								if ( returned && jQuery.isFunction( returned.promise ) ) {
-									returned.promise()
+								if ( returned && jQuery.isFunction( returned.promize ) ) {
+									returned.promize()
 										.done( newDefer.resolve )
 										.fail( newDefer.reject )
 										.progress( newDefer.notify );
 								} else {
-									newDefer[ tuple[ 0 ] + "With" ]( this === promise ? newDefer.promise() : this, fn ? [ returned ] : arguments );
+									newDefer[ tuple[ 0 ] + "With" ]( this === promize ? newDefer.promize() : this, fn ? [ returned ] : arguments );
 								}
 							});
 						});
 						fns = null;
-					}).promise();
+					}).promize();
 				},
-				// Get a promise for this deferred
-				// If obj is provided, the promise aspect is added to the object
-				promise: function( obj ) {
-					return obj != null ? jQuery.extend( obj, promise ) : promise;
+				// Get a promize for this deferred
+				// If obj is provided, the promize aspect is added to the object
+				promize: function( obj ) {
+					return obj != null ? jQuery.extend( obj, promize ) : promize;
 				}
 			},
 			deferred = {};
 
 		// Keep pipe for back-compat
-		promise.pipe = promise.then;
+		promize.pipe = promize.then;
 
 		// Add list-specific methods
 		jQuery.each( tuples, function( i, tuple ) {
 			var list = tuple[ 2 ],
 				stateString = tuple[ 3 ];
 
-			// promise[ done | fail | progress ] = list.add
-			promise[ tuple[1] ] = list.add;
+			// promize[ done | fail | progress ] = list.add
+			promize[ tuple[1] ] = list.add;
 
 			// Handle state
 			if ( stateString ) {
@@ -3298,14 +3298,14 @@ jQuery.extend({
 
 			// deferred[ resolve | reject | notify ]
 			deferred[ tuple[0] ] = function() {
-				deferred[ tuple[0] + "With" ]( this === deferred ? promise : this, arguments );
+				deferred[ tuple[0] + "With" ]( this === deferred ? promize : this, arguments );
 				return this;
 			};
 			deferred[ tuple[0] + "With" ] = list.fireWith;
 		});
 
-		// Make the deferred a promise
-		promise.promise( deferred );
+		// Make the deferred a promize
+		promize.promize( deferred );
 
 		// Call given func if any
 		if ( func ) {
@@ -3323,7 +3323,7 @@ jQuery.extend({
 			length = resolveValues.length,
 
 			// the count of uncompleted subordinates
-			remaining = length !== 1 || ( subordinate && jQuery.isFunction( subordinate.promise ) ) ? length : 0,
+			remaining = length !== 1 || ( subordinate && jQuery.isFunction( subordinate.promize ) ) ? length : 0,
 
 			// the master Deferred. If resolveValues consist of only a single Deferred, just use that.
 			deferred = remaining === 1 ? subordinate : jQuery.Deferred(),
@@ -3349,8 +3349,8 @@ jQuery.extend({
 			progressContexts = new Array( length );
 			resolveContexts = new Array( length );
 			for ( ; i < length; i++ ) {
-				if ( resolveValues[ i ] && jQuery.isFunction( resolveValues[ i ].promise ) ) {
-					resolveValues[ i ].promise()
+				if ( resolveValues[ i ] && jQuery.isFunction( resolveValues[ i ].promize ) ) {
+					resolveValues[ i ].promize()
 						.done( updateFunc( i, resolveContexts, resolveValues ) )
 						.fail( deferred.reject )
 						.progress( updateFunc( i, progressContexts, progressValues ) );
@@ -3365,7 +3365,7 @@ jQuery.extend({
 			deferred.resolveWith( resolveContexts, resolveValues );
 		}
 
-		return deferred.promise();
+		return deferred.promize();
 	}
 });
 
@@ -3375,7 +3375,7 @@ var readyList;
 
 jQuery.fn.ready = function( fn ) {
 	// Add the callback
-	jQuery.ready.promise().done( fn );
+	jQuery.ready.promize().done( fn );
 
 	return this;
 };
@@ -3433,7 +3433,7 @@ function completed() {
 	jQuery.ready();
 }
 
-jQuery.ready.promise = function( obj ) {
+jQuery.ready.promize = function( obj ) {
 	if ( !readyList ) {
 
 		readyList = jQuery.Deferred();
@@ -3454,11 +3454,11 @@ jQuery.ready.promise = function( obj ) {
 			window.addEventListener( "load", completed, false );
 		}
 	}
-	return readyList.promise( obj );
+	return readyList.promize( obj );
 };
 
 // Kick off the DOM ready check even if the user does not
-jQuery.ready.promise();
+jQuery.ready.promize();
 
 
 
@@ -3600,9 +3600,9 @@ Data.prototype = {
 		// Handle: [ owner, { properties } ] args
 		} else {
 			// Fresh assignments by object are shallow copied
-			if ( jQuery.isEmptyObject( cache ) ) {
+			if ( jQuery.izemptyObject( cache ) ) {
 				jQuery.extend( this.cache[ unlock ], data );
-			// Otherwise, copy the properties one-by-one to the cache object
+			// Otherwize, copy the properties one-by-one to the cache object
 			} else {
 				for ( prop in data ) {
 					cache[ prop ] = data[ prop ];
@@ -3680,7 +3680,7 @@ Data.prototype = {
 					name = [ key, camel ];
 				} else {
 					// If a key with the spaces exists, use it.
-					// Otherwise, create an array by matching non-whitespace
+					// Otherwize, create an array by matching non-whitespace
 					name = camel;
 					name = name in cache ?
 						[ name ] : ( name.match( rnotwhite ) || [] );
@@ -3694,7 +3694,7 @@ Data.prototype = {
 		}
 	},
 	hasData: function( owner ) {
-		return !jQuery.isEmptyObject(
+		return !jQuery.izemptyObject(
 			this.cache[ owner[ this.expando ] ] || {}
 		);
 	},
@@ -3980,9 +3980,9 @@ jQuery.fn.extend({
 	clearQueue: function( type ) {
 		return this.queue( type || "fx", [] );
 	},
-	// Get a promise resolved when queues of a certain type
+	// Get a promize resolved when queues of a certain type
 	// are emptied (fx is the type by default)
-	promise: function( type, obj ) {
+	promize: function( type, obj ) {
 		var tmp,
 			count = 1,
 			defer = jQuery.Deferred(),
@@ -4008,7 +4008,7 @@ jQuery.fn.extend({
 			}
 		}
 		resolve();
-		return defer.promise( obj );
+		return defer.promize( obj );
 	}
 });
 var pnum = (/[+-]?(?:\d*\.|)\d+(?:[eE][+-]?\d+|)/).source;
@@ -4138,7 +4138,7 @@ jQuery.event = {
 			// If event changes its type, use the special event handlers for the changed type
 			special = jQuery.event.special[ type ] || {};
 
-			// If selector defined, determine special event api type, otherwise given type
+			// If selector defined, determine special event api type, otherwize given type
 			type = ( selector ? special.delegateType : special.bindType ) || type;
 
 			// Update special based on newly reset type
@@ -4255,7 +4255,7 @@ jQuery.event = {
 		}
 
 		// Remove the expando if it's no longer used
-		if ( jQuery.isEmptyObject( events ) ) {
+		if ( jQuery.izemptyObject( events ) ) {
 			delete elemData.handle;
 			data_priv.remove( elem, "events" );
 		}
@@ -5777,7 +5777,7 @@ function augmentWidthOrHeight( elem, name, extra, isBorderBox, styles ) {
 	var i = extra === ( isBorderBox ? "border" : "content" ) ?
 		// If we already have the right measurement, avoid augmentation
 		4 :
-		// Otherwise initialize for horizontal or vertical properties
+		// Otherwize initialize for horizontal or vertical properties
 		name === "width" ? 1 : 0,
 
 		val = 0;
@@ -5991,7 +5991,7 @@ jQuery.extend({
 				style[ name ] = "inherit";
 			}
 
-			// If a hook was provided, use that value, otherwise just set the specified value
+			// If a hook was provided, use that value, otherwize just set the specified value
 			if ( !hooks || !("set" in hooks) || (value = hooks.set( elem, value, extra )) !== undefined ) {
 				style[ name ] = value;
 			}
@@ -6002,7 +6002,7 @@ jQuery.extend({
 				return ret;
 			}
 
-			// Otherwise just get the value from the style object
+			// Otherwize just get the value from the style object
 			return style[ name ];
 		}
 	},
@@ -6022,7 +6022,7 @@ jQuery.extend({
 			val = hooks.get( elem, true, extra );
 		}
 
-		// Otherwise, if a way to get the computed value exists, use that
+		// Otherwize, if a way to get the computed value exists, use that
 		if ( val === undefined ) {
 			val = curCSS( elem, name, styles );
 		}
@@ -6337,7 +6337,7 @@ function genFx( type, includeWidth ) {
 		attrs = { height: type };
 
 	// If we include width, step value is 1 to do all cssExpand values,
-	// otherwise step value is 2 to skip over Left and Right
+	// otherwize step value is 2 to skip over Left and Right
 	includeWidth = includeWidth ? 1 : 0;
 	for ( ; i < 4 ; i += 2 - includeWidth ) {
 		which = cssExpand[ i ];
@@ -6374,7 +6374,7 @@ function defaultPrefilter( elem, props, opts ) {
 		hidden = elem.nodeType && isHidden( elem ),
 		dataShow = data_priv.get( elem, "fxshow" );
 
-	// Handle queue: false promises
+	// Handle queue: false promizes
 	if ( !opts.queue ) {
 		hooks = jQuery._queueHooks( elem, "fx" );
 		if ( hooks.unqueued == null ) {
@@ -6452,7 +6452,7 @@ function defaultPrefilter( elem, props, opts ) {
 		}
 	}
 
-	if ( !jQuery.isEmptyObject( orig ) ) {
+	if ( !jQuery.izemptyObject( orig ) ) {
 		if ( dataShow ) {
 			if ( "hidden" in dataShow ) {
 				hidden = dataShow.hidden;
@@ -6570,7 +6570,7 @@ function Animation( elem, properties, options ) {
 				return false;
 			}
 		},
-		animation = deferred.promise({
+		animation = deferred.promize({
 			elem: elem,
 			props: jQuery.extend( {}, properties ),
 			opts: jQuery.extend( true, { specialEasing: {} }, options ),
@@ -6588,7 +6588,7 @@ function Animation( elem, properties, options ) {
 			stop: function( gotoEnd ) {
 				var index = 0,
 					// If we are going to the end, we want to run all the tweens
-					// otherwise we skip this part
+					// otherwize we skip this part
 					length = gotoEnd ? animation.tweens.length : 0;
 				if ( stopped ) {
 					return this;
@@ -6598,7 +6598,7 @@ function Animation( elem, properties, options ) {
 					animation.tweens[ index ].run( 1 );
 				}
 
-				// Resolve when we played the last frame; otherwise, reject
+				// Resolve when we played the last frame; otherwize, reject
 				if ( gotoEnd ) {
 					deferred.resolveWith( elem, [ animation, gotoEnd ] );
 				} else {
@@ -6711,7 +6711,7 @@ jQuery.fn.extend({
 			.end().animate({ opacity: to }, speed, easing, callback );
 	},
 	animate: function( prop, speed, easing, callback ) {
-		var empty = jQuery.isEmptyObject( prop ),
+		var empty = jQuery.izemptyObject( prop ),
 			optall = jQuery.speed( speed, easing, callback ),
 			doAnimation = function() {
 				// Operate on a copy of prop so per-property easing won't be lost
@@ -7292,7 +7292,7 @@ jQuery.fn.extend({
 
 				// If the element has a class name or if we're passed `false`,
 				// then remove the whole classname (if there was one, the above saved it).
-				// Otherwise bring back whatever was previously saved (if anything),
+				// Otherwize bring back whatever was previously saved (if anything),
 				// falling back to the empty string if nothing was stored.
 				this.className = this.className || value === false ? "" : data_priv.get( this, "__className__" ) || "";
 			}
@@ -7605,7 +7605,7 @@ function addToPrefiltersOrTransports( structure ) {
 					dataType = dataType.slice( 1 ) || "*";
 					(structure[ dataType ] = structure[ dataType ] || []).unshift( func );
 
-				// Otherwise append
+				// Otherwize append
 				} else {
 					(structure[ dataType ] = structure[ dataType ] || []).push( func );
 				}
@@ -7777,7 +7777,7 @@ function ajaxConvert( s, response, jqXHR, isSuccess ) {
 								if ( conv === true ) {
 									conv = converters[ conv2 ];
 
-								// Otherwise, insert the intermediate dataType
+								// Otherwize, insert the intermediate dataType
 								} else if ( converters[ conv2 ] !== true ) {
 									current = tmp[ 0 ];
 									dataTypes.unshift( tmp[ 1 ] );
@@ -8018,7 +8018,7 @@ jQuery.extend({
 			};
 
 		// Attach deferreds
-		deferred.promise( jqXHR ).complete = completeDeferred.add;
+		deferred.promize( jqXHR ).complete = completeDeferred.add;
 		jqXHR.success = jqXHR.done;
 		jqXHR.error = jqXHR.fail;
 
@@ -8094,7 +8094,7 @@ jQuery.extend({
 					// If there is already a '_' parameter, set its value
 					cacheURL.replace( rts, "$1_=" + nonce++ ) :
 
-					// Otherwise add one to the end
+					// Otherwize add one to the end
 					cacheURL + ( rquery.test( cacheURL ) ? "&" : "?" ) + "_=" + nonce++;
 			}
 		}
@@ -8168,7 +8168,7 @@ jQuery.extend({
 				// Propagate exception as error if not done
 				if ( state < 2 ) {
 					done( -1, e );
-				// Simply rethrow otherwise
+				// Simply rethrow otherwize
 				} else {
 					throw e;
 				}
@@ -8473,7 +8473,7 @@ jQuery.param = function( a, traditional ) {
 
 	} else {
 		// If traditional, encode the "old" way (the way 1.3.2 or older
-		// did it), otherwise encode params recursively.
+		// did it), otherwize encode params recursively.
 		for ( prefix in a ) {
 			buildParams( prefix, a[ prefix ], traditional, add );
 		}
@@ -8626,7 +8626,7 @@ jQuery.ajaxTransport(function( options ) {
 				callback = xhrCallbacks[ id ] = callback("abort");
 
 				try {
-					// Do send the request (this may raise an exception)
+					// Do send the request (this may raize an exception)
 					xhr.send( options.hasContent && options.data || null );
 				} catch ( e ) {
 					// #14683: Only rethrow if this hasn't been notified as an error yet
@@ -8851,7 +8851,7 @@ jQuery.fn.load = function( url, params, callback ) {
 		callback = params;
 		params = undefined;
 
-	// Otherwise, build a param string
+	// Otherwize, build a param string
 	} else if ( params && typeof params === "object" ) {
 		type = "POST";
 	}
@@ -8876,7 +8876,7 @@ jQuery.fn.load = function( url, params, callback ) {
 				// Exclude scripts to avoid IE 'Permission Denied' errors
 				jQuery("<div>").append( jQuery.parseHTML( responseText ) ).find( selector ) :
 
-				// Otherwise use the full result
+				// Otherwize use the full result
 				responseText );
 
 		}).complete( callback && function( jqXHR, status ) {
