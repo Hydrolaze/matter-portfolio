@@ -58,7 +58,7 @@
         <div id="welcome">
             <p>Welcome to the portfolio of</p>
             <h3>Aaron Clement</h3>
-            <p>Drag the letters and have fun!</p>
+            <p class="instruction">The page is loading...</p>
             <h5>Physics powered by Matter.js</h5>
         </div>
 

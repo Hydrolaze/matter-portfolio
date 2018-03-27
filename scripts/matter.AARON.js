@@ -1,5 +1,6 @@
 //============ GLOBAL VARIABLES
-var PI = Math.PI,
+var begun = false,
+    PI = Math.PI,
     TAU = Math.PI * 2,
     intervalRunning = false,
     keyInterval = [],
@@ -134,6 +135,11 @@ Engine.run(engine);
 Render.run(render);
 Events.on(render, "afterRender", function (e) {
 
+    if (!begun) {
+        $('#welcome .instruction').html('Drag the letters and have fun!');
+        begun = true;
+    }
+    
     //update SVGs for letterBodies that aren't sleeping
     for (l in letterBodies) {
         if (!letterBodies[l].isSleeping) {

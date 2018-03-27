@@ -168,6 +168,62 @@ $queues = array(
             'wp-portfolio',
             'planetarium'
         )
+    ),
+    'cc-03' => array(
+        'name' => 'Creative Circle',
+        'position' => 'Graphic Designer',
+        'my_title' => 'Graphic Designer',
+        'copy' => 'For the past two years I have worked as the sole production artist at a printing company, where I worked directly with branding agencies on marketing campaigns. I also completely overhauled the company branding, creating advertisements, business cards, backdrops, logos and other branding materials for the company to use at shows and conventions.',
+        'queue' => array(
+            'ds-brand',
+            'show-booth',
+            'fliers',
+            'solarch',
+            'nccs-brand',
+            'ds-proof'
+        )
+    ),
+    'aperion' => array(
+        'name' => 'Aperion Inc',
+        'position' => 'Production Artist/Graphic Designer',
+        'my_title' => 'Production Artist',
+        'copy' => 'For the past two years I have worked as the production artist at a printing company, where I worked directly with branding agencies on marketing campaigns. I also completely overhauled the company branding, creating advertisements, business cards, backdrops, logos and other branding materials for the company to use at shows and conventions.',
+        'queue' => array(
+            'ds-brand',
+            'show-booth',
+            'fliers',
+            'solarch',
+            'nccs-brand',
+            'ds-proof'
+        )
+    ),
+    'smart-levels' => array(
+        'name' => 'Smart Levels Media',
+        'position' => 'Prepress Operator',
+        'my_title' => 'Production Artist',
+        'copy' => 'For the past two years I have worked as the production artist at a printing company, where I worked directly with branding agencies on marketing campaigns. I am skilled and speedy using Adobe graphics software on Macs, and I am quick to learn new printing technologies.',
+        'queue' => array(
+            'ds-proof',
+            'show-booth',
+            'fliers',
+            'poster',
+            'solarch',
+            '3d-print'
+        )
+    ),
+    'mouse' => array(
+        'name' => 'Mouse Graphics',
+        'position' => 'Prepress Operator',
+        'my_title' => 'Production Artist',
+        'copy' => 'For the past two years I have worked as the production artist at a printing company, where I worked directly with branding agencies on marketing campaigns. I am skilled and speedy using Adobe graphics software on both Mac and PC, and I am quick to learn new printing technologies.',
+        'queue' => array(
+            'ds-proof',
+            'show-booth',
+            'fliers',
+            'poster',
+            'solarch',
+            '3d-print'
+        )
     )
 );
 

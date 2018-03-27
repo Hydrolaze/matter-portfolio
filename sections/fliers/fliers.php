@@ -10,7 +10,7 @@
     <p>Design is not something I picked up recently in college; I have been design-minded my whole life, and I taught myself to use Macromedia software in middle school. This article shows off some of the pieces I created before I graduated high school.</p>
     
     <div class="block">
-        <?php single_photo($section_name, false, 'yearbooks-flier.png', 320, 'left', 'The design features an internet meme that was popular at the time.'); ?>
+        <?php single_photo($section_name, false, 'yearbooks-flier-square.png', 320, 'left', 'The design features an internet meme that was popular at the time.'); ?>
 
         <h4>Yearbook Advertisement</h4>
 
@@ -18,7 +18,7 @@
     </div>
     
     <div class="block">
-        <?php single_photo($section_name, false, 'orchestra-concert-flier.png', 180, 'left', ''); ?>
+        <?php single_photo($section_name, false, 'orchestra-concert-flier-square.png', 320, 'right', ''); ?>
 
         <h4>Concert Flier</h4>
 
@@ -26,7 +26,7 @@
     </div>
 
     <div class="block">
-        <?php single_photo($section_name, false, 'graduation-invitation.jpg', 320, 'left', 'I also designed our school\'s logo, which is featured in the top left of the invitation.'); ?>
+        <?php single_photo($section_name, false, 'graduation-invitation-square.jpg', 320, 'left', 'I also designed our school\'s logo, which is featured in the top left of the invitation.'); ?>
 
         <h4>Graduation Invitation</h4>
 
@@ -36,7 +36,7 @@
     </div>
    
     <div class="block">
-        <?php single_photo($section_name, false, 'water-barrel.png', 280, 'left', ''); ?>
+        <?php single_photo($section_name, false, 'water-barrel-square.png', 320, 'right', ''); ?>
 
         <h4>Eagle Scout project</h4>
 
@@ -44,7 +44,7 @@
     </div>
 
     <div class="block">
-        <?php single_photo($section_name, false, 'christmas-party-invitation.png', 180, 'left', ''); ?>
+        <?php single_photo($section_name, false, 'christmas-party-invitation-square.png', 320, 'left', ''); ?>
 
         <h4>Social Event Flier</h4>
 

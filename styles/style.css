@@ -208,14 +208,6 @@ h2 {
     font-size: 1.8rem;
 }
 
-h3 {
-    font-size: 3rem;
-}
-
-h4 {
-    font-size: 2rem;
-}
-
 h5 {
     font-size: 1rem;
 }
@@ -286,6 +278,16 @@ p {
     text-align: justify;
     padding: 0 6rem;
     line-height: 1.618;
+}
+
+h3 {
+    font-size: 3rem;
+    padding: 0 6rem;
+}
+
+h4 {
+    font-size: 2rem;
+    padding: 0 6rem;
 }
 
 pre {
