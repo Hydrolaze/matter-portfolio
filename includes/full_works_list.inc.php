@@ -4,7 +4,11 @@ $works_list = array(
         'desc' => 'Mall Directory Ad',
         'tags' => array('design')
     ),
-    'oats-brand' => array(
+    'kohana-flier' => array(
+        'desc' => 'Coffee Flier',
+        'tags' => array('design')
+    ),
+    'oats-stationery' => array(
         'desc' => 'Stationery Suite',
         'tags' => array('design')
     ),
