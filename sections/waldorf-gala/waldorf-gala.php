@@ -3,28 +3,42 @@
     include('../../includes/functions.inc.php');
     include('../../includes/works_header.inc.php');
 ?>
-        <h2>Helping a fresh, young coffee company grow.</h2>
+        <h2>Promoting a charity gala for the benefit of education.</h2>
     </header>
     
     <div class="copy">
     
-    <p>During my time at Mouse Graphics, I was asked by a representative at Kohana Coffee to create an flier advertisement for them. I was supplied with a suite of graphic assets and a branding guide to craft into a general-purpose advertisement that represented the quality and selection of Kohana's products. Once completed, the design would be printed on our company's digital presses.</p>
+    <p>A regular client of Mouse Graphics is the Waldorf School of Orange County. They hold an annual charity gala and auction, and for the 2018 event I was asked to create a design for a flier, web graphic, and vinyl banner. The theme for this event was "Around the World", and the school's representative supplied me with a painted globe image to based my designs around.</p>
     
-    <?php photogrid($section_name, 'brand-guide', 3, 4, 'center'); ?>
-
-    <p>The company's branding guides were very thorough and had clear instructions on fonts, colors, and graphics. Most important to the company's branding is a beautiful, hand-drawn illustration of their namesake, the flowers of the coffee tree. The company colors compliment the illustration well, so it serves as an attractive backdrop to simple compositions.</p>
-
-    <p>Since a major goal of the project was to showcase the high-res product photos, I limited the usage of the illustration to the header, using a flowery branch to visually balance the logo, brand name, and tagline. The company does not have standard verbiage guidelines, so I did a bit of research on their website to get a feel for what sort of phrases might represent the company best. I learned that the founder began the company after she made a trip to Hawaii, where she discovered the smooth boldness of the coffee grown and roasted on the islands. With this information, I wrote a few phrases that would communicate this all succinctly and in an appealing way.</p>
+    <!-- single_photo of a side-by-side comparison of the original image and the globe -->
     
-    <p>I made a basic arrangement of the product photos and social media information in a small footer, then sent off a proof with an explanation of my design decisions. The client loved it overall, but gave me a few pointers on wording.</p>
+    <span class="caption">The image provided wasn't great quality or resolution, but I was able to correct it in Photoshop.</span>
 
-    <?php single_photo($section_name, false, 'Kohana-flier-proof-v1.jpg', 320, 'centre', 'The product photo layout is rough because I wasn\'t sure yet if the client would like the rest of the layout.'); ?>
-
-    <p>The header slogan was changed to reflect the fact that the company sources coffee from places other than Hawaii, and the word "canned" was scrapped in favor of the more appealing "ready-to-drink". I made some changes to the product image layout as well, giving some depth to the arrangement and giving emphasis to the company's most popular flavors. After sending the second and final proof, the client gave approval and the fliers went to be printed digitally on an appropriately-weighted coated stock.</p>
+    <p>To compliment the painterly look of the globe, I decided to go with a felt-textured paper background. To compliment the blues and greens of the globe, I made the background into a light ivory paper by overlaying a sepia color set to multiply blend. I wanted the vibrant colors of the globe to stand out though, so the multiply overlay included a white radial gradient around the globe so that it was bordered with pure white.</p>
     
-    <p>From what I heard, the reception of the fliers was great and Kohana coffee continues to be a regular customer at Mouse Graphics today.</p>
+    <!-- single_photo(left) of globe graphic overlaid with text -->
 
-    <?php single_photo($section_name, false, 'Kohana-flier-print.jpg', 320, 'centre', false); ?>
+    <p>To drive the theme home, I placed the title text ("Around the World") over the globe and created a white glow around the text to ensure legibility. The text in the design was also colored with dominant colors from the globe in order to create unity. </p>
+
+    <!-- single_photo(right) of first flier draft -->
+
+    <p>I began with the flier design since it was the most normally sized piece in the project. Once it was approved however, I began adapting it into the banner and web graphic. Both of these designs had their own challenges that I needed to overcome.</p>
+    
+    <p>The web banner was landscape-oriented to fit at the top of a webpage, so I needed to adjust the layout accordingly. The header graphic moved to the left, and the mission statement filled up the remaining space on the right side. I was also careful to save any designs for this web graphic in the correct RGB color space so that the colors could be as vibrant as possible.</p>
+    
+    <!-- single_photo() of web banner with gren color stripe -->
+    
+    <span class="caption">The client didn't care for the curly brackets I placed around the mission statement, so I knocked it out of a color block instead so that it still held visual weight.</span>
+    
+    <p>The globe painting that I was provided with was not a high enough resolution to use on the large 34" &times; 40" banner. I informed the client of this as soon as I received the graphic, but she was not able to get in touch with the original artist to acquire a high resolution scan before I began the banner design. Instead of compromising the design I had already created by scaling the globe down, I came up with a workaround.</p>
+    
+    <p>I realized that since the globe already had a painted appearance, I could increase the detail in it by applying a brushstroke filter in Photoshop. Now instead of blurry pixels, people viewing the banner up close would see fine brushstrokes in the globe. The globe was linked into my other two design files as well, so the new filtered globe painting was conveniently relinked automatically into the flier and web banner.</p>
+    
+    <!-- single_photo() comparing the original painting and the filtered version up close. -->
+    
+    <p>The client was very pleased with this approach, and after a few more copy revisions, the three designs were approved and sent to press well before the date of the gala.</p>
+
+    <!-- photogrid() of the three final designs (placed within identically proportioned frames for consistency) -->
     
     </div>
 
