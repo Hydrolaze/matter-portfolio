@@ -8,9 +8,7 @@
     <div class="copy">
         <p>My job at Mouse Graphics put my InDesign skills to the test on many occasions. One such occasion was a project that I worked on for Komax Systems, a company that manufactures industrial fluid mixing units. They have been around for some time, and as a result many of their brochures were outdated, made back in a time before the ease and power of Adobe software.</p>
 
-        <!-- single_photo of an old Komax brochure spread -->
-        
-        <span class="caption">The 70s/80s styling of the brochure was refreshing to work with.</span>
+        <?php single_photo($section_name, false, 'old-brochure.png', 320, 'right', 'The retro styling of the brochures were refreshing to work with.') ?>
 
         <p>Komax was not yet ready to commit to a full redesign of their advertising materials, so my task was to simply recreate the old brochures in a modern format. I was given all of the diagrams and art assets that they could locate, and asked to complete the project by a deadline. Realizing the scope of the project, I created a timeline of smaller tasks so that I could be sure to not fall behind.</p>
         

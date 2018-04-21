@@ -20,7 +20,7 @@
         
         <p>The underline text fields on some items were giving me trouble, as the limited space was forcing me to cram them closely together. They looked confusing and awkward scattered around among the text, so I replaced them the rounded bars from the logo. Since they had both top and bottom lines around the writing field, they gave the forms on the appointment and prescription cards more structure and balance. I also feel like it's easier to write neatly when one can position their letters between two lines. This is essential, since the cards are being used by doctors, who have notoriously unreadable handwriting.</p>
         
-        <!-- photogrid of finished stationery items -->
+        <?php photogrid($section_name, 'items', 3, 3, 'center'); ?>
 
     </div>
 
