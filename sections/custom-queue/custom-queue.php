@@ -1,9 +1,9 @@
-<?php
-include('queues.php');
-
-if(isset($queues[$_GET['key']])):
+<?php if(isset($queues[$_GET['arg']])): ?>
     
-    $company = $queues[$_GET['key']];
+<?php
+    include('queues.php');
+    
+    $company = $queues[$_GET['arg']];
     
     if(!$_GET['dev']) {
         mail('sunyhakas@gmail.com' , 'custom-queue', 'Hey Aaron! This is your script getting in touch to let you know that the custom-queue section was accessed by '.$company['name'].' for the position of '.$company['position'].' at '.date('d-M-Y G:i T').'. Congratulations!');
@@ -45,16 +45,16 @@ if(isset($queues[$_GET['key']])):
 
     </section>
 
-    <?php else: ?>
+<?php else: ?>
 
-        <section id="error">
-            <header>
-                <h1><span class="span-icon hello-link link">AARON</span></h1>
-                <h2>Queue not found</h2>
-            </header>
-            <div class="copy">
-                <p>Unfortunately, that custom queue was not found. You may use the "AARON" link above to return to the home section.</p>
-            </div>
-        </section>
+    <section id="error">
+        <header>
+            <h1><span class="span-icon hello-link link">AARON</span></h1>
+            <h2>Queue not found</h2>
+        </header>
+        <div class="copy">
+            <p>Unfortunately, that custom queue was not found. You may use the "AARON" link above to return to the home section.</p>
+        </div>
+    </section>
 
-        <?php endif; ?>
+<?php endif; ?>

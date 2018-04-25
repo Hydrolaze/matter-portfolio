@@ -66,7 +66,7 @@
 
     <div id="display">
         <section id="hello" class="intro-section">
-            <img src="rasters/hello-graphic.png" class="hello-graphic">
+            <img src="rasters/hello-graphic.png" id="hello-graphic">
             <header>
                 <span class="line-one">Hello and welcome</span>
                 <span class="line-two">I'm Aaron Clement</span>
@@ -79,10 +79,10 @@
             <div class="icon-tray">
                 <div id="portfolio-container">
                     <div>
-                        <img src="vectors/icons/whole-portfolio.svg" class="works-link all-tag link" id="whole-portfolio-icon">
-                        <img src="vectors/icons/web-portfolio.svg" class="sub-portfolio works-link web-tag link">
-                        <img src="vectors/icons/design-portfolio.svg" class="sub-portfolio works-link design-tag link">
-                        <img src="vectors/icons/code-portfolio.svg" class="sub-portfolio works-link code-tag link">
+                        <img src="vectors/icons/whole-portfolio.svg" class="works-link all-arg link" id="whole-portfolio-icon">
+                        <img src="vectors/icons/web-portfolio.svg" class="sub-portfolio works-link web-arg link">
+                        <img src="vectors/icons/design-portfolio.svg" class="sub-portfolio works-link design-arg link">
+                        <img src="vectors/icons/code-portfolio.svg" class="sub-portfolio works-link code-arg link">
                     </div>
                     <span class="icon-desc">
                     VIEW MY PORTFOLIO<br>

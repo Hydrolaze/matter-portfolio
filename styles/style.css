@@ -225,7 +225,7 @@ h5 {
     margin-bottom: 2rem;
 }
 
-.hello-graphic {
+#hello-graphic {
     position: absolute;
     top: 12rem;
     left: 7.5rem;

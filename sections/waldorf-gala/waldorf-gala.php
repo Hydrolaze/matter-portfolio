@@ -18,13 +18,13 @@
 
     <?php single_photo($section_name, false, 'flier-draft-v2.png', 320, 'left', 'The color stripe emphasized the mission statement, which I felt wasn\'t clear from the event\'s title.') ?>
 
-    <p>I began with the flier design since it was the most normally sized piece in the project. Once it was approved however, I began adapting it into the banner and web graphic. Both of these designs had their own problems that I needed to solve.</p>
+    <p>I began with the flier design since it was the most normally sized piece in the project. Once it was approved however, I began adapting it into the banner and web graphic. Both of these designs had their own challenges that I needed to overcome.</p>
     
     <p>The web banner was landscape-oriented to fit at the top of a webpage, so I needed to adjust the layout accordingly. The header graphic moved to the left, and the mission statement filled up the remaining space on the right side. I was also careful to save any designs for this web graphic in the correct RGB color space so that the colors could be as vibrant as possible.</p>
     
     <?php single_photo($section_name, false, 'drop-shadow-web-banner.png', 600, 'centre', 'To give my client the freedom to choose whichever background they pleased, I created the web banner with a transparent background and drop shadow.') ?>
     
-    <p>The globe painting that I was provided with was not a high enough resolution to use on the large 34" &times; 40" banner. I informed the client of this, but she was not able to get in touch with the original artist to acquire a high resolution scan before I began the banner design. Instead of compromising the design I had already created by scaling the globe down, I came up with a workaround.</p>
+    <p>The globe painting that I was provided with was not a high enough resolution to use on the large 34" &times; 40" banner. I informed the client of this as soon as I received the graphic, but she was not able to get in touch with the original artist to acquire a high resolution scan before I began the banner design. Instead of compromising the design I had already created by scaling the globe down, I came up with a workaround.</p>
     
     <p>I realized that since the globe already had a painted appearance, I could increase the detail in it by applying a brushstroke filter in Photoshop. Now instead of blurry pixels, people viewing the banner up close would see fine brushstrokes in the globe. The globe was linked into my other two design files as well, so the new filtered globe painting was conveniently relinked automatically into the flier and web banner.</p>
     
