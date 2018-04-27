@@ -1,9 +1,9 @@
-<?php if(isset($queues[$_GET['arg']])): ?>
+<?php if(isset($queues[$_GET['tag']])): ?>
     
 <?php
     include('queues.php');
     
-    $company = $queues[$_GET['arg']];
+    $company = $queues[$_GET['tag']];
     
     if(!$_GET['dev']) {
         mail('sunyhakas@gmail.com' , 'custom-queue', 'Hey Aaron! This is your script getting in touch to let you know that the custom-queue section was accessed by '.$company['name'].' for the position of '.$company['position'].' at '.date('d-M-Y G:i T').'. Congratulations!');

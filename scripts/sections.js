@@ -1,10 +1,147 @@
 var current$ection,
+    startQuery = new query(),
+    user = {
+        key: '',
+        dev: ''
+    },
     queue = {
         array: [],
         pos: 0,
         section: '',
-        arg: ''
+        tag: ''
     };
+
+//Break up the URL querystring into individual parameters.
+var startParams = location.search.substr(1).split('&');
+//If there are parameters...
+if (startParams.length > 0) {
+    //Then process and save them.
+    for (p in startParams) {
+        if (startParams[p].startsWith('section=')) {
+            startQuery.section = startParams[p].substr(startParams[p].indexOf('=') + 1);
+        }
+        if (startParams[p].startsWith('tag=')) {
+            startQuery.tag = startParams[p].substr(startParams[p].indexOf('=') + 1);
+        }
+        if (startParams[p].startsWith('dev=')) {
+            user.dev = startParams[p].substr(startParams[p].indexOf('=') + 1);
+        }
+        if (startParams[p].startsWith('key=')) {
+            user.key = startParams[p].substr(startParams[p].indexOf('=') + 1);
+        }
+    }
+}
+
+function query(section, tag) {
+    this.section = section || '';
+    this.tag = tag || '';
+
+    this.call = function () {
+        //Check if the silly user is calling the same section that's already displayed.
+        var sameSection = (this.section == current$ection.attr('id'));
+        
+        if (document.getElementById(this.section) == null) {
+            //AJAX the section if it hasn't been yet.
+            this.ajax(true);
+        } else if (this.tag != '') {
+            //Re-AJAX the section if a tag was specified, as it may be different than the one already displayed.
+            $('#' + this.section).remove();
+            this.ajax(true);
+        } else if (!sameSection) {
+            //If the section already exists (confirmed by previous conditions) and it's not the same one, then swap it in.
+            swapSection($('#' + this.section), false);
+        }
+
+        pushHistory(this);
+
+        //Update the queue if the new section isn't the same as the old one.
+        if (!sameSection) {
+            //If queue is present on screen, check to see if one of the sections in it is being viewed, and highlight 
+            if ($('#queue').css('display') == 'block') {
+                $('#queue .displayed-work').removeClass('displayed-work');
+
+                //These sections will never be in a queue so the code inside won't need to be run in these cases.
+                if (this.section != 'works' && this.section != 'hello' && this.section != 'aaron') {
+                    //Highlight the currently displayed work with a border.
+                    for (q in queue.array) {
+                        if (queue.array[q] == this.section) {
+                            $('#queue .' + this.section + '-link').addClass('displayed-work');
+                            queue.pos = parseInt(q, 10);
+                        }
+                    }
+                }
+            }
+        }
+
+    };
+
+    this.ajax = function (doSwap) {
+
+        var filePath = 'sections/' + this.section + '/' + this.section + '.php' + this.querystring(false),
+            $ection;
+
+        $.ajax(filePath, {
+            success: function (data, textStatus, jqXHR) {
+                $ection = $(data);
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                //Generates an "error" section if there was an AJAX error
+                $ection = $('<section id="error"><header><h1><span class="span-icon hello-link link">AARON</span> / ' + textStatus + '</h1><h2>' + errorThrown + '</h2></header><div class="copy"><p>Unfortunately, there was an AJAX error. Sorry about that! You may use the "AARON" link above to return to the home section.</p></div></section>');
+            },
+            complete: function () {
+                clearInterval(letterSpinInterval);
+                $ection.css({
+                    'display': 'none'
+                }).appendTo('#display');
+
+                //In the case of intro sections, they should be left hidden until the user continues to the site.
+                if (doSwap) {
+                    swapSection($ection, true);
+                }
+
+                //Determine if the section is one that would contain a queue, and if so, reset the queue object and add the query info.
+                if (this.section == 'works' || this.section == 'custom-queue') {
+                    prepQueue(this);
+                }
+            }
+        })
+
+        letterSpinInterval = setInterval(function () {
+            for (l in letterBodies) {
+                letterBodies[l].torque = 1;
+            }
+        }, 100);
+
+        return $ection;
+
+    };
+
+    this.querystring = function (includeSection) {
+        //The includeSection argument is used so that this function can be used in pushHistory().
+        var queries = [];
+        var str = '';
+
+        //Check for parameters and add them to an array.
+        if (this.section && includeSection) {
+            queries[queries.length] = 'section=' + this.section;
+        }
+        if (this.tag) {
+            queries[queries.length] = 'tag=' + this.tag;
+        }
+        if (user.key) {
+            queries[queries.length] = 'key=' + user.key;
+        }
+        if (user.dev == 'aaron') {
+            queries[queries.length] = 'dev=aaron'
+        }
+
+        //Assemble all parameters with delimiting ampersands
+        var str = queries.join('&');
+
+        //Prepend a '?' to the querystring if there are any queries, else return any empty string
+        return (str.length > 0) ? '?' + str : '';
+    }
+}
 
 $(document).ready(function () {
 
@@ -17,59 +154,32 @@ $(document).ready(function () {
     addLinkListeners($('.queue-control'));
     $('section').css('display', 'none');
 
-    var queries = location.search.substr(1).split('&'),
-        arg = '',
-        section = '',
-        dev = '';
-    //If there are queries...
-    if (queries.length > 0) {
-        //Parse queries...
-        for (q in queries) {
-            console.log("Query " + q + " is " + queries[q]);
-            if (queries[q].startsWith('section=')) {
-                section = queries[q].substr(queries[q].indexOf('=') + 1);
-            }
-            if (queries[q].startsWith('arg=')) {
-                arg = queries[q].substr(queries[q].indexOf('=') + 1);
-            }
-            if (queries[q].startsWith('dev=')) {
-                dev = queries[q].substr(queries[q].indexOf('=') + 1);
-            }
-        }
+    //If there was a section in the querystring aside from an intro section, then it will load and enter immediately.
+    if (startQuery.section != '' && startQuery.section != 'hello' && startQuery.section != 'custom-queue') {
 
-        //If there was a section in the querystring, then it will load and enter immediately.
-        if (section != '' && section != 'custom-queue') {
+        startQuery.call();
+        $('#display').css({
+            'right': '0'
+        });
+        $('#welcome').css('opacity', '0');
+        fields.push({
+            angle: 7 * Math.PI / 6,
+            magnitude: 0.01,
+            x: W - $('#display').width(),
+            y: 0,
+            w: $('#display').width(),
+            h: $('#display').height()
+        })
+        $('#continue-icon').css('transform', 'perspective(6rem) rotateX(90deg)');
 
-            callSection(section, arg);
-            $('#display').css({
-                'right': '0'
-            });
-            $('#welcome').css('opacity', '0');
-            fields.push({
-                angle: 7 * Math.PI / 6,
-                magnitude: 0.01,
-                x: W - $('#display').width(),
-                y: 0,
-                w: $('#display').width(),
-                h: $('#display').height()
-            })
-            $('#continue-icon').css('transform', 'perspective(6rem) rotateX(90deg)');
+        //If the section is custom-queue, it replaces #hello as the intro section, but does not enter immediately.
+    } else if (startQuery.section == 'custom-queue') {
 
-            //If the section is custom-queue, it replaces #hello as the intro section, but does not enter immediately.
-        } else if (section == 'custom-queue') {
+        $('#hello').removeClass('intro-section');
 
-            $('#hello').removeClass('intro-section');
+        startQuery.ajax(false).addClass('intro-section');
+        prepQueue(startQuery);
 
-            var filePath = 'sections/custom-queue/custom-queue.php?arg=' + arg + (dev != '' ? '&dev=1' : '&dev=0');
-            console.log('GET filepath is ' + filePath);
-
-            $.ajax(filePath, {
-                success: function (data, textStatus, jqXHR) {
-                    $(data).css('display', 'none').addClass('intro-section').appendTo('#display');
-                    prepQueue(section, arg);
-                }
-            })
-        };
     };
 });
 
@@ -78,156 +188,67 @@ $(document).ready(function () {
 //============ SECTION FUNCTIONS
 
 function addLinkListeners($elem) {
-    //Adds click event listeners to all elements within the provided jQuery object having the class .link. Clicking calls the section indicated by the [*]-link class, and uses the argument indicated by the [*]-arg class.
+    //Adds click event listeners to all elements within the provided jQuery object having the class .link. Clicking calls the section indicated by the [*]-link class, and uses the tag indicated by the [*]-tag class.
     $elem.find('.link').each(function () {
-        $(this).click(function () {
-            var section = '',
-                arg = '',
-                classes = $(this).attr('class').split(' ');
-            for (c in classes) {
-                if (classes[c].endsWith('-arg')) {
-                    arg = classes[c].substring(0, classes[c].lastIndexOf('-arg'));
-                }
-                if (classes[c].endsWith('-link')) {
-                    section = classes[c].substring(0, classes[c].lastIndexOf('-link'));
-                }
-            }
+            $(this).click(function () {
+                    var section = '',
+                        tag = '',
+                        classes = $(this).attr('class').split(' ');
+                    for (c in classes) {
+                        if (classes[c].endsWith('-tag')) {
+                            tag = classes[c].substring(0, classes[c].lastIndexOf('-tag'));
+                        }
+                        if (classes[c].endsWith('-link')) {
+                            section = classes[c].substring(0, classes[c].lastIndexOf('-link'));
+                        }
+                    }
 
-            //Checks for queue control links, and defaults to typical section call if not present.
-            switch (section) {
-                case 'prev':
-                    if (queue.pos > 0) {
-                        var newSection = queue.array[queue.pos - 1];
-                        callSection(newSection);
-                    }
+                    //Checks for queue control links, and defaults to typical section call if not present.
+                    var linkQuery = new query();
+                    switch (section) {
+                    case 'prev':
+                        if (queue.pos > 0) {
+                            linkQuery.section = queue.array[queue.pos - 1];
+                        }
+                        break;
+                    case 'next':
+                        if (queue.pos < queue.array.length - 1) {
+                            linkQuery.section = queue.array[queue.pos + 1];
+                        }
+                        break;
+                    case 'begin':
+                        linkQuery.section = queue.array[0];
+                        break;
+                    case 'works':
+                        linkQuery.section = 'works';
+                        linkQuery.tag = (tag == '') ? 'all' : tag);
                     break;
-                case 'next':
-                    if (queue.pos < queue.array.length - 1) {
-                        var newSection = queue.array[queue.pos + 1];
-                        callSection(newSection);
-                    }
-                    break;
-                case 'begin':
-                    callSection(queue.array[0]);
-                    break;
-                case 'works':
-                    callSection(section, arg == '' ? 'all' : arg);
-                    break;
-                default:
-                    callSection(section, arg);
-            }
-        })
+                    default:
+                    linkQuery.section = section;
+                    linkQuery.tag = tag;
+                }
+                linkQuery.call();
+            })
     })
 }
 
-function pushHistory(section, arg) {
+function pushHistory(q) {
     //Code to adjust the browser history so that users can copy URLs to specific sections.
     var stateObj = {
-        pageTitle: '',
-        section: section,
-        arg: arg
+        pageTitle: 'A A R O N',
+        section: q.section,
+        tag: q.tag,
+        key: user.key,
+        dev: user.dev
     };
-    var queryString = "?section=" + section + ((arg) ? '&arg=' + arg : '');
-    console.log('querystring is ' + queryString);
-    history.pushState(stateObj, section, queryString);
+    history.pushState(stateObj, q.section, q.querystring(true));
 }
 
 //var XHR = new XMLHttpRequest();
 var letterSpinInterval = 0;
 
-function ajaxSection(section, arg) {
-    //Self explanatory; requests a section via AJAX.
-
-    var filePath = 'sections/' + section + '/' + section + '.php' + ((arg) ? '?arg=' + arg : ''),
-        $ection;
-
-    console.log('GET filepath is ' + filePath);
-
-    $.ajax(filePath, {
-        success: function (data, textStatus, jqXHR) {
-            $ection = $(data);
-        },
-        error: function (jqXHR, textStatus, errorThrown) {
-            //Generates an "error" section if there was an AJAX error
-            $ection = $('<section id="error"><header><h1><span class="span-icon hello-link link">AARON</span> / ' + textStatus + '</h1><h2>' + errorThrown + '</h2></header><div class="copy"><p>Unfortunately, there was an AJAX error. Sorry about that! You may use the "AARON" link above to return to the home section.</p></div></section>');
-        },
-        complete: function () {
-            clearInterval(letterSpinInterval);
-            $ection.css({
-                'display': 'none'
-            });
-            swapSection($ection, true);
-
-            //Determine if the section is one that would contain a queue, and if so, reset the queue object and add the query info.
-            if (section == 'works' || section == 'custom-queue') {
-                prepQueue(section, arg);
-            }
-        }
-    })
-
-    //    XHR.open('GET', filePath);
-    //    XHR.send();
-
-    letterSpinInterval = setInterval(function () {
-        for (l in letterBodies) {
-            letterBodies[l].torque = 1;
-        }
-    }, 100);
-
-    //    XHR.onreadystatechange = function () {
-    //
-    //        if (XHR.readyState === XMLHttpRequest.DONE) {
-    //            clearInterval(letterSpinInterval);
-    //            $ection = $(XHR.responseText);
-    //            $ection.attr('id', section).css({
-    //                'display': 'none'
-    //            });
-    //            swapSection($ection, true);
-    //        }
-    //
-    //    };
-}
-
-function callSection(section, arg) {
-
-    if (document.getElementById(section) == null) {
-
-        console.log("section '" + section + "' does not yet exist; requesting it")
-        ajaxSection(section, arg);
-
-    } else if (arg) {
-
-        console.log("section '" + section + "' exists, but an argument was supplied; requesting a new copy")
-        $('#' + section).remove();
-        ajaxSection(section, arg);
-
-    } else {
-        console.log("section '" + section + "' exists")
-        swapSection($('#' + section), false);
-    }
-
-    pushHistory(section, arg);
-
-    //If queue is present on screen, check to see if one of the sections in it is being viewed, and highlight 
-    if ($('#queue').css('display') == 'block') {
-        $('#queue .displayed-work').removeClass('displayed-work');
-
-        //These sections will never be in a queue so the code inside won't need to be run in these cases.
-        if (section != 'works' && section != 'hello' && section != 'aaron') {
-            for (q in queue.array) {
-                if (queue.array[q] == section) {
-                    console.log('section ' + section + ' is in the queue.array.')
-                    $('#queue .' + section + '-link').addClass('displayed-work');
-                    console.log('queue.pos is ' + q)
-                    queue.pos = parseInt(q, 10);
-                }
-            }
-        }
-    }
-}
-
 function centreHello($ection) {
-    var helloPadding = ($ection.outerHeight() - 490) / 2  - 106.8;
+    var helloPadding = ($ection.outerHeight() - 490) / 2 - 106.8;
     $ection.css('padding-top', helloPadding + "px");
     $('#hello-graphic').css('top', helloPadding + "px")
 }
@@ -237,7 +258,7 @@ function swapSection($ection, addLinks) {
         scrollTop: 0
     }, {
         complete: function () {
-            $ection.appendTo($('#display')).css({
+            $ection.css({
                 'display': 'flex',
                 'top': H + 'px'
             })
@@ -259,7 +280,7 @@ function swapSection($ection, addLinks) {
                 },
                 complete: function () {
                     current$ection = $ection;
-                    //If the works section was called, calls copyWorks.
+                    //If a queue section was called, calls populateQueue().
                     var sectionID = current$ection.attr('id');
                     if (sectionID == 'works' || sectionID == 'custom-queue') {
                         populateQueue();
@@ -273,12 +294,14 @@ function swapSection($ection, addLinks) {
 
 //============ QUEUE FUNCTIONS
 
-function prepQueue(section, arg) {
-    //Resets queue when a new queue needs to be loaded, and saves section and arg data.
-    queue.array = [];
-    queue.pos = 0;
-    queue.section = section;
-    queue.arg = arg;
+function prepQueue(q) {
+    //Resets queue when a new queue needs to be loaded, and saves section and tag data.
+    queue = {
+        array: [],
+        pos: 0,
+        section: q.section,
+        tag: q.tag
+    };
     if ($('#queue').css('display') == 'block') {
         $('#queue .work').fadeOut(500);
     }
@@ -300,21 +323,19 @@ function populateQueue() {
         for (c in classes) {
             if (classes[c].endsWith('-link')) {
                 queue.array[i] = classes[c].substring(0, classes[c].lastIndexOf('-link'));
-                //console.log('section ' + queue.array[i] + ' added to queue.array at index ' + i)
             }
         }
     });
 
     //Change the header and queue tag to reflect the type of queue being displayed.
     if (queue.section == 'works') {
-        if (queue.arg == 'all') {
+        if (queue.tag == 'all') {
+            //Non-breaking spaces for positioning.
             $('#queue h5').html("OF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
-            console.log('queue arg is "all"');
         } else {
             $('#queue h5').html("OF WORKS TAGGED");
-            console.log('queue arg is a specific type');
         }
-        $('.queue-tag').attr('class', 'queue-tag ' + queue.arg + '-tag').html('');
+        $('.queue-tag').attr('class', 'queue-tag ' + queue.tag + '-tag').html('');
     } else if (queue.section == 'custom-queue') {
         $('#queue h5').html("CREATED FOR");
         $('.queue-tag').attr('class', 'queue-tag custom-tag').html($('#company-name').html());

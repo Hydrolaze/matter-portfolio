@@ -3,12 +3,12 @@
 $tag = 'all';
 $display_tag = '';
 
-if (isset($_GET['arg'])) {
+if (isset($_GET['tag'])) {
     
     include('../../includes/tags_list.inc.php');
 
     foreach ($tags_list as $valid_tag) {
-        if ($valid_tag == $_GET['arg']) {
+        if ($valid_tag == $_GET['tag']) {
             $tag = $display_tag = $valid_tag;
         };
     };
