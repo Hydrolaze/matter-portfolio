@@ -1,13 +1,18 @@
-<?php if(isset($queues[$_GET['tag']])): ?>
+<?php 
+
+include('queues.php');
+
+if(isset($queues[$_GET['key']])): 
     
-<?php
-    include('queues.php');
     
-    $company = $queues[$_GET['tag']];
+    $company = $queues[$_GET['key']];
     
-    if(!$_GET['dev']) {
-        mail('sunyhakas@gmail.com' , 'custom-queue', 'Hey Aaron! This is your script getting in touch to let you know that the custom-queue section was accessed by '.$company['name'].' for the position of '.$company['position'].' at '.date('d-M-Y G:i T').'. Congratulations!');
-    }
+    if (isset($_GET['dev'])) {
+        if(strcmp($_GET['dev'],'aaron') != 0) {
+            mail('sunyhakas@gmail.com' , 'custom-queue', 'Hey Aaron! This is custom-queue.php letting you know that I was accessed by '.$company['name'].' for the position of '.$company['position'].' at '.date('d-M-Y G:i T').'. Congratulations!');
+        };
+    };
+    
 ?>
 
     <section id="custom-queue">
@@ -37,7 +42,7 @@
         
         foreach ($company['queue'] as $work) {
             echo_work($work, $works_list[$work]);
-        }
+        };
     
         ?>
 
@@ -45,16 +50,16 @@
 
     </section>
 
-<?php else: ?>
+    <?php else: ?>
 
-    <section id="error">
-        <header>
-            <h1><span class="span-icon hello-link link">AARON</span></h1>
-            <h2>Queue not found</h2>
-        </header>
-        <div class="copy">
-            <p>Unfortunately, that custom queue was not found. You may use the "AARON" link above to return to the home section.</p>
-        </div>
-    </section>
+        <section id="error">
+            <header>
+                <h1><span class="span-icon hello-link link">AARON</span></h1>
+                <h2>Queue not found</h2>
+            </header>
+            <div class="copy">
+                <p>Unfortunately, that custom queue was not found. You may use the "AARON" link above to return to the home section.</p>
+            </div>
+        </section>
 
-<?php endif; ?>
+        <?php endif; ?>

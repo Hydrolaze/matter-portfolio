@@ -29,7 +29,20 @@ if (isset($_GET['tag'])) {
     <div class="works-tray">
 
     <?php
-        include('../../includes/works_list.inc.php');
+        $key_is_valid = false;
+        if(isset($_GET['key'])) {
+            include('../custom-queue/queues.php');
+            if(isset($queues[$_GET['key']])) {
+                $key_is_valid = true;
+            };
+        };
+        
+        if ($key_is_valid) {
+            include('../../includes/full_works_list.inc.php');
+        } else {
+            include('../../includes/works_list.inc.php');
+        }
+        
         include('../../includes/functions.inc.php');
 
         generate_works($works_list, $tag);
