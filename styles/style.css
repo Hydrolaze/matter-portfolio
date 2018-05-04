@@ -87,7 +87,7 @@ nav {
     padding-top: 2rem;
 }
 
-.queue-tag {
+.queue-label {
     width: 20rem;
     margin-top: 1rem;
     padding: 0.25rem 1rem;
@@ -479,39 +479,39 @@ a {
     font-size: 1.25rem
 }
 
-.web-tag {
+.web-label {
     background-color: #00AF41;
 }
 
-.web-tag::after {
+.web-label::after {
     content: 'WEB';
 }
 
-.design-tag {
+.design-label {
     background-color: #0099A8;
 }
 
-.design-tag::after {
+.design-label::after {
     content: 'DESIGN';
 }
 
-.code-tag {
+.code-label {
     background-color: #0813DC;
 }
 
-.code-tag::after {
+.code-label::after {
     content: 'CODE';
 }
 
-.all-tag {
+.all-label {
     background-color: #8A8C8C;
 }
 
-.all-tag::after {
+.all-label::after {
     content: 'ALL WORKS';
 }
 
-.custom-tag {
+.custom-label {
     background-color: #8A8C8C;
     text-transform: uppercase;
 }
@@ -613,6 +613,8 @@ video {
     display: inline-block;
 }
 
+/* An older version that I rewrote when I thought I had lost this version.
+
 .link-label::after {
     content: 'LINK';
     font-size: 4rem;
@@ -621,6 +623,15 @@ video {
     top: -5.1rem;
     background-color: rgba(0,0,0,0.5);
     padding: 0 1rem;
+} */
+
+.link-label::after {
+    content: 'LINK';
+    font-size: 3rem;
+    position: relative;
+    top: -4.5rem;
+    left: 1rem;
+    text-shadow: 1px -1px 5px black, -1px 1px 5px black;
 }
 
 .photogrid {

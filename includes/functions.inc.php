@@ -88,6 +88,7 @@
         //If the specified photo exists in the photos folder
         if (in_array($image_name, $images_scan)) {
             
+            //Why didn't I comment to remind myself of what this regex NONSENSE means?!
             $tn_name = preg_replace('/\.[^.]+$/','',$image_name).'-'.$size_tag.'.jpg';
             
             if(!class_exists('simple_image')) {
@@ -183,7 +184,7 @@
     function echo_work($section_name, $section_data) {
         echo '<div class="work link '.$section_name.'-link" style="background-image:url(\'rasters/tn/'.$section_name.'-tn.png\');">';
         foreach ($section_data['tags'] as $tag) {
-            echo '<div class="tag '.$tag.'-tag"></div>';
+            echo '<div class="tag '.$tag.'-label"></div>';
         };
         echo '<div class="work-desc-container"><span class="work-desc">'.$section_data['desc'].'</span></div></div>';
     };

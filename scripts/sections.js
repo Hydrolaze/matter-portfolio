@@ -1,5 +1,5 @@
  var startQuery = new Query(),
-     current$ection,
+     current$ection = $('#hello'),
      user = {},
      queue = {
          array: [],
@@ -331,10 +331,10 @@
          } else {
              $('#queue h5').html("OF WORKS TAGGED");
          }
-         $('.queue-tag').attr('class', 'queue-tag ' + queue.tag + '-tag').html('');
+         $('.queue-tag').attr('class', 'queue-label ' + queue.tag + '-label').html('');
      } else if (queue.section === 'custom-queue') {
          $('#queue h5').html("CREATED FOR");
-         $('.queue-tag').attr('class', 'queue-tag custom-tag').html($('#company-name').html());
+         $('.queue-tag').attr('class', 'queue-label custom-label').html($('#company-name').html());
      }
 
      //Animate queue in if not already on screen, also add force field.
