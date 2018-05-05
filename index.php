@@ -73,7 +73,7 @@
                 <span class="line-three">graphic designer &amp; web developer</span>
             </header>
 
-            <p>I'm looking to join a team of talented professionals where I can channel my passions into exciting projects, and to grow in skill while contributing to the thriving web industry.</p>
+            <p>I'm a graphic designer who is currently looking for challenging and rewarding work in North San Diego county. Print design is my specialty, but I have have considerable experience in web graphics and programming as well. </p>
 
             <p>Pick an option below to explore my work and history.</p>
             <div class="icon-tray">

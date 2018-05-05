@@ -23,7 +23,7 @@ if(isset($queues[$_GET['key']])):
             <span class="line-three"><?php echo $company['my_title']; ?></span>
         </header>
 
-        <p>I'm looking for an opportunity to join a team of talented professionals where I can grow in skill and collaborate to create excellent work.</p>
+        <p>I'm a graphic designer who is currently looking for challenging and rewarding work in North San Diego county. Print design is my specialty, but I have have considerable experience in web graphics and programming as well.</p>
 
         <p>
             <?php echo $company['copy']; ?>
