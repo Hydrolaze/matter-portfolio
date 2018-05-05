@@ -8,7 +8,7 @@
     <div class="copy">
         <p>While working as a designer at Mouse Graphics, an optometry practice operating out of The Shops at Mission Viejo reached out to have their branding redone and an ad created. This was very exciting, as the ad would be mounted in a backlit directory display, and would therefore be viewed by thousands of people every day. I was provided with their existing logo and a rough mockup of the ad design they wanted. My first task was to update the logo, adding eyelids and eyelashes to frame the eye into a more recognizable form.</p>
 
-        <!-- single_photo of the OATS ad in situ -->
+        <?php single_photo($section_name, false, 'ad-in-situ.jpg', 200, 'left', 'I was elated to see my work on public display in the mall.'); ?>
 
         <p>I tried out many variations of the eyelids and eyelashes, trying to strike a balance between them and the existing iris logo. Once we found a good composition, I also created a subtle gradation of line weights down the iris to create a fade effect.</p>
         
