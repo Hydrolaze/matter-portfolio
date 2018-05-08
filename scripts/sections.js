@@ -100,12 +100,13 @@
              if ($('#queue').css('display') === 'block') {
                  $('#queue .displayed-work').removeClass('displayed-work');
 
-                 //These sections will never be in a queue so the code inside won't need to be run in these cases.
+                 //These sections will never be in a queue so don't run the code for these.
                  if (this.section !== 'works' && this.section !== 'hello' && this.section !== 'aaron') {
-                     //Highlight the currently displayed work with a border.
                      for (q in queue.array) {
                          if (queue.array[q] === this.section) {
+                             //Highlight the currently displayed work with a border.
                              $('#queue .' + this.section + '-link').addClass('displayed-work');
+                             //Record the queue position.
                              queue.pos = parseInt(q, 10);
                          }
                      }
@@ -200,16 +201,21 @@
              }
 
              //Checks for queue control links, and defaults to typical section call if not present.
-             var linkQuery = new Query();
+             var outOfQueueRange = false,
+                 linkQuery = new Query();
              switch (section) {
                  case 'prev':
                      if (queue.pos > 0) {
                          linkQuery.section = queue.array[queue.pos - 1];
+                     } else {
+                         outOfQueueRange = true;
                      }
                      break;
                  case 'next':
                      if (queue.pos < queue.array.length - 1) {
                          linkQuery.section = queue.array[queue.pos + 1];
+                     } else {
+                         outOfQueueRange = true;
                      }
                      break;
                  case 'begin':
@@ -223,7 +229,7 @@
                      linkQuery.section = section;
                      linkQuery.tag = tag;
              }
-             linkQuery.call();
+             if (!outOfQueueRange) { linkQuery.call(); };
          });
      });
  }
