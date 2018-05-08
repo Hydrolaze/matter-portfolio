@@ -2,6 +2,9 @@
     $tags_list = array(
     'web',
     'design',
-    'code'
+    'code',
+    'illustrator',
+    'indesign',
+    'photoshop'
     );
 ?>

@@ -479,6 +479,30 @@ a {
     font-size: 1.25rem
 }
 
+.illustrator-label {
+    background-color: #FF772A;
+}
+
+.illustrator-label::after {
+    content: 'ILLUSTRATOR';
+}
+
+.indesign-label {
+    background-color: #FF368C;
+}
+
+.indesign-label::after {
+    content: 'INDESIGN';
+}
+
+.photoshop-label {
+    background-color: #00CAF8;
+}
+
+.photoshop-label::after {
+    content: 'PHOTOSHOP';
+}
+
 .web-label {
     background-color: #00AF41;
 }

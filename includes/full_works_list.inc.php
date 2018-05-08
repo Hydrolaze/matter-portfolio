@@ -1,12 +1,16 @@
 <?php
 $works_list = array(
-    'oats-ad' => array(
+    'oats-ads' => array(
         'desc' => 'Mall Directory Ad',
         'tags' => array('design')
     ),
     'kohana-flier' => array(
         'desc' => 'Coffee Flier',
         'tags' => array('design')
+    ),
+    'komax-brochure' => array(
+        'desc' => 'Brochure Recreation',
+        'tags' => array('design', 'illustrator', 'indesign', 'photoshop')
     ),
     'oats-stationery' => array(
         'desc' => 'Stationery Suite',
