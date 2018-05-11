@@ -80,14 +80,23 @@
                 <div id="portfolio-container">
                     <div>
                         <img src="vectors/icons/whole-portfolio.svg" class="works-link all-tag link" id="whole-portfolio-icon">
+                        <img src="vectors/icons/css-portfolio.svg" class="sub-portfolio-half works-link css-tag link">
+                        <img src="vectors/icons/illustrator-portfolio.svg" class="sub-portfolio-half works-link illustrator-tag link">
+                        <img src="vectors/icons/photoshop-portfolio.svg" class="sub-portfolio-half works-link photoshop-tag link">
+                        <img src="vectors/icons/indesign-portfolio.svg" class="sub-portfolio-half works-link indesign-tag link">
+                        <img src="vectors/icons/js-portfolio.svg" class="sub-portfolio-half works-link js-tag link">
+                        <img src="vectors/icons/php-portfolio.svg" class="sub-portfolio-half works-link php-tag link">
+                        
+<!--
                         <img src="vectors/icons/web-portfolio.svg" class="sub-portfolio works-link web-tag link">
                         <img src="vectors/icons/design-portfolio.svg" class="sub-portfolio works-link design-tag link">
                         <img src="vectors/icons/code-portfolio.svg" class="sub-portfolio works-link code-tag link">
+-->
                     </div>
                     <span class="icon-desc">
                     VIEW MY PORTFOLIO<br>
                     or choose a skill to focus on
-                </span>
+                    </span>
                 </div>
                 <div class="icon-container">
                     <img src="vectors/icons/aaron-page.svg" class="icon aaron-link link">

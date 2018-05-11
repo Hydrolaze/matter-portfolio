@@ -383,6 +383,27 @@ a {
     margin-top: 0.5rem;
 }
 
+.sub-portfolio-half {
+    float: right;
+    width: 5.75rem;
+    height: 3.66rem;
+    transform-origin: left center;
+}
+
+.sub-portfolio-half:hover,
+.sub-portfolio-half:active {
+    transform: perspective(12rem) rotateY(20deg);
+}
+
+.sub-portfolio-half:nth-child(n+4) {
+    margin-top: 0.5rem;
+}
+
+.sub-portfolio-half:nth-child(2n+2) {
+    clear: right;
+    margin-left: 0.5rem;
+}
+
 .icon {
     width: 12rem;
     height: 12rem;
@@ -472,7 +493,7 @@ a {
     height: 1.6rem;
     float: right;
     clear: right;
-    padding: 0 0.3rem;
+    padding: 0 2rem 0 0.5rem;
     margin-top: 0.5rem;
     color: white;
     font-family: 'Montserrat', Verdana, sans-serif;
@@ -502,6 +523,32 @@ a {
 .photoshop-label::after {
     content: 'PHOTOSHOP';
 }
+
+
+.css-label {
+    background-color: #1D71BB;
+}
+
+.css-label::after {
+    content: 'CSS';
+}
+
+.js-label {
+    background-color: #86BE00;
+}
+
+.js-label::after {
+    content: 'JAVASCRIPT';
+}
+
+.php-label {
+    background-color: #767AB7;
+}
+
+.php-label::after {
+    content: 'PHP';
+}
+
 
 .web-label {
     background-color: #00AF41;

@@ -45,6 +45,8 @@
      //If there was a section in the querystring aside from an intro section, then it will load and enter immediately.
      if (startQuery.section !== '' && startQuery.section !== 'hello' && startQuery.section !== 'custom-queue') {
 
+         //Don't forget to add link listeners to hello anyways though
+         addLinkListeners($('#hello'));
          startQuery.call();
          $('#display').css({
              'right': '0'

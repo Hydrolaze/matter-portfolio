@@ -1,10 +1,13 @@
 <?php
     $tags_list = array(
-    'web',
-    'design',
-    'code',
-    'illustrator',
-    'indesign',
-    'photoshop'
+    'web' => 'web design',
+    'design' => 'graphic design',
+    'code' => 'coding',
+    'illustrator' => 'Illustrator',
+    'indesign' => 'InDesign',
+    'photoshop' => 'Photoshop',
+    'php' => 'PHP',
+    'js' => 'JavaScript',
+    'css' => 'CSS'
     );
 ?>
