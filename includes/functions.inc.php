@@ -184,7 +184,7 @@
     function echo_work($section_name, $section_data) {
         echo '<div class="work link '.$section_name.'-link" style="background-image:url(\'rasters/tn/'.$section_name.'-tn.png\');">';
         foreach ($section_data['tags'] as $tag) {
-            echo '<div class="tag '.$tag.'-label"></div>';
+            echo '<div class="label '.$tag.'-label"></div>';
         };
         echo '<div class="work-desc-container"><span class="work-desc">'.$section_data['desc'].'</span></div></div>';
     };

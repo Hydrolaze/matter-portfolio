@@ -317,7 +317,7 @@
      $('#' + queue.section + ' .work').each(function (i) {
          //Remove tags, set display to none, then fade in the works.
          var work = $(this).clone(true, true).css('display', 'none');
-         work.children('.tag').remove();
+         work.children('.label').remove();
          $('#queue .works-tray').append(work);
          work.fadeIn(500);
 
@@ -339,10 +339,10 @@
          } else {
              $('#queue h5').html("OF WORKS TAGGED");
          }
-         $('.queue-tag').attr('class', 'queue-label ' + queue.tag + '-label').html('');
+         $('.queue-label').attr('class', 'queue-label ' + queue.tag + '-label').html('');
      } else if (queue.section === 'custom-queue') {
          $('#queue h5').html("CREATED FOR");
-         $('.queue-tag').attr('class', 'queue-label custom-label').html($('#company-name').html());
+         $('.queue-label').attr('class', 'queue-label custom-label').html($('#company-name').html());
      }
 
      //Animate queue in if not already on screen, also add force field.

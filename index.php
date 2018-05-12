@@ -114,7 +114,7 @@
         <header>
             <h1>QUEUE</h1>
             <h5>of works tagged</h5>
-            <div class="queue-tag all-tag"></div>
+            <div class="queue-label all-label"></div>
             <div class="queue-control">
                 <span class="span-icon prev-link link"></span>
                 <span class="span-icon next-link link"></span>
