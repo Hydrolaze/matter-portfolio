@@ -79,19 +79,31 @@
             <div class="icon-tray">
                 <div id="portfolio-container">
                     <div>
-                        <img src="vectors/icons/whole-portfolio.svg" class="works-link all-tag link" id="whole-portfolio-icon">
-                        <img src="vectors/icons/css-portfolio.svg" class="sub-portfolio-half works-link css-tag link">
-                        <img src="vectors/icons/illustrator-portfolio.svg" class="sub-portfolio-half works-link illustrator-tag link">
-                        <img src="vectors/icons/photoshop-portfolio.svg" class="sub-portfolio-half works-link photoshop-tag link">
-                        <img src="vectors/icons/indesign-portfolio.svg" class="sub-portfolio-half works-link indesign-tag link">
-                        <img src="vectors/icons/js-portfolio.svg" class="sub-portfolio-half works-link js-tag link">
-                        <img src="vectors/icons/php-portfolio.svg" class="sub-portfolio-half works-link php-tag link">
-                        
-<!--
-                        <img src="vectors/icons/web-portfolio.svg" class="sub-portfolio works-link web-tag link">
-                        <img src="vectors/icons/design-portfolio.svg" class="sub-portfolio works-link design-tag link">
-                        <img src="vectors/icons/code-portfolio.svg" class="sub-portfolio works-link code-tag link">
--->
+
+                        <?php
+                            $key_is_valid = false;
+                            if(isset($_GET['key'])) {
+                                include('sections/custom-queue/queues.php');
+                                if(isset($queues[$_GET['key']])) {
+                                    $key_is_valid = true;
+                                };
+                            };
+
+                            if ($key_is_valid): ?>
+                                <img src="vectors/icons/whole-portfolio.svg" class="works-link all-tag link" id="whole-portfolio-icon" alt="everything">
+                                <img src="vectors/icons/css-portfolio.svg" class="sub-portfolio-half works-link css-tag link" alt="CSS styles">
+                                <img src="vectors/icons/illustrator-portfolio.svg" class="sub-portfolio-half works-link illustrator-tag link" alt="Adobe Illustrator">
+                                <img src="vectors/icons/photoshop-portfolio.svg" class="sub-portfolio-half works-link photoshop-tag link" alt="Adobe Photoshop">
+                                <img src="vectors/icons/indesign-portfolio.svg" class="sub-portfolio-half works-link indesign-tag link" alt="Adobe InDesign">
+                                <img src="vectors/icons/js-portfolio.svg" class="sub-portfolio-half works-link js-tag link" alt="Javascript">
+                                <img src="vectors/icons/php-portfolio.svg" class="sub-portfolio-half works-link php-tag link" alt="PHP coding">
+                            <?php else: ?>
+                                <img src="vectors/icons/whole-portfolio.svg" class="works-link all-tag link" id="whole-portfolio-icon" alt="everything">
+                                <img src="vectors/icons/web-portfolio.svg" class="sub-portfolio works-link web-tag link">
+                                <img src="vectors/icons/design-portfolio.svg" class="sub-portfolio works-link design-tag link">
+                                <img src="vectors/icons/code-portfolio.svg" class="sub-portfolio works-link code-tag link">
+                            <?php endif; ?>
+
                     </div>
                     <span class="icon-desc">
                     VIEW MY PORTFOLIO<br>

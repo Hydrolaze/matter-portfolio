@@ -25,7 +25,7 @@ if (isset($_GET['tag'])) {
             <span class="span-icon hello-link link">AARON</span> / WORKS
         </nav>
         <h1>MY <?php echo $tag_full_name; ?> WORK</h1>
-        <h2>Some of the <?php echo $tag_full_name; ?> pieces I have worked on in the past.</h2>
+        <h2>Examples of <?php echo $tag_full_name; ?> pieces I have worked on in the past.</h2>
     </header>
     <p>Here are links to some of my works. Tags in the top right of each icon describe the skills I employed in creating them. Explore whichever interest you!</p>
     <div class="works-tray">

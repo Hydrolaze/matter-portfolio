@@ -7,7 +7,7 @@
     'indesign' => 'InDesign',
     'photoshop' => 'Photoshop',
     'php' => 'PHP',
-    'js' => 'JavaScript',
+    'js' => 'Javascript',
     'css' => 'CSS'
     );
 ?>
