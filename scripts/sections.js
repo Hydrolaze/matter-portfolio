@@ -184,6 +184,59 @@
      };
  }
 
+function Nav(section, tag) {
+
+    this.section = section || 'hello';
+    this.tag = tag || '';
+    this.$tree = $.get('../includes/site_tree.xml', '', function (xml) {
+        xmlDoc = $.parseXML(xml),
+        $xml = $(xmlDoc);
+        return $xml;
+    }, 'xml');
+    this.node = $tree.find(section);
+    /*    this.climbTo = function (section, tag) {
+            var finished = false;
+            // Search for the node in the tree that matches section.
+            while (!finished) {
+                // Start at the base of the tree.
+                var prevLoc,
+                    loc = tree;
+                // Climb each level of the tree according to the array of indices in the route.
+                for (var i in route) {
+                    prevLoc = loc;
+                    loc = loc.above[route[i]];
+                }
+                // If the object key found at the location that the route indicated matches the search term, then determine the section names that lead up to that location.
+                if (loc.name == section) {
+                    
+                    finished = true;
+                    
+                } else {
+                    switch (typeof loc.above) {
+                        case 'array':
+                            route.push(0);
+                            break;
+                        case 'null':
+                            // If theres 
+                            var routeFound = false;
+                            while (!routeFound) {
+                                if (prevLoc.above.length > [route[route.length - 1] + 1] != undefined) {
+                                    routeFound = true;
+                                    route[route.length - 1]++;
+                                } else {
+                                    route.pop();
+                                }
+                            }
+                            
+                            break;
+                        default:
+                    }
+                }
+            }
+        }; */
+
+}
+
  //============ SECTION FUNCTIONS
 
  function addLinkListeners($elem) {
@@ -316,14 +369,17 @@
      //console.log('Populating queue with works...');
      $('#' + queue.section + ' .work').each(function (i) {
          //Remove tags, set display to none, then fade in the works.
-         var work = $(this).clone(true, true).css('display', 'none');
-         work.children('.label').remove();
-         $('#queue .works-tray').append(work);
-         work.fadeIn(500);
+         var $work = $(this).clone(true, true);
+         $work.children('.label').remove();
+         var $workCard = $('<div class="work-card"></div>').append($work).css('display', 'none');
+         $('#queue .works-tray').append($workCard);
+         setTimeout(function () { 
+             $workCard.fadeIn(500); 
+         }, i*100);
 
          //Get section names and save to queue.array
          queue.pos = 0;
-         var classes = work.attr('class').split(' ');
+         var classes = $workCard.children('.link').attr('class').split(' ');
          for (c in classes) {
              if (classes[c].endsWith('-link')) {
                  queue.array[i] = classes[c].substring(0, classes[c].lastIndexOf('-link'));

@@ -446,10 +446,12 @@ a {
 
 #display .works-tray {
     width: 80rem;
+    padding: 0 1rem;
 }
 
 #queue .works-tray {
     width: 20rem;
+    padding: 1rem;
     height: calc(100vh - 16.4167rem);
     /* NOTE
     The value subtracted here is the default outerHeight of the queue header when the queue-tag contains one line of text. The height of the queue's works-tray is dynamically modified by the populateQueue function in sections.js, but this is a default value that is set in case the function fails for whatever reason.
@@ -464,19 +466,26 @@ a {
 }
 
 #display .work {
-    width: 26.6666rem;
-    height: 26.6666rem;
+    width: 24.6666rem;
+    height: 24.6666rem;
+    margin: 0.5rem;
+    transform: perspective(12rem);
+    transform-origin: center bottom;
+    transition: transform 0.5s;
+}
+
+#queue .work-card {
+    width: 18rem;
+    margin-bottom: 1rem;
+    background-color: rgba(38, 39, 41, 0.9);
     transform: perspective(12rem);
     transform-origin: center bottom;
     transition: transform 0.5s;
 }
 
 #queue .work {
-    width: 10rem;
-    height: 10rem;
-    transform: perspective(12rem);
-    transform-origin: center bottom;
-    transition: transform 0.5s;
+    width: 9rem;
+    height: 9rem;
 }
 
 #display .work:hover,
@@ -484,8 +493,8 @@ a {
     transform: perspective(12rem) rotateX(2deg);
 }
 
-#queue .work:hover,
-#queue .work:active {
+#queue .work-card:hover,
+#queue .work-card:active {
     transform: perspective(12rem) rotateX(4deg);
 }
 
@@ -588,7 +597,7 @@ a {
     text-transform: uppercase;
 }
 
-.work-desc-container {
+#works .work-desc-container {
     width: 100%;
     padding: 0.5rem;
     background-color: rgba(0, 0, 0, 0.5);
@@ -600,7 +609,20 @@ a {
     transition: opacity 0.5s;
 }
 
-.work:hover .work-desc-container {
+#queue .work-desc-container {
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+    position: absolute;
+    bottom: 0;
+    left: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #262729;
+}
+
+#works .work:hover .work-desc-container {
     opacity: 1;
 }
 
@@ -614,7 +636,7 @@ a {
 }
 
 #queue .work-desc {
-    font-size: 1rem;
+    font-size: 1.25rem;
 }
 
 
