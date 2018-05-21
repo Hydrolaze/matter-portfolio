@@ -1,26 +1,26 @@
-<hello>
-    <aaron></aaron>
-    <custom-queue></custom-queue>
-    <works>
-        <oats-ads></oats-ads>
-        <kohana-flier></kohana-flier>
-        <komax-brochure></komax-brochure>
-        <oats-stationery></oats-stationery>
-        <planetarium></planetarium>
-        <matterjs></matterjs>
-        <ds-brand></ds-brand>
-        <wp-portfolio></wp-portfolio>
-        <show-booth></show-booth>
-        <nccs-brand></nccs-brand>
-        <messageboard></messageboard>
-        <fliers></fliers>
-        <ds-site></ds-site>
-        <3d-print></3d-print>
-        <typography></typography>
-        <solarch></solarch>
-        <ds-proof></ds-proof>
-        <minecraft></minecraft>
-        <poster></poster>
-        <roryquest></roryquest>
-    </works>
-</hello>
+<root name='hello'>
+    <section name='aaron'></section>
+    <section name='custom-queue'></section>
+    <section name='works'>
+        <section name='oats-ads'></section>
+        <section name='kohana-flier'></section>
+        <section name='komax-brochure'></section>
+        <section name='oats-stationery'></section>
+        <section name='planetarium'></section>
+        <section name='matterjs'></section>
+        <section name='ds-brand'></section>
+        <section name='wp-portfolio'></section>
+        <section name='show-booth'></section>
+        <section name='nccs-brand'></section>
+        <section name='messageboard'></section>
+        <section name='fliers'></section>
+        <section name='ds-site'></section>
+        <section name='3d-print'></section>
+        <section name='typography'></section>
+        <section name='solarch'></section>
+        <section name='ds-proof'></section>
+        <section name='minecraft'></section>
+        <section name='poster'></section>
+        <section name='roryquest'></section>
+    </section>
+</root>
