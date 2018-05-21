@@ -26,22 +26,16 @@ section > * + * {
     margin-top: 2rem;
 }
 
+/*NAV PANEL STYLES ||||||||||||*/
+
 nav {
-    font-family: 'Montserrat', Verdana, sans-serif;
-    font-weight: 400;
-    text-transform: uppercase;
-    font-size: 2rem;
-}
-
-
-/*QUEUE PANEL STYLES ||||||||||||*/
-
-#queue {
     background: rgba(0, 25, 112, 0.9);
     color: #CFCECD;
     font-size: 2rem;
     overflow-y: hidden;
 }
+
+/*QUEUE PANE STYLES ||||||||||||*/
 
 #queue .works-tray {
     overflow-y: scroll;
@@ -82,7 +76,7 @@ nav {
     content: 'NEXT';
 }
 
-#queue header {
+nav header {
     width: 20rem;
     padding-top: 2rem;
 }
@@ -280,17 +274,18 @@ h5 {
 p {
     font-size: 1.5rem;
     text-align: justify;
-    padding: 0 6rem;
     line-height: 1.618;
 }
 
 h3 {
     font-size: 3rem;
-    padding: 0 6rem;
 }
 
 h4 {
     font-size: 2rem;
+}
+
+section h3, section h4, section p {
     padding: 0 6rem;
 }
 
@@ -326,87 +321,85 @@ a {
 
 .icon-tray {
     display: flex;
-    flex-direction: row;
 }
 
 .icon-container {
-    width: 12rem;
+    width: 12em;
 }
 
 .icon {
-    height: 12rem;
-    transform: perspective(12rem);
+    height: 12em;
+    transform: perspective(12em);
 }
 
 .icon-desc {
     position: relative;
-    top: 0.75rem;
+    top: 0.75em;
     color: #FFD980;
-    font-size: 1.17rem;
 }
 
-.icon-tray>* + * {
-    margin-left: 4rem;
+#hello .icon-desc, #nav .icon-desc {
+    font-size: 1.25rem;
 }
 
 .icon-tray img {
     transition: transform 0.5s;
 }
 
-#whole-portfolio-icon {
+.whole-portfolio-icon {
     float: left;
-    width: 9rem;
-    height: 12rem;
-    margin-right: 0.5rem;
+    width: 9em;
+    height: 12em;
+    margin-right: 0.5em;
     transform-origin: right center;
 }
 
-#whole-portfolio-icon:hover,
-#whole-portfolio-icon:active {
-    transform: perspective(12rem) rotateY(-10deg);
+.whole-portfolio-icon:hover,
+.whole-portfolio-icon:active {
+    transform: perspective(12em) rotateY(-10deg);
 }
 
 .sub-portfolio {
     float: right;
-    width: 12rem;
-    height: 3.66rem;
+    width: 12em;
+    height: 3.66em;
     transform-origin: left center;
 }
 
 .sub-portfolio:hover,
 .sub-portfolio:active {
-    transform: perspective(12rem) rotateY(10deg);
+    transform: perspective(12em) rotateY(10deg);
 }
 
 .sub-portfolio + .sub-portfolio {
     clear: right;
-    margin-top: 0.5rem;
+    margin-top: 0.5em;
 }
 
 .sub-portfolio-half {
     float: right;
-    width: 5.75rem;
-    height: 3.66rem;
+    width: 5.75em;
+    height: 3.66em;
     transform-origin: left center;
 }
 
 .sub-portfolio-half:hover,
 .sub-portfolio-half:active {
-    transform: perspective(12rem) rotateY(20deg);
+    transform: perspective(12em) rotateY(20deg);
 }
 
 .sub-portfolio-half:nth-child(n+4) {
-    margin-top: 0.5rem;
+    margin-top: 0.5em;
 }
 
 .sub-portfolio-half:nth-child(2n+2) {
     clear: right;
-    margin-left: 0.5rem;
+    margin-left: 0.5em;
 }
 
 .icon {
-    width: 12rem;
-    height: 12rem;
+    width: 12em;
+    height: 12em;
     transform-origin: left center;
 }
 
@@ -416,22 +409,46 @@ a {
 
 .icon:hover,
 .icon:active {
-    transform: perspective(12rem) rotateY(6deg);
+    transform: perspective(12em) rotateY(6deg);
 }
 
 
 /*HELLO ICON STYLES ||||||||||||*/
 
+#hello .icon-tray *:not(span) {
+    font-size: 12px;
+}
+
 #hello .icon-tray {
     width: 37.5rem;
+    flex-direction: row;
 }
 
-#portfolio-container {
-    width: 21.5rem;
+#hello .icon-tray > * + * {
+    margin-left: 4em;
 }
 
-#portfolio-container>div {
-    height: 12rem;
+.portfolio-container {
+    width: 21.5em;
+}
+
+.portfolio-container > div {
+    height: 12em;
+}
+
+/*NAV ICON STYLES ||||||||||||*/
+
+#nav .icon-tray *:not(span) {
+    font-size: 9px;
+}
+
+#nav .icon-tray {
+    margin: 1rem 2rem;
+    flex-direction: column;
+}
+
+#nav .icon-tray > * + * {
+    margin-top: 2em;
 }
 
 

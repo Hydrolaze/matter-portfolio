@@ -20,10 +20,6 @@ if (isset($_GET['tag'])) {
 
 <section id="works">
     <header>
-        <nav>
-            <h5>Section navigation</h5>
-            <span class="span-icon hello-link link">AARON</span> / WORKS
-        </nav>
         <h1>MY <?php echo $tag_full_name; ?> WORK</h1>
         <h2>Examples of <?php echo $tag_full_name; ?> pieces I have worked on in the past.</h2>
     </header>

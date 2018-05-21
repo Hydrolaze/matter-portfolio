@@ -1,9 +1,5 @@
 <section id="aaron">
     <header>
-        <nav>
-            <h5>Section navigation</h5>
-            <span class="span-icon hello-link link">AARON</span> / ABOUT
-        </nav>
         <h1>I'm Aaron Clement</h1>
         <h2>I live for design and I'm ready to get to work</h2>
     </header>

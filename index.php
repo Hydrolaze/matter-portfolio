@@ -32,13 +32,13 @@
             overflow-y: scroll;
         }
 
-        #queue {
+        nav {
             width: 20rem;
             height: 100vh;
             overflow-x: hidden;
             position: fixed;
             right: 82rem;
-            top: 0;
+            top: 100vh;
             display: none;
         }
 
@@ -77,7 +77,7 @@
 
             <p>Pick an option below to explore my work and history.</p>
             <div class="icon-tray">
-                <div id="portfolio-container">
+                <div class="portfolio-container">
                     <div>
 
                         <?php
@@ -90,18 +90,18 @@
                             };
 
                             if ($key_is_valid): ?>
-                                <img src="vectors/icons/whole-portfolio.svg" class="works-link all-tag link" id="whole-portfolio-icon" alt="everything">
-                                <img src="vectors/icons/css-portfolio.svg" class="sub-portfolio-half works-link css-tag link" alt="CSS styles">
-                                <img src="vectors/icons/illustrator-portfolio.svg" class="sub-portfolio-half works-link illustrator-tag link" alt="Adobe Illustrator">
-                                <img src="vectors/icons/photoshop-portfolio.svg" class="sub-portfolio-half works-link photoshop-tag link" alt="Adobe Photoshop">
-                                <img src="vectors/icons/indesign-portfolio.svg" class="sub-portfolio-half works-link indesign-tag link" alt="Adobe InDesign">
-                                <img src="vectors/icons/js-portfolio.svg" class="sub-portfolio-half works-link js-tag link" alt="Javascript">
-                                <img src="vectors/icons/php-portfolio.svg" class="sub-portfolio-half works-link php-tag link" alt="PHP coding">
+                            <img src="vectors/icons/whole-portfolio.svg" class="works-link all-tag link whole-portfolio-icon" alt="everything">
+                            <img src="vectors/icons/css-portfolio.svg" class="sub-portfolio-half works-link css-tag link" alt="CSS styles">
+                            <img src="vectors/icons/illustrator-portfolio.svg" class="sub-portfolio-half works-link illustrator-tag link" alt="Adobe Illustrator">
+                            <img src="vectors/icons/photoshop-portfolio.svg" class="sub-portfolio-half works-link photoshop-tag link" alt="Adobe Photoshop">
+                            <img src="vectors/icons/indesign-portfolio.svg" class="sub-portfolio-half works-link indesign-tag link" alt="Adobe InDesign">
+                            <img src="vectors/icons/js-portfolio.svg" class="sub-portfolio-half works-link js-tag link" alt="Javascript">
+                            <img src="vectors/icons/php-portfolio.svg" class="sub-portfolio-half works-link php-tag link" alt="PHP coding">
                             <?php else: ?>
-                                <img src="vectors/icons/whole-portfolio.svg" class="works-link all-tag link" id="whole-portfolio-icon" alt="everything">
-                                <img src="vectors/icons/web-portfolio.svg" class="sub-portfolio works-link web-tag link">
-                                <img src="vectors/icons/design-portfolio.svg" class="sub-portfolio works-link design-tag link">
-                                <img src="vectors/icons/code-portfolio.svg" class="sub-portfolio works-link code-tag link">
+                            <img src="vectors/icons/whole-portfolio.svg" class="works-link all-tag link" class="whole-portfolio-icon" alt="everything">
+                            <img src="vectors/icons/web-portfolio.svg" class="sub-portfolio works-link web-tag link">
+                            <img src="vectors/icons/design-portfolio.svg" class="sub-portfolio works-link design-tag link">
+                            <img src="vectors/icons/code-portfolio.svg" class="sub-portfolio works-link code-tag link">
                             <?php endif; ?>
 
                     </div>
@@ -121,21 +121,51 @@
         </section>
     </div>
 
-
-    <div id="queue">
-        <header>
-            <h1>QUEUE</h1>
-            <h5>of works tagged</h5>
-            <div class="queue-label all-label"></div>
-            <div class="queue-control">
-                <span class="span-icon prev-link link"></span>
-                <span class="span-icon next-link link"></span>
+    <nav>
+        <div id="nav">
+            <header>
+                <h4>NAVIGATION</h4>
+            </header>
+            <div class="icon-tray">
+                <div class="portfolio-container">
+                    <div>
+                            <img src="vectors/icons/whole-portfolio.svg" class="works-link all-tag link whole-portfolio-icon" alt="everything">
+                            <img src="vectors/icons/css-portfolio.svg" class="sub-portfolio-half works-link css-tag link" alt="CSS styles">
+                            <img src="vectors/icons/illustrator-portfolio.svg" class="sub-portfolio-half works-link illustrator-tag link" alt="Adobe Illustrator">
+                            <img src="vectors/icons/photoshop-portfolio.svg" class="sub-portfolio-half works-link photoshop-tag link" alt="Adobe Photoshop">
+                            <img src="vectors/icons/indesign-portfolio.svg" class="sub-portfolio-half works-link indesign-tag link" alt="Adobe InDesign">
+                            <img src="vectors/icons/js-portfolio.svg" class="sub-portfolio-half works-link js-tag link" alt="Javascript">
+                            <img src="vectors/icons/php-portfolio.svg" class="sub-portfolio-half works-link php-tag link" alt="PHP coding">
+                    </div>
+                    <span class="icon-desc">
+                    VIEW MY PORTFOLIO<br>
+                    or choose a skill to focus on
+                    </span>
+                </div>
+                <div class="icon-container">
+                    <img src="vectors/icons/aaron-page.svg" class="icon aaron-link link">
+                    <span class="icon-desc">
+                    GET TO KNOW ME<br>
+                    contact info &amp; resume
+                </span>
+                </div>
             </div>
-        </header>
-        <div class="works-tray">
-
         </div>
-    </div>
+        <div id="queue">
+            <header>
+                <h1>QUEUE</h1>
+                <h5>of works tagged</h5>
+                <div class="queue-label all-label"></div>
+                <div class="queue-control">
+                    <span class="span-icon prev-link link"></span>
+                    <span class="span-icon next-link link"></span>
+                </div>
+            </header>
+            <div class="works-tray">
+
+            </div>
+        </div>
+    </nav>
 
 
     <div id="continue-icon">

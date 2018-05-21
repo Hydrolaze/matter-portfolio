@@ -184,58 +184,47 @@
      };
  }
 
-function Nav(section, tag) {
+ function Nav(section, tag) {
 
-    this.section = section || 'hello';
-    this.tag = tag || '';
-    this.$tree = $.get('../includes/site_tree.xml', '', function (xml) {
-        xmlDoc = $.parseXML(xml),
-        $xml = $(xmlDoc);
-        return $xml;
-    }, 'xml');
-    this.node = $tree.find(section);
-    /*    this.climbTo = function (section, tag) {
-            var finished = false;
-            // Search for the node in the tree that matches section.
-            while (!finished) {
-                // Start at the base of the tree.
-                var prevLoc,
-                    loc = tree;
-                // Climb each level of the tree according to the array of indices in the route.
-                for (var i in route) {
-                    prevLoc = loc;
-                    loc = loc.above[route[i]];
-                }
-                // If the object key found at the location that the route indicated matches the search term, then determine the section names that lead up to that location.
-                if (loc.name == section) {
-                    
-                    finished = true;
-                    
-                } else {
-                    switch (typeof loc.above) {
-                        case 'array':
-                            route.push(0);
-                            break;
-                        case 'null':
-                            // If theres 
-                            var routeFound = false;
-                            while (!routeFound) {
-                                if (prevLoc.above.length > [route[route.length - 1] + 1] != undefined) {
-                                    routeFound = true;
-                                    route[route.length - 1]++;
-                                } else {
-                                    route.pop();
-                                }
-                            }
-                            
-                            break;
-                        default:
-                    }
-                }
-            }
-        }; */
+     // 'includes/site_tree.xml'
+     this.$tree = function (url) {
+         $.ajax({
+             url: 'includes/site_tree.xml',
+             context: this,
+             dataType: 'xml',
+             error: function (jQXHR, status, error) {
+                 console.log(status + ' ' + error);
+             },
+             success: function (data) {
+                 return $(data);
+                 console.log('data is ' + data);
+             }
+         });
+     };
+     this.updateNav = function (newSection, newTag) {
 
-}
+         this.section = newSection || 'hello';
+         this.tag = newTag || '';
+         this.$node = this.$tree.find('section[name="' + this.section + '"]');
+
+         // Don't bother 
+         if (!this.$node.is('root')) {
+
+             var atRoot = false;
+             this.path = [this.$node.attr('name')];
+             while (!atRoot) {
+                 var $parent = this.$node.parent('');
+                 if ($parent.is('root')) {
+                     atRoot = true;
+                 }
+                 this.path.unshift($parent.attr(''));
+             }
+             console.log('nav path is: ' + this.path.join(' > '));
+         }
+     };
+     this.updateNav(section, tag);
+
+ }
 
  //============ SECTION FUNCTIONS
 
@@ -284,7 +273,9 @@ function Nav(section, tag) {
                      linkQuery.section = section;
                      linkQuery.tag = tag;
              }
-             if (!outOfQueueRange) { linkQuery.call(); };
+             if (!outOfQueueRange) {
+                 linkQuery.call();
+             };
          });
      });
  }
@@ -360,7 +351,7 @@ function Nav(section, tag) {
          tag: q.tag
      };
      if ($('#queue').css('display') === 'block') {
-         $('#queue .work').fadeOut(500);
+         $('#queue .work-card').fadeOut(500);
      }
  }
 
@@ -373,9 +364,9 @@ function Nav(section, tag) {
          $work.children('.label').remove();
          var $workCard = $('<div class="work-card"></div>').append($work).css('display', 'none');
          $('#queue .works-tray').append($workCard);
-         setTimeout(function () { 
-             $workCard.fadeIn(500); 
-         }, i*100);
+         setTimeout(function () {
+             $workCard.fadeIn(500);
+         }, i * 100);
 
          //Get section names and save to queue.array
          queue.pos = 0;
@@ -402,8 +393,8 @@ function Nav(section, tag) {
      }
 
      //Animate queue in if not already on screen, also add force field.
-     if ($('#queue').css('display') !== 'block') {
-         $('#queue').css('display', 'block').animate({
+     if ($('nav').css('display') !== 'block') {
+         $('nav').css('display', 'block').animate({
              'top': '0'
          }, {
              duration: 1000,
@@ -411,9 +402,9 @@ function Nav(section, tag) {
                  fields.push({
                      angle: 5 * Math.PI / 6,
                      magnitude: 0.02,
-                     x: $('#queue').offset().left,
+                     x: $('nav').offset().left,
                      y: 0,
-                     w: $('#queue').width(),
+                     w: $('nav').width(),
                      h: H
                  });
 
