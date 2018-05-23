@@ -328,17 +328,24 @@ a {
 }
 
 .icon {
+    width: 12em;
     height: 12em;
     transform: perspective(12em);
+    transform-origin: left center;
+}
+
+.icon:hover,
+.icon:active {
+    transform: perspective(12em) rotateY(6deg);
 }
 
 .icon-desc {
     position: relative;
-    top: 0.75em;
+    top: 0.5em;
     color: #FFD980;
 }
 
-#hello .icon-desc, #nav .icon-desc {
+.icon-desc {
     font-size: 1.25rem;
 }
 
@@ -346,11 +353,16 @@ a {
     transition: transform 0.5s;
 }
 
+/*PORTFOLIO ICON STYLES ||||||||||||*/
+
+.icon-block {
+    height: 12em;
+}
+
 .whole-portfolio-icon {
     float: left;
     width: 9em;
     height: 12em;
-    margin-right: 0.5em;
     transform-origin: right center;
 }
 
@@ -359,8 +371,18 @@ a {
     transform: perspective(12em) rotateY(-10deg);
 }
 
-.sub-portfolio {
+.tags-column {
     float: right;
+    margin-left: 0.5em;
+    display: flex;
+    flex-direction: column;
+}
+
+.tags-column > img + img {
+    margin-top: 0.5em;
+}
+
+.sub-portfolio {
     width: 12em;
     height: 3.66em;
     transform-origin: left center;
@@ -371,13 +393,7 @@ a {
     transform: perspective(12em) rotateY(10deg);
 }
 
-.sub-portfolio + .sub-portfolio {
-    clear: right;
-    margin-top: 0.5em;
-}
-
 .sub-portfolio-half {
-    float: right;
     width: 5.75em;
     height: 3.66em;
     transform-origin: left center;
@@ -388,30 +404,9 @@ a {
     transform: perspective(12em) rotateY(20deg);
 }
 
-.sub-portfolio-half:nth-child(n+4) {
-    margin-top: 0.5em;
-}
-
-.sub-portfolio-half:nth-child(2n+2) {
-    clear: right;
-    margin-left: 0.5em;
-}
-
-.icon {
-    width: 12em;
-    height: 12em;
-    transform-origin: left center;
-}
-
 .link {
     cursor: pointer;
 }
-
-.icon:hover,
-.icon:active {
-    transform: perspective(12em) rotateY(6deg);
-}
-
 
 /*HELLO ICON STYLES ||||||||||||*/
 
@@ -420,7 +415,7 @@ a {
 }
 
 #hello .icon-tray {
-    width: 37.5rem;
+    width: 44.25rem;
     flex-direction: row;
 }
 
@@ -428,15 +423,23 @@ a {
     margin-left: 4em;
 }
 
-.portfolio-container {
-    width: 21.5em;
-}
-
-.portfolio-container > div {
-    height: 12em;
+#hello .portfolio-container {
+    width: 27.75em;
 }
 
 /*NAV ICON STYLES ||||||||||||*/
+#nav header img {
+    width: 16rem;
+    margin: 0 2rem;
+    transform: perspective(12em);
+    transform-origin: bottom center;
+    transition: transform 0.5s;
+}
+
+#nav header img:hover,
+#nav header img:active {
+    transform: perspective(12em) rotateX(12deg);
+}
 
 #nav .icon-tray *:not(span) {
     font-size: 9px;
@@ -451,6 +454,9 @@ a {
     margin-top: 2em;
 }
 
+#nav .portfolio-container {
+    width: 21.5em;
+}
 
 /*WORK STYLES ||||||||||||*/
 

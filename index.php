@@ -78,7 +78,7 @@
             <p>Pick an option below to explore my work and history.</p>
             <div class="icon-tray">
                 <div class="portfolio-container">
-                    <div>
+                    <div class="icon-block">
 
                         <?php
                             $key_is_valid = false;
@@ -91,17 +91,23 @@
 
                             if ($key_is_valid): ?>
                             <img src="vectors/icons/whole-portfolio.svg" class="works-link all-tag link whole-portfolio-icon" alt="everything">
-                            <img src="vectors/icons/css-portfolio.svg" class="sub-portfolio-half works-link css-tag link" alt="CSS styles">
-                            <img src="vectors/icons/illustrator-portfolio.svg" class="sub-portfolio-half works-link illustrator-tag link" alt="Adobe Illustrator">
-                            <img src="vectors/icons/photoshop-portfolio.svg" class="sub-portfolio-half works-link photoshop-tag link" alt="Adobe Photoshop">
-                            <img src="vectors/icons/indesign-portfolio.svg" class="sub-portfolio-half works-link indesign-tag link" alt="Adobe InDesign">
-                            <img src="vectors/icons/js-portfolio.svg" class="sub-portfolio-half works-link js-tag link" alt="Javascript">
-                            <img src="vectors/icons/php-portfolio.svg" class="sub-portfolio-half works-link php-tag link" alt="PHP coding">
+                            <div class="tags-column">
+                                <img src="vectors/icons/css-portfolio-half.svg" class="sub-portfolio-half works-link css-tag link" alt="CSS styles">
+                                <img src="vectors/icons/php-portfolio-half.svg" class="sub-portfolio-half works-link php-tag link" alt="PHP coding">
+                                <img src="vectors/icons/js-portfolio-half.svg" class="sub-portfolio-half works-link js-tag link" alt="Javascript">
+                            </div>
+                            <div class="tags-column">
+                                <img src="vectors/icons/illustrator-portfolio.svg" class="sub-portfolio works-link illustrator-tag link" alt="Adobe Illustrator">
+                                <img src="vectors/icons/photoshop-portfolio.svg" class="sub-portfolio works-link photoshop-tag link" alt="Adobe Photoshop">
+                                <img src="vectors/icons/indesign-portfolio.svg" class="sub-portfolio works-link indesign-tag link" alt="Adobe InDesign">
+                            </div>
                             <?php else: ?>
                             <img src="vectors/icons/whole-portfolio.svg" class="works-link all-tag link" class="whole-portfolio-icon" alt="everything">
-                            <img src="vectors/icons/web-portfolio.svg" class="sub-portfolio works-link web-tag link">
-                            <img src="vectors/icons/design-portfolio.svg" class="sub-portfolio works-link design-tag link">
-                            <img src="vectors/icons/code-portfolio.svg" class="sub-portfolio works-link code-tag link">
+                            <div class="tags-column">
+                                <img src="vectors/icons/web-portfolio.svg" class="sub-portfolio works-link web-tag link">
+                                <img src="vectors/icons/design-portfolio.svg" class="sub-portfolio works-link design-tag link">
+                                <img src="vectors/icons/code-portfolio.svg" class="sub-portfolio works-link code-tag link">
+                            </div>
                             <?php endif; ?>
 
                     </div>
@@ -124,29 +130,26 @@
     <nav>
         <div id="nav">
             <header>
-                <h4>NAVIGATION</h4>
+                <img src="vectors/aaron-logo.svg" class="hello-link link" alt="home page">
             </header>
             <div class="icon-tray">
                 <div class="portfolio-container">
-                    <div>
-                            <img src="vectors/icons/whole-portfolio.svg" class="works-link all-tag link whole-portfolio-icon" alt="everything">
-                            <img src="vectors/icons/css-portfolio.svg" class="sub-portfolio-half works-link css-tag link" alt="CSS styles">
-                            <img src="vectors/icons/illustrator-portfolio.svg" class="sub-portfolio-half works-link illustrator-tag link" alt="Adobe Illustrator">
-                            <img src="vectors/icons/photoshop-portfolio.svg" class="sub-portfolio-half works-link photoshop-tag link" alt="Adobe Photoshop">
-                            <img src="vectors/icons/indesign-portfolio.svg" class="sub-portfolio-half works-link indesign-tag link" alt="Adobe InDesign">
-                            <img src="vectors/icons/js-portfolio.svg" class="sub-portfolio-half works-link js-tag link" alt="Javascript">
-                            <img src="vectors/icons/php-portfolio.svg" class="sub-portfolio-half works-link php-tag link" alt="PHP coding">
+                    <div class="icon-block">
+                        <img src="vectors/icons/whole-portfolio.svg" class="works-link all-tag link whole-portfolio-icon" alt="everything">
+                        <div class="tags-column">
+                            <img src="vectors/icons/illustrator-portfolio.svg" class="sub-portfolio works-link illustrator-tag link" alt="Adobe Illustrator">
+                            <img src="vectors/icons/photoshop-portfolio.svg" class="sub-portfolio works-link photoshop-tag link" alt="Adobe Photoshop">
+                            <img src="vectors/icons/indesign-portfolio.svg" class="sub-portfolio works-link indesign-tag link" alt="Adobe InDesign">
+                        </div>
                     </div>
                     <span class="icon-desc">
-                    VIEW MY PORTFOLIO<br>
-                    or choose a skill to focus on
+                    MY PORTFOLIO
                     </span>
                 </div>
                 <div class="icon-container">
                     <img src="vectors/icons/aaron-page.svg" class="icon aaron-link link">
                     <span class="icon-desc">
-                    GET TO KNOW ME<br>
-                    contact info &amp; resume
+                    ABOUT ME
                 </span>
                 </div>
             </div>
