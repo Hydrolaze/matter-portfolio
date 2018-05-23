@@ -76,6 +76,15 @@
             <p>I'm a graphic designer who is currently looking for challenging and rewarding work in North San Diego county. Print design is my specialty, but I have have considerable experience in web graphics and programming as well. </p>
 
             <p>Pick an option below to explore my work and history.</p>
+
+            <div class="queue-container">
+                <img src="vectors/icons/anim-custom-queue.svg" class="icon custom-queue-link link">
+                <span class="icon-desc">
+                    <h4>CUSTOM QUEUE</h4>
+                    A collection of works picked specially for you at COMPANY NAME to show my 
+                </span>
+            </div>
+
             <div class="icon-tray">
                 <div class="portfolio-container">
                     <div class="icon-block">

@@ -285,7 +285,7 @@ h4 {
     font-size: 2rem;
 }
 
-section h3, section h4, section p {
+section > h3, section > h4, section > p {
     padding: 0 6rem;
 }
 
@@ -323,6 +323,10 @@ a {
     display: flex;
 }
 
+.icon-tray > * + * {
+    margin-left: 4em;
+}
+
 .icon-container {
     width: 12em;
 }
@@ -352,6 +356,20 @@ a {
 .icon-tray img {
     transition: transform 0.5s;
 }
+
+/*QUEUE ICON STYLES ||||||||||||*/
+
+.queue-container > * {
+    float: left;
+}
+
+.queue-container .icon-desc {
+    width: 14em;
+    margin-left: 1em;
+    margin-top: 2.1em;
+}
+
+
 
 /*PORTFOLIO ICON STYLES ||||||||||||*/
 
@@ -410,17 +428,13 @@ a {
 
 /*HELLO ICON STYLES ||||||||||||*/
 
-#hello .icon-tray *:not(span) {
+#hello .icon-tray div, #hello .icon-tray img {
     font-size: 12px;
 }
 
 #hello .icon-tray {
     width: 44.25rem;
     flex-direction: row;
-}
-
-#hello .icon-tray > * + * {
-    margin-left: 4em;
 }
 
 #hello .portfolio-container {
@@ -441,7 +455,7 @@ a {
     transform: perspective(12em) rotateX(12deg);
 }
 
-#nav .icon-tray *:not(span) {
+#nav .icon-tray div, #nav .icon-tray img {
     font-size: 9px;
 }
 
