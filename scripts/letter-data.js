@@ -99,7 +99,7 @@ var targets = [{
     }];
 
 function calculateTargets() {
-    var displayOffset = $('#display').offset().left;
+    var displayOffset = $('main').offset().left;
     targets = [{
         x: displayOffset - 500,
         y: H / 2 + correction[0]

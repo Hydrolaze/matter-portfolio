@@ -22,7 +22,7 @@
             opacity: 0;
         }
 
-        #display {
+        main {
             width: 80rem;
             height: 100vh;
             position: fixed;
@@ -64,7 +64,7 @@
         <h5>Physics powered by Matter.js</h5>
     </div>
 
-    <div id="display">
+    <main>
         <section id="hello" class="intro-section">
             <img src="rasters/hello-graphic.png" class="hello-graphic">
             <header>
@@ -134,10 +134,10 @@
                 </div>
             </div>
         </section>
-    </div>
+    </main>
 
     <nav>
-        <div id="nav">
+        <div id="nav-icons">
             <header>
                 <img src="vectors/aaron-logo.svg" class="hello-link link" alt="home page">
             </header>

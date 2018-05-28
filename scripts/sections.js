@@ -34,8 +34,8 @@
      }
 
      //Overrides default css values in index.php to hide elements if the script is loaded.
-     $('#display').css('right', '-80rem');
-     $('#queue').css({
+     $('main').css('right', '-80rem');
+     $('nav').css({
          'display': 'none',
          'top': H + 'px'
      });
@@ -48,17 +48,17 @@
          //Don't forget to add link listeners to hello anyways though
          addLinkListeners($('#hello'));
          startQuery.call();
-         $('#display').css({
+         $('main').css({
              'right': '0'
          });
          $('#welcome').css('opacity', '0');
          fields.push({
              angle: 7 * Math.PI / 6,
              magnitude: 0.01,
-             x: W - $('#display').width(),
+             x: W - $('main').width(),
              y: 0,
-             w: $('#display').width(),
-             h: $('#display').height()
+             w: $('main').width(),
+             h: $('main').height()
          });
          $('#continue-icon').css('transform', 'perspective(6rem) rotateX(90deg)');
 
@@ -135,7 +135,7 @@
                  clearInterval(letterSpinInterval);
                  $ection.css({
                      'display': 'none'
-                 }).appendTo('#display');
+                 }).appendTo('main');
 
                  //In the case of intro sections, they should be left hidden until the user continues to the site.
                  if (doSwap) {
@@ -302,7 +302,7 @@
  }
 
  function swapSection($ection, addLinks) {
-     $('#display').animate({
+     $('main').animate({
          scrollTop: 0
      }, {
          complete: function () {

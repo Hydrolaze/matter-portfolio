@@ -171,7 +171,7 @@ nav header {
 
 /*SECTION HEADER STYLES ||||||||||||*/
 
-#display header {
+main header {
     width: 76rem;
     padding: 0 6rem;
 }
@@ -442,7 +442,7 @@ a {
 }
 
 /*NAV ICON STYLES ||||||||||||*/
-#nav header img {
+#nav-icons header img {
     width: 16rem;
     margin: 0 2rem;
     transform: perspective(12em);
@@ -450,25 +450,25 @@ a {
     transition: transform 0.5s;
 }
 
-#nav header img:hover,
-#nav header img:active {
+#nav-icons header img:hover,
+#nav-icons header img:active {
     transform: perspective(12em) rotateX(12deg);
 }
 
-#nav .icon-tray div, #nav .icon-tray img {
+#nav-icons .icon-tray div, #nav-icons .icon-tray img {
     font-size: 9px;
 }
 
-#nav .icon-tray {
+#nav-icons .icon-tray {
     margin: 1rem 2rem;
     flex-direction: column;
 }
 
-#nav .icon-tray > * + * {
+#nav-icons .icon-tray > * + * {
     margin-top: 2em;
 }
 
-#nav .portfolio-container {
+#nav-icons .portfolio-container {
     width: 21.5em;
 }
 
@@ -481,7 +481,7 @@ a {
     align-content: flex-start;
 }
 
-#display .works-tray {
+main .works-tray {
     width: 80rem;
     padding: 0 1rem;
 }
@@ -502,7 +502,7 @@ a {
     text-decoration: none;
 }
 
-#display .work {
+main .work {
     width: 24.6666rem;
     height: 24.6666rem;
     margin: 0.5rem;
@@ -525,8 +525,8 @@ a {
     height: 9rem;
 }
 
-#display .work:hover,
-#display .work:active {
+main .work:hover,
+main .work:active {
     transform: perspective(12rem) rotateX(2deg);
 }
 
@@ -668,7 +668,7 @@ a {
     text-align: center;
 }
 
-#display .work-desc {
+main .work-desc {
     font-size: 2rem;
 }
 

@@ -306,7 +306,7 @@ function continueToSite() {
     rollCall();
     $('#welcome').fadeOut(2000);
     //Add link listeners to any sections already in the display panel on page load.
-    $('#display section').each(function () {
+    $('main section').each(function () {
         addLinkListeners($(this));
     });
     setTimeout(displayEnter, 3000);
@@ -386,25 +386,25 @@ function displayEnter(dur) {
     var introSection = $('.intro-section');
     var displaySpace = (introSection.attr('id') == 'custom-queue') ? 1224 : 960;
     introSection.css('display', 'flex');
-    $('#display').animate({
+    $('main').animate({
         'right': '0'
     }, {
         duration: 2000,
         progress: function () {
             if (W > 570 + displaySpace) {
-                horzAnimation(parseFloat(document.getElementById('display').style.right) + displaySpace);
+                horzAnimation(parseFloat(document.getElementsByTagName('main')[0].style.right) + displaySpace);
             } else {
-                vertAnimation(parseFloat(document.getElementById('display').style.right) + displaySpace, displaySpace);
+                vertAnimation(parseFloat(document.getElementsByTagName('main')[0].style.right) + displaySpace, displaySpace);
             }
         },
         complete: function () {
             fields.push({
                 angle: 7 * Math.PI / 6,
                 magnitude: 0.01,
-                x: W - $('#display').width(),
+                x: W - $('main').width(),
                 y: 0,
-                w: $('#display').width(),
-                h: $('#display').height()
+                w: $('main').width(),
+                h: $('main').height()
             })
             current$ection = introSection;
             if (current$ection.attr('id') == 'custom-queue') {
@@ -419,7 +419,7 @@ function displayEnter(dur) {
 $(document).ready(function () {
 
     //place the matter canvas behind the display element so that the display panel can be interacted with
-    $('#matter').insertBefore($('#display'))
+    $('#matter').insertBefore($('main'))
 
     //initialise letter SVG so that they track the Matter bodies
     for (l in letterSVGs) {
