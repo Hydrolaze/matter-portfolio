@@ -39,7 +39,7 @@
          'display': 'none',
          'top': H + 'px'
      });
-     addLinkListeners($('.queue-control'));
+     addLinkListeners($('nav'));
      $('section').css('display', 'none');
 
      //If there was a section in the querystring aside from an intro section, then it will load and enter immediately.

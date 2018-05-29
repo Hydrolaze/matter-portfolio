@@ -155,11 +155,17 @@
                     MY PORTFOLIO
                     </span>
                 </div>
-                <div class="icon-container">
-                    <img src="vectors/icons/aaron-page.svg" class="icon aaron-link link">
+                <div class="minicon-container">
+                    <img src="vectors/icons/aaron-page-mini.svg" class="icon minicon aaron-link link">
                     <span class="icon-desc">
                     ABOUT ME
-                </span>
+                    </span>
+                </div>
+                <div class="minicon-container">
+                    <img src="vectors/icons/anim-custom-queue-mini.svg" class="icon minicon custom-queue-link link">
+                    <span class="icon-desc">
+                    YOUR QUEUE
+                    </span>
                 </div>
             </div>
         </div>

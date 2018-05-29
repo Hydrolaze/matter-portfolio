@@ -323,12 +323,16 @@ a {
     display: flex;
 }
 
-.icon-tray > * + * {
+main .icon-tray > * + * {
     margin-left: 4em;
 }
 
 .icon-container {
     width: 12em;
+}
+
+.minicon-container {
+    width: 10em;
 }
 
 .icon {
@@ -343,6 +347,16 @@ a {
     transform: perspective(12em) rotateY(6deg);
 }
 
+.minicon.icon {
+    width: 10em;
+    height: 10em;
+}
+
+.minicon.icon:hover,
+.minicon.icon:active {
+    transform: perspective(12em) rotateY(8deg);
+}
+
 .icon-desc {
     position: relative;
     top: 0.5em;
@@ -353,7 +367,7 @@ a {
     font-size: 1.25rem;
 }
 
-.icon-tray img {
+.icon-tray img, .icon {
     transition: transform 0.5s;
 }
 
@@ -460,12 +474,18 @@ a {
 }
 
 #nav-icons .icon-tray {
-    margin: 1rem 2rem;
-    flex-direction: column;
+    margin: 1rem 1.9rem;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
 }
 
 #nav-icons .icon-tray > * + * {
     margin-top: 2em;
+}
+
+#nav-icons .minicon-container + .minicon-container {
+    margin-left: 1.5em;
 }
 
 #nav-icons .portfolio-container {
@@ -634,7 +654,7 @@ main .work:active {
     text-transform: uppercase;
 }
 
-#works .work-desc-container {
+#works .work-desc-container, #custom-queue .work-desc-container {
     width: 100%;
     padding: 0.5rem;
     background-color: rgba(0, 0, 0, 0.5);
