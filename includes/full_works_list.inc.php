@@ -1,7 +1,7 @@
 <?php
 $works_list = array(
     'oats-ads' => array(
-        'desc' => 'Mall Directory Ad',
+        'desc' => 'Directory Mall Ad',
         'tags' => array('illustrator','photoshop')
     ),
     'kohana-flier' => array(

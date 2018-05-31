@@ -362,7 +362,7 @@
          //Remove tags, set display to none, then fade in the works.
          var $work = $(this).clone(true, true);
          $work.children('.label').remove();
-         var $workCard = $('<div class="work-card"></div>').append($work).css('display', 'none');
+         var $workCard = $('<div class="work-card"></div>').append($work).append($work.children('.work-desc-container')).css('display', 'none');
          $('#queue .works-tray').append($workCard);
          setTimeout(function () {
              $workCard.fadeIn(500);
@@ -408,9 +408,6 @@
                      h: H
                  });
 
-                 //Adjust .works-tray height so that it scrolls properly (this must be dynamically changed whenever a new queue is loaded because the contents of the queue-tag determine how much space remains after the header)
-                 $('#queue .works-tray').height(H - $('#queue header').outerHeight());
-                 //console.log("queue header outer height is " + $('#queue header').outerHeight())
              }
          });
      } else {
@@ -420,3 +417,10 @@
          //console.log("queue header outer height is " + $('#queue header').outerHeight())
      }
  }
+
+function testCollapse() {
+    $('.work-card').each(function () {
+        var num = Math.random();
+	   if (num > 0.5) {$(this).toggleClass('collapsed')};
+    })
+};

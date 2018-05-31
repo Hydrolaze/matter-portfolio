@@ -29,10 +29,18 @@ section > * + * {
 /*NAV PANEL STYLES ||||||||||||*/
 
 nav {
-    background: rgba(0, 25, 112, 0.9);
     color: #CFCECD;
     font-size: 2rem;
     overflow-y: hidden;
+}
+
+nav > * {
+    background: rgba(0, 25, 112, 0.9);
+    padding: 1rem 0;
+}
+
+nav > * + * {
+    margin-top: 1rem;
 }
 
 /*QUEUE PANE STYLES ||||||||||||*/
@@ -78,7 +86,6 @@ nav {
 
 nav header {
     width: 20rem;
-    padding-top: 2rem;
 }
 
 .queue-label {
@@ -358,8 +365,8 @@ main .icon-tray > * + * {
 }
 
 .icon-desc {
-    position: relative;
-    top: 0.5em;
+    display: block;
+    padding-top: 0.25em;
     color: #FFD980;
 }
 
@@ -456,6 +463,9 @@ main .icon-tray > * + * {
 }
 
 /*NAV ICON STYLES ||||||||||||*/
+
+
+
 #nav-icons header img {
     width: 16rem;
     margin: 0 2rem;
@@ -492,7 +502,9 @@ main .icon-tray > * + * {
     width: 21.5em;
 }
 
+/*||||||||||||||||||||||||*/
 /*WORK STYLES ||||||||||||*/
+/*||||||||||||||||||||||||*/
 
 .works-tray {
     display: flex;
@@ -508,11 +520,8 @@ main .works-tray {
 
 #queue .works-tray {
     width: 20rem;
-    padding: 1rem;
-    height: calc(100vh - 16.4167rem);
-    /* NOTE
-    The value subtracted here is the default outerHeight of the queue header when the queue-tag contains one line of text. The height of the queue's works-tray is dynamically modified by the populateQueue function in sections.js, but this is a default value that is set in case the function fails for whatever reason.
-    */
+    padding: 0 1rem;
+    height: 29rem;
 }
 
 .work {
@@ -533,16 +542,33 @@ main .work {
 
 #queue .work-card {
     width: 18rem;
-    margin-bottom: 1rem;
+    height: 9rem;
     background-color: rgba(38, 39, 41, 0.9);
     transform: perspective(12rem);
     transform-origin: center bottom;
     transition: transform 0.5s;
+    display: flex;
+    align-items: center;
+    
+    transition: height 0.5s;
+}
+
+#queue .work-card + .work-card {
+    margin-top: 1rem;
+}
+
+#queue .work-card.collapsed  {
+    height: 4.5rem;
 }
 
 #queue .work {
     width: 9rem;
-    height: 9rem;
+    height: inherit;
+    transition: opacity 0.5s;
+}
+
+#queue .work-card.collapsed .work  {
+    opacity: 0;
 }
 
 main .work:hover,
@@ -554,6 +580,10 @@ main .work:active {
 #queue .work-card:active {
     transform: perspective(12rem) rotateX(4deg);
 }
+
+/*|||||||||||||||||||||||||*/
+/*LABEL STYLES ||||||||||||*/
+/*|||||||||||||||||||||||||*/
 
 .label {
     height: 1.6rem;
@@ -654,6 +684,10 @@ main .work:active {
     text-transform: uppercase;
 }
 
+/*|||||||||||||||||||||||||||||*/
+/*WORK DESC STYLES ||||||||||||*/
+/*|||||||||||||||||||||||||||||*/
+
 #works .work-desc-container, #custom-queue .work-desc-container {
     width: 100%;
     padding: 0.5rem;
@@ -667,15 +701,9 @@ main .work:active {
 }
 
 #queue .work-desc-container {
-    width: 100%;
-    height: 100%;
+    width: 9rem;
     padding: 1rem;
-    position: absolute;
-    bottom: 0;
-    left: 100%;
     display: flex;
-    justify-content: center;
-    align-items: center;
     color: #262729;
 }
 
@@ -694,6 +722,7 @@ main .work-desc {
 
 #queue .work-desc {
     font-size: 1.25rem;
+    text-align: left;
 }
 
 
