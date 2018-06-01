@@ -288,10 +288,6 @@ h4 {
     font-size: 2rem;
 }
 
-section > h3, section > h4, section > p {
-    padding: 0 6rem;
-}
-
 pre {
     font-size: 1.25rem;
     font-family: 'Roboto Mono', "Lucida Console", Monaco, monospace;
@@ -726,6 +722,7 @@ main .work-desc {
 
 .copy {
     width: 80rem;
+    padding: 0 6rem;
 }
 
 .copy > * + * {
@@ -736,8 +733,15 @@ main .work-desc {
     clear: both;
 }
 
+.block + .block {
+    border-top: 2px solid #CFCECD;
+    padding-top: 2rem;
+}
+
 pre {
-    padding: 0 6rem;
+    padding: 1rem 0;
+    border-top: 1px solid #CFCECD;
+    border-bottom: 1px solid #CFCECD;
 }
 
 video {
@@ -756,14 +760,12 @@ video {
 
 .photo-left {
     float: left;
-    margin: 2rem;
-    margin-left: 6rem;
+    margin: 2rem 2rem 2rem 0;
 }
 
 .photo-right {
     float: right;
-    margin: 2rem;
-    margin-right: 6rem;
+    margin: 2rem 0 2rem 2rem;
 }
 
 .block .photo {
@@ -812,6 +814,7 @@ video {
 
 .photogrid {
     width: 80rem;
+    margin-left: -6rem;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;

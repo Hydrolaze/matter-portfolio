@@ -73,9 +73,11 @@
                 <span class="line-three">graphic designer &amp; web developer</span>
             </header>
 
-            <p>I'm a graphic designer who is currently looking for challenging and rewarding work in North San Diego county. Print design is my specialty, but I have have considerable experience in web graphics and programming as well. </p>
+            <div class="copy">
+                <p>I'm a graphic designer who is currently looking for challenging and rewarding work in North San Diego county. Print design is my specialty, but I have have considerable experience in web graphics and programming as well. </p>
 
-            <p>Pick an option below to explore my work and history.</p>
+                <p>Pick an option below to explore my work and history.</p>
+            </div>
 
             <div class="queue-container">
                 <img src="vectors/icons/anim-custom-queue.svg" class="icon custom-queue-link link">
@@ -174,7 +176,7 @@
                 <h1>QUEUE</h1>
                 <h5>of works tagged</h5>
                 <div class="queue-label all-label"></div>
-<!--
+                <!--
                 <div class="queue-control">
                     <span class="span-icon prev-link link"></span>
                     <span class="span-icon next-link link"></span>

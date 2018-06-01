@@ -18,15 +18,19 @@ if (isset($_GET['tag'])) {
 ?>
 
 
-<section id="works">
-    <header>
-        <h1>MY <?php echo $tag_full_name; ?> WORK</h1>
-        <h2>Examples of <?php echo $tag_full_name; ?> pieces I have worked on in the past.</h2>
-    </header>
-    <p>Here are links to some of my works. Tags in the top right of each icon describe the skills I employed in creating them. Explore whichever interest you!</p>
-    <div class="works-tray">
+    <section id="works">
+        <header>
+            <h1>MY
+                <?php echo $tag_full_name; ?> WORK</h1>
+            <h2>Examples of
+                <?php echo $tag_full_name; ?> pieces I have worked on in the past.</h2>
+        </header>
+        <div class="copy">
+            <p>Here are links to some of my works. Tags in the top right of each icon describe the skills I employed in creating them. You may use the queue control panel on the left to navigate your queue even after leaving this page.</p>
+        </div>
+        <div class="works-tray">
 
-    <?php
+            <?php
         $key_is_valid = false;
         if(isset($_GET['key'])) {
             include('../custom-queue/queues.php');
@@ -46,5 +50,5 @@ if (isset($_GET['tag'])) {
         generate_works($works_list, $tag);
     ?>
 
-    </div>
-</section>
+        </div>
+    </section>

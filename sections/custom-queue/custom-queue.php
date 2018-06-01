@@ -23,6 +23,7 @@ if(isset($queues[$_GET['key']])):
             <span class="line-three"><?php echo $company['my_title']; ?></span>
         </header>
 
+       <div class="copy">
         <p>I'm a graphic designer who is currently looking for challenging and rewarding work in North San Diego county. Print design is my specialty, but I have have considerable experience in web graphics and programming as well.</p>
 
         <p>
@@ -30,6 +31,7 @@ if(isset($queues[$_GET['key']])):
         </p>
 
         <p>I hand-selected the pieces below for you at <span class="variable-info" id="company-name"><?php echo $company['name']; ?></span> to demonstrate my qualification for the position of <span class="variable-info"><?php echo $company['position']; ?></span>. You may use the panel to the left to navigate the queue. Enjoy!</p>
+        </div>
 
         <span class="span-icon link begin-link" style="font-size:2rem;">BEGIN QUEUE</span>
 
