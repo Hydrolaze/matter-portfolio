@@ -1,5 +1,6 @@
  var startQuery = new Query(),
      current$ection = $('#hello'),
+     called$ection,
      user = {},
      queue = {
          array: [],
@@ -8,7 +9,11 @@
          tag: ''
      };
 
- var called$ection;
+ var remBasis = 12;
+
+function updateRemBasis() {
+    remBasis = parseInt(window.getComputedStyle(document.documentElement, null).getPropertyValue('font-size'));
+}
 
  $(document).ready(function () {
 
@@ -104,14 +109,7 @@
 
                  //These sections will never be in a queue so don't run the code for these.
                  if (this.section !== 'works' && this.section !== 'hello' && this.section !== 'aaron') {
-                     for (q in queue.array) {
-                         if (queue.array[q] === this.section) {
-                             //Highlight the currently displayed work with a border.
-                             $('#queue .' + this.section + '-link').addClass('displayed-work');
-                             //Record the queue position.
-                             queue.pos = parseInt(q, 10);
-                         }
-                     }
+                     showDisplayedWork(this.section);
                  }
              }
          }
@@ -351,7 +349,7 @@
          tag: q.tag
      };
      if ($('#queue').css('display') === 'block') {
-         $('#queue .work-card').fadeOut(500);
+         $('#queue .queue-card').fadeOut(500);
      }
  }
 
@@ -362,21 +360,25 @@
          //Remove tags, set display to none, then fade in the works.
          var $work = $(this).clone(true, true);
          $work.children('.label').remove();
-         var $workCard = $('<div class="work-card"></div>').append($work).append($work.children('.work-desc-container')).css('display', 'none');
-         $('#queue .works-tray').append($workCard);
+         var $queueCard = $('<div class="queue-card' + (i === 0 ? ' displayed-work' : '') + '"></div>').append($work).append($work.children('.work-desc-container')).css('display', 'none');
+         $('#queue .works-tray').append($queueCard);
          setTimeout(function () {
-             $workCard.fadeIn(500);
+             $queueCard.fadeIn(500);
          }, i * 100);
 
          //Get section names and save to queue.array
          queue.pos = 0;
-         var classes = $workCard.children('.link').attr('class').split(' ');
+         var classes = $queueCard.children('.link').attr('class').split(' ');
          for (c in classes) {
              if (classes[c].endsWith('-link')) {
                  queue.array[i] = classes[c].substring(0, classes[c].lastIndexOf('-link'));
              }
          }
      });
+     
+     $('#queue .works-tray').prepend('<div class="queue-card"><span class="span-icon begin-link link">BEGIN QUEUE</span></div>');
+     $('#queue .works-tray').append('<div class="queue-card"><span class="span-icon aaron-link link">GET IN TOUCH</span></div>');
+     
 
      //Change the header and queue tag to reflect the type of queue being displayed.
      if (queue.section === 'works') {
@@ -418,9 +420,35 @@
      }
  }
 
-function testCollapse() {
-    $('.work-card').each(function () {
-        var num = Math.random();
-	   if (num > 0.5) {$(this).toggleClass('collapsed')};
-    })
-};
+ function showDisplayedWork(section) {
+     // Find the displayed work in the queue array.
+     var $tray = $('#queue .works-tray');
+     for (q in queue.array) {
+         if (queue.array[q] === section) {
+             // Record the queue position.
+             queue.pos = parseInt(q, 10);
+             $tray.children().removeClass('displayed-work');
+             $tray.children().children('.work').removeClass('prev-work', 'next-work');
+             $tray.children().eq(queue.pos + 1).addClass('displayed-work');
+             if (queue.pos > 0) {
+                 $tray.children().eq(queue.pos).children('.work').addClass('prev-work');
+             };
+             if (queue.pos < queue.array.length) {
+                 $tray.children().eq(queue.pos + 2).children('.work').addClass('next-work');
+             }
+             // Animate to the queue position.
+             $('#queue .works-tray').animate({
+                 'scrollTop': remBasis * 5.5 * (queue.pos)
+             });
+         }
+     }
+ }
+
+ function toggleCard() {
+     var cards = $('.queue-card');
+     for (a in arguments) {
+         var int = parseInt(arguments[a])
+         var arg = Math.min(Math.max(parseInt(arguments[a]), 0), cards.length - 1);
+         cards.eq(arg).toggleClass('displayed-work');
+     }
+ };
