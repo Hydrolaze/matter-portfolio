@@ -176,15 +176,10 @@
                 <h1>QUEUE</h1>
                 <h5>of works tagged</h5>
                 <div class="queue-label all-label"></div>
-                <!--
-                <div class="queue-control">
-                    <span class="span-icon prev-link link"></span>
-                    <span class="span-icon next-link link"></span>
-                </div>
--->
             </header>
             <div class="works-tray">
-
+                <div class="queue-card link-card"><span class="span-icon begin-link link">BEGIN QUEUE</span></div>
+                <div class="queue-card link-card"><span class="span-icon aaron-link link">GET IN TOUCH</span></div>
             </div>
         </div>
     </nav>

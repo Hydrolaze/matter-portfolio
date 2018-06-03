@@ -11,9 +11,9 @@
 
  var remBasis = 12;
 
-function updateRemBasis() {
-    remBasis = parseInt(window.getComputedStyle(document.documentElement, null).getPropertyValue('font-size'));
-}
+ function updateRemBasis() {
+     remBasis = parseInt(window.getComputedStyle(document.documentElement, null).getPropertyValue('font-size'));
+ }
 
  $(document).ready(function () {
 
@@ -105,11 +105,11 @@ function updateRemBasis() {
          if (!sameSection) {
              //If queue is present on screen, check to see if one of the sections in it is being viewed, and highlight 
              if ($('#queue').css('display') === 'block') {
-                 $('#queue .displayed-work').removeClass('displayed-work');
+                 $('#queue .active-card').removeClass('active-card');
 
                  //These sections will never be in a queue so don't run the code for these.
                  if (this.section !== 'works' && this.section !== 'hello' && this.section !== 'aaron') {
-                     showDisplayedWork(this.section);
+                     updateActiveCard(this.section);
                  }
              }
          }
@@ -177,52 +177,54 @@ function updateRemBasis() {
          //Assemble all parameters with delimiting ampersands
          var str = queries.join('&');
 
-         //Prepend a '?' to the querystring if there are any queries, else return any empty string
+         //Prepend a '?' to the querystring if there are any queries, else return an empty string
          return (str.length > 0) ? '?' + str : '';
      };
  }
 
- function Nav(section, tag) {
+ /*
+  function Nav(section, tag) {
 
-     // 'includes/site_tree.xml'
-     this.$tree = function (url) {
-         $.ajax({
-             url: 'includes/site_tree.xml',
-             context: this,
-             dataType: 'xml',
-             error: function (jQXHR, status, error) {
-                 console.log(status + ' ' + error);
-             },
-             success: function (data) {
-                 return $(data);
-                 console.log('data is ' + data);
-             }
-         });
-     };
-     this.updateNav = function (newSection, newTag) {
+      // 'includes/site_tree.xml'
+      this.$tree = function (url) {
+          $.ajax({
+              url: 'includes/site_tree.xml',
+              context: this,
+              dataType: 'xml',
+              error: function (jQXHR, status, error) {
+                  console.log(status + ' ' + error);
+              },
+              success: function (data) {
+                  return $(data);
+                  console.log('data is ' + data);
+              }
+          });
+      };
+      this.updateNav = function (newSection, newTag) {
 
-         this.section = newSection || 'hello';
-         this.tag = newTag || '';
-         this.$node = this.$tree.find('section[name="' + this.section + '"]');
+          this.section = newSection || 'hello';
+          this.tag = newTag || '';
+          this.$node = this.$tree.find('section[name="' + this.section + '"]');
 
-         // Don't bother 
-         if (!this.$node.is('root')) {
+          // Don't bother 
+          if (!this.$node.is('root')) {
 
-             var atRoot = false;
-             this.path = [this.$node.attr('name')];
-             while (!atRoot) {
-                 var $parent = this.$node.parent('');
-                 if ($parent.is('root')) {
-                     atRoot = true;
-                 }
-                 this.path.unshift($parent.attr(''));
-             }
-             console.log('nav path is: ' + this.path.join(' > '));
-         }
-     };
-     this.updateNav(section, tag);
+              var atRoot = false;
+              this.path = [this.$node.attr('name')];
+              while (!atRoot) {
+                  var $parent = this.$node.parent('');
+                  if ($parent.is('root')) {
+                      atRoot = true;
+                  }
+                  this.path.unshift($parent.attr(''));
+              }
+              console.log('nav path is: ' + this.path.join(' > '));
+          }
+      };
+      this.updateNav(section, tag);
 
- }
+  }
+  */
 
  //============ SECTION FUNCTIONS
 
@@ -349,7 +351,9 @@ function updateRemBasis() {
          tag: q.tag
      };
      if ($('#queue').css('display') === 'block') {
-         $('#queue .queue-card').fadeOut(500);
+         $('#queue .work-card').fadeOut(400, function () {
+             $(this).remove();
+         });
      }
  }
 
@@ -360,8 +364,9 @@ function updateRemBasis() {
          //Remove tags, set display to none, then fade in the works.
          var $work = $(this).clone(true, true);
          $work.children('.label').remove();
-         var $queueCard = $('<div class="queue-card' + (i === 0 ? ' displayed-work' : '') + '"></div>').append($work).append($work.children('.work-desc-container')).css('display', 'none');
-         $('#queue .works-tray').append($queueCard);
+         var $queueCard = $('<div class="queue-card work-card"></div>').append($work).append($work.children('.work-desc-container')).css('display', 'none');
+         //Insert the new card before the second .link-card (which is the last .queue-card).
+         $('.link-card').eq(1).before($queueCard);
          setTimeout(function () {
              $queueCard.fadeIn(500);
          }, i * 100);
@@ -375,10 +380,8 @@ function updateRemBasis() {
              }
          }
      });
-     
-     $('#queue .works-tray').prepend('<div class="queue-card"><span class="span-icon begin-link link">BEGIN QUEUE</span></div>');
-     $('#queue .works-tray').append('<div class="queue-card"><span class="span-icon aaron-link link">GET IN TOUCH</span></div>');
-     
+
+     $('.link-card').eq(0).addClass('active-card');
 
      //Change the header and queue tag to reflect the type of queue being displayed.
      if (queue.section === 'works') {
@@ -409,32 +412,33 @@ function updateRemBasis() {
                      w: $('nav').width(),
                      h: H
                  });
-
              }
          });
-     } else {
-
-         //Same script as above, executes even if queue is already displayed
-         $('#queue .works-tray').height(H - $('#queue header').outerHeight());
-         //console.log("queue header outer height is " + $('#queue header').outerHeight())
      }
  }
 
- function showDisplayedWork(section) {
+ function updateActiveCard(section) {
      // Find the displayed work in the queue array.
-     var $tray = $('#queue .works-tray');
+     var $cards = $('#queue .queue-card');
      for (q in queue.array) {
          if (queue.array[q] === section) {
              // Record the queue position.
              queue.pos = parseInt(q, 10);
-             $tray.children().removeClass('displayed-work');
-             $tray.children().children('.work').removeClass('prev-work', 'next-work');
-             $tray.children().eq(queue.pos + 1).addClass('displayed-work');
+             $cards.removeClass('active-card');
+             $('#prev-label, #next-label').fadeOut(400, function () {
+                 $(this).remove();
+             });
+             $cards.eq(queue.pos + 1).addClass('active-card');
+
              if (queue.pos > 0) {
-                 $tray.children().eq(queue.pos).children('.work').addClass('prev-work');
+                 var prevLabel = $('<div id="prev-label"><span class="span-label">PREV</span></div>').css('display', 'none');
+                 $cards.eq(queue.pos).children('.work').append(prevLabel);
+                 prevLabel.fadeIn();
              };
              if (queue.pos < queue.array.length) {
-                 $tray.children().eq(queue.pos + 2).children('.work').addClass('next-work');
+                 var nextLabel = $('<div id="next-label"><span class="span-label">NEXT</span></div>').css('display', 'none');
+                 $cards.eq(queue.pos + 2).children('.work').append(nextLabel);
+                 nextLabel.fadeIn();
              }
              // Animate to the queue position.
              $('#queue .works-tray').animate({
@@ -443,12 +447,3 @@ function updateRemBasis() {
          }
      }
  }
-
- function toggleCard() {
-     var cards = $('.queue-card');
-     for (a in arguments) {
-         var int = parseInt(arguments[a])
-         var arg = Math.min(Math.max(parseInt(arguments[a]), 0), cards.length - 1);
-         cards.eq(arg).toggleClass('displayed-work');
-     }
- };

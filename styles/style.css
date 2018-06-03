@@ -53,7 +53,7 @@ nav > * + * {
     display: none;
 }
 
-.displayed-work {
+.active-card {
     height: 9rem !important;
 }
 
@@ -68,7 +68,6 @@ nav > * + * {
     text-align: center;
     width: 100%;
     padding: 1.1rem 0;
-    background: rgba(85, 87, 89, 0.75);
 }
 
 .prev-work::after {
@@ -305,11 +304,14 @@ a {
 
 /*ICON STYLES ||||||||||||*/
 
-.span-icon {
+.span-icon, .span-label {
     color: #FFD980;
     font-family: 'Montserrat', Verdana, sans-serif;
     font-weight: 400;
     text-transform: uppercase;
+}
+
+.span-icon {
     transition: letter-spacing 0.5s;
 }
 
@@ -555,13 +557,27 @@ main .work {
     transition: transform 0.5s;
 }
 
+.link-card, #prev-label, #next-label, #queue .work-desc-container {
+    display: flex;
+    align-items: center;
+    background-color: rgba(85, 87, 89, 0.75);
+}
+
+.link-card, #prev-label, #next-label {
+    justify-content: center;
+}
+
+#prev-label, #next-label {
+    height: inherit;
+}
+
 main .work:hover,
 main .work:active {
     transform: perspective(12rem) rotateX(2deg);
 }
 
-#queue .queue-card:hover .span-icon,
-#queue .queue-card:active .span-icon {
+.queue-card:hover .span-icon,
+.queue-card:active .span-icon {
     letter-spacing: -0.3rem;
 }
 
@@ -693,9 +709,6 @@ main .work:active {
     width: 9rem;
     height: inherit;
     padding: 0 1rem;
-    display: flex;
-    align-items: center;
-    background-color: rgba(85, 87, 89, 0.9);
     color: #262729;
 }
 
