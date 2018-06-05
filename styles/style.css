@@ -37,9 +37,6 @@ nav {
 nav > * {
     background: rgba(0, 25, 112, 0.9);
     padding: 1rem 0;
-}
-
-nav > * + * {
     margin-top: 1rem;
 }
 
@@ -67,7 +64,6 @@ nav > * + * {
     display: block;
     text-align: center;
     width: 100%;
-    padding: 1.1rem 0;
 }
 
 .prev-work::after {
@@ -565,6 +561,22 @@ main .work {
 
 .link-card, #prev-label, #next-label {
     justify-content: center;
+    flex-direction: column;
+}
+
+.link-card::before {
+    content: 'CLICK HERE TO';
+    font-size: 1.25rem;
+    margin-top: -1.5rem;
+    margin-bottom: 0.25rem;
+    color: #FFD980;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.link-card.active-card::before {
+    opacity: 1;
+    margin-top: 0.5rem;
 }
 
 #prev-label, #next-label {

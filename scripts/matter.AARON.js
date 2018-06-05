@@ -119,7 +119,7 @@ var letterBodies = [
 engine.world.gravity.y = 0;
 
 //create fields array and add area field
-var fields = [];
+var fields = {};
 
 // run the engine
 Engine.run(engine);
@@ -149,7 +149,7 @@ Events.on(render, "afterRender", function (e) {
     }
 
     //for every field object...
-    for (i in fields) {
+    for (var i in fields) {
         var f = fields[i];
         //and for every letter...
         for (letter in letterBodies) {
@@ -398,14 +398,14 @@ function displayEnter(dur) {
             }
         },
         complete: function () {
-            fields.push({
+            fields.main = {
                 angle: 7 * Math.PI / 6,
                 magnitude: 0.01,
                 x: W - $('main').width(),
                 y: 0,
                 w: $('main').width(),
                 h: $('main').height()
-            })
+            }
             current$ection = introSection;
             if (current$ection.attr('id') == 'custom-queue') {
                 populateQueue();

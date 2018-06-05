@@ -38,11 +38,10 @@
             overflow-x: hidden;
             position: fixed;
             right: 82rem;
-            top: 100vh;
-            display: none;
+            top: 0;
         }
-
-        section {
+        
+        nav > *, section {
             display: none;
         }
 

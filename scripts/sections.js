@@ -40,10 +40,6 @@
 
      //Overrides default css values in index.php to hide elements if the script is loaded.
      $('main').css('right', '-80rem');
-     $('nav').css({
-         'display': 'none',
-         'top': H + 'px'
-     });
      addLinkListeners($('nav'));
      $('section').css('display', 'none');
 
@@ -57,14 +53,14 @@
              'right': '0'
          });
          $('#welcome').css('opacity', '0');
-         fields.push({
+         fields.main = {
              angle: 7 * Math.PI / 6,
              magnitude: 0.01,
              x: W - $('main').width(),
              y: 0,
              w: $('main').width(),
              h: $('main').height()
-         });
+         };
          $('#continue-icon').css('transform', 'perspective(6rem) rotateX(90deg)');
 
          //If the section is custom-queue, it replaces #hello as the intro section, but does not enter immediately.
@@ -103,9 +99,19 @@
 
          //Update the queue if the new section isn't the same as the old one.
          if (!sameSection) {
+             //If the section is hello, then fadeOut the #nav-icons.
+             if (this.section === 'hello') {
+                 showNavIcons(false);
+                 showQueue(false);
+             } else if (this.section === 'aaron') {
+                 showNavIcons(true);
+                 showQueue(false);
+             } else {
+                 showNavIcons(true);
+             }
+
              //If queue is present on screen, check to see if one of the sections in it is being viewed, and highlight 
              if ($('#queue').css('display') === 'block') {
-                 $('#queue .active-card').removeClass('active-card');
 
                  //These sections will never be in a queue so don't run the code for these.
                  if (this.section !== 'works' && this.section !== 'hello' && this.section !== 'aaron') {
@@ -181,50 +187,6 @@
          return (str.length > 0) ? '?' + str : '';
      };
  }
-
- /*
-  function Nav(section, tag) {
-
-      // 'includes/site_tree.xml'
-      this.$tree = function (url) {
-          $.ajax({
-              url: 'includes/site_tree.xml',
-              context: this,
-              dataType: 'xml',
-              error: function (jQXHR, status, error) {
-                  console.log(status + ' ' + error);
-              },
-              success: function (data) {
-                  return $(data);
-                  console.log('data is ' + data);
-              }
-          });
-      };
-      this.updateNav = function (newSection, newTag) {
-
-          this.section = newSection || 'hello';
-          this.tag = newTag || '';
-          this.$node = this.$tree.find('section[name="' + this.section + '"]');
-
-          // Don't bother 
-          if (!this.$node.is('root')) {
-
-              var atRoot = false;
-              this.path = [this.$node.attr('name')];
-              while (!atRoot) {
-                  var $parent = this.$node.parent('');
-                  if ($parent.is('root')) {
-                      atRoot = true;
-                  }
-                  this.path.unshift($parent.attr(''));
-              }
-              console.log('nav path is: ' + this.path.join(' > '));
-          }
-      };
-      this.updateNav(section, tag);
-
-  }
-  */
 
  //============ SECTION FUNCTIONS
 
@@ -365,6 +327,7 @@
          var $work = $(this).clone(true, true);
          $work.children('.label').remove();
          var $queueCard = $('<div class="queue-card work-card"></div>').append($work).append($work.children('.work-desc-container')).css('display', 'none');
+
          //Insert the new card before the second .link-card (which is the last .queue-card).
          $('.link-card').eq(1).before($queueCard);
          setTimeout(function () {
@@ -398,23 +361,8 @@
      }
 
      //Animate queue in if not already on screen, also add force field.
-     if ($('nav').css('display') !== 'block') {
-         $('nav').css('display', 'block').animate({
-             'top': '0'
-         }, {
-             duration: 1000,
-             complete: function () {
-                 fields.push({
-                     angle: 5 * Math.PI / 6,
-                     magnitude: 0.02,
-                     x: $('nav').offset().left,
-                     y: 0,
-                     w: $('nav').width(),
-                     h: H
-                 });
-             }
-         });
-     }
+     showNavIcons(true);
+     showQueue(true);
  }
 
  function updateActiveCard(section) {
@@ -424,12 +372,13 @@
          if (queue.array[q] === section) {
              // Record the queue position.
              queue.pos = parseInt(q, 10);
+
+             //Remove active-card, next-label, and prev-label, then re-apply them as necessary
              $cards.removeClass('active-card');
              $('#prev-label, #next-label').fadeOut(400, function () {
                  $(this).remove();
              });
              $cards.eq(queue.pos + 1).addClass('active-card');
-
              if (queue.pos > 0) {
                  var prevLabel = $('<div id="prev-label"><span class="span-label">PREV</span></div>').css('display', 'none');
                  $cards.eq(queue.pos).children('.work').append(prevLabel);
@@ -447,3 +396,49 @@
          }
      }
  }
+
+ function showNavIcons(show) {
+     var display = $('#nav-icons').css('display');
+     if (show && display === 'none') {
+             $('#nav-icons').fadeIn(400, function () {
+                 fields.navIcons = {
+                     angle: 5 * Math.PI / 6,
+                     magnitude: 0.02,
+                     x: $('#nav-icons').offset().left,
+                     y: $('#nav-icons').offset().top,
+                     w: $('#nav-icons').width(),
+                     h: $('#nav-icons').width()
+                 };
+             });
+     } else if (!show && display === 'block') {
+         if ($('#nav-icons').css('display') == 'block') {
+             $('#nav-icons').fadeOut(400, function () {
+                 delete fields.navIcons;
+             });
+         }
+     }
+ }
+
+function showQueue(show) {
+    var display = $('#queue').css('display');
+    if (show && display === 'none') {
+             $('#queue').fadeIn(400, function () {
+                 fields.queue = {
+                     angle: 5 * Math.PI / 6,
+                     magnitude: 0.02,
+                     x: $('#queue').offset().left,
+                     y: $('#queue').offset().top,
+                     w: $('#queue').width(),
+                     h: $('#queue').width()
+                 };
+             });
+     } else if (!show && display === 'block') {
+         if ($('#queue').css('display') == 'block') {
+             $('#queue').fadeOut(400, function () {
+                 delete fields.queue;
+             });
+         }
+     }
+}
+         
+         
