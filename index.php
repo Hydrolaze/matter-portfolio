@@ -177,8 +177,8 @@
                 <div class="queue-label all-label"></div>
             </header>
             <div class="works-tray">
-                <div class="queue-card link-card"><span class="span-icon begin-link link">BEGIN QUEUE</span></div>
-                <div class="queue-card link-card"><span class="span-icon aaron-link link">GET IN TOUCH</span></div>
+                <div class="queue-card link-card" data-content="OF WORKS"><span class="span-icon begin-link link">BEGIN QUEUE</span></div>
+                <div class="queue-card link-card" data-content="WITH AARON"><span class="span-icon aaron-link link">GET IN TOUCH</span></div>
             </div>
         </div>
     </nav>

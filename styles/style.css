@@ -567,7 +567,6 @@ main .work {
 .link-card::before {
     content: 'CLICK HERE TO';
     font-size: 1.25rem;
-    margin-top: -1.5rem;
     margin-bottom: 0.25rem;
     color: #FFD980;
     opacity: 0;
@@ -577,6 +576,19 @@ main .work {
 .link-card.active-card::before {
     opacity: 1;
     margin-top: 0.5rem;
+}
+
+.link-card::after {
+    content: attr(data-content);
+    font-size: 1.25rem;
+    margin-top: 0.25rem;
+    color: #FFD980;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.link-card.active-card::after {
+    opacity: 1;
 }
 
 #prev-label, #next-label {
@@ -879,5 +891,3 @@ video {
     background-size: cover;
     height: 100%;
 }
-
-;

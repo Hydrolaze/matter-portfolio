@@ -348,6 +348,7 @@
  function populateQueue() {
      //Clones works from the current queue section into the queue panel.
      //console.log('Populating queue with works...');
+     var count = 0;
      $('#' + queue.section + ' .work').each(function (i) {
          //Remove tags, set display to none, then fade in the works.
          var $work = $(this).clone(true, true);
@@ -368,7 +369,11 @@
                  queue.array[i] = classes[c].substring(0, classes[c].lastIndexOf('-link'));
              }
          }
+         count++;
      });
+
+     //Write the number of .work-cards to the "BEGIN QUEUE" button.
+     $('.begin-link').parent().attr('data-content', 'OF ' + count + ' WORKS');
 
      $('.link-card').eq(0).addClass('active-card');
 
