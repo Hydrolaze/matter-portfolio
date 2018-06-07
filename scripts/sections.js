@@ -1,4 +1,5 @@
  var startQuery = new Query(),
+     nav = new Nav(),
      current$ection = $('#hello'),
      called$ection,
      user = {},
@@ -36,18 +37,26 @@
                  user.key = startParams[p].substr(startParams[p].indexOf('=') + 1);
              }
          }
+         if (startQuery.section === 'works' && startQuery.tag === '') {
+             startQuery.tag = 'all';
+         }
      }
 
      //Overrides default css values in index.php to hide elements if the script is loaded.
      $('main').css('right', '-80rem');
      addLinkListeners($('nav'));
+     addLinkListeners($('#hello'));
+     centreHello($('#hello'));
      $('section').css('display', 'none');
+
+     //Set up navbar.
+     nav.addNav($('nav'));
+     nav.addPanel($('#nav-icons'));
+     nav.addPanel($('#queue'));
 
      //If there was a section in the querystring aside from an intro section, then it will load and enter immediately.
      if (startQuery.section !== '' && startQuery.section !== 'hello' && startQuery.section !== 'custom-queue') {
 
-         //Don't forget to add link listeners to hello anyways though
-         addLinkListeners($('#hello'));
          startQuery.call();
          $('main').css({
              'right': '0'
@@ -81,33 +90,33 @@
      this.call = function () {
 
          //Check if that silly user is calling the same section that's already displayed.
-         var sameSection = (this.section === current$ection.attr('id'));
-
-         if (document.getElementById(this.section) === null) {
-             //AJAX the section if it hasn't been yet.
-             this.ajax(true);
-         } else if (this.tag !== '') {
-             //Re-AJAX the section if a tag was specified, as it may be different than the one already displayed.
-             $('#' + this.section).remove();
-             this.ajax(true);
-         } else if (!sameSection) {
-             //If the section already exists (confirmed by previous conditions) and it's not the same one, then swap it in.
-             swapSection($('#' + this.section), false);
+         var sameSection;
+         if (this.section === 'works') {
+             sameSection = false;
+         } else {
+             sameSection = (this.section === current$ection.attr('id'));
          }
-
-         pushHistory(this);
 
          //Update the queue if the new section isn't the same as the old one.
          if (!sameSection) {
              //If the section is hello, then fadeOut the #nav-icons.
-             if (this.section === 'hello') {
-                 showNavIcons(false);
-                 showQueue(false);
-             } else if (this.section === 'aaron') {
-                 showNavIcons(true);
-                 showQueue(false);
-             } else {
-                 showNavIcons(true);
+             console.log('Query.section = ' + this.section);
+             switch (this.section) {
+                 case 'hello':
+                     nav.show('nav-icons', false);
+                     nav.show('queue', false);
+                     break;
+                 case 'aaron':
+                     nav.show('nav-icons', true);
+                     nav.show('queue', false);
+                     break;
+                 case 'works':
+                 case 'custom-queue':
+                     nav.show('nav-icons', true);
+                     nav.show('queue', true);
+                     break;
+                 default:
+                     nav.show('nav-icons', true);
              }
 
              //If queue is present on screen, check to see if one of the sections in it is being viewed, and highlight 
@@ -118,6 +127,27 @@
                      updateActiveCard(this.section);
                  }
              }
+
+             if (document.getElementById(this.section) === null) {
+                 //AJAX the section if it hasn't been yet.
+                 this.ajax(true);
+             } else if (this.tag !== '') {
+                 //Re-AJAX the section if a tag was specified, as it may be different than the one already displayed.
+                 $('#' + this.section).remove();
+                 this.ajax(true);
+             } else if (!sameSection) {
+                 //If the section already exists (confirmed by previous conditions) and it's not the same one, then swap it in.
+                 var $ection = $('#' + this.section);
+                 $('main').animate({
+                     scrollTop: 0
+                 }, {
+                     start: function () {
+                         swapSection($ection);
+                     }
+                 });
+             }
+
+             pushHistory(this);
          }
      };
 
@@ -140,16 +170,23 @@
                  $ection.css({
                      'display': 'none'
                  }).appendTo('main');
-
-                 //In the case of intro sections, they should be left hidden until the user continues to the site.
-                 if (doSwap) {
-                     swapSection($ection, true);
-                 }
+                 addLinkListeners($ection);
 
                  //Determine if the section is one that would contain a queue, and if so, reset the queue object and add the query info.
                  if (this.section === 'works' || this.section === 'custom-queue') {
                      $ection.addClass('intro-section');
                      prepQueue(this);
+                 }
+
+                 //In the case of intro sections, they should be left hidden until the user continues to the site.
+                 if (doSwap) {
+                     $('main').animate({
+                         scrollTop: 0
+                     }, {
+                         start: function () {
+                             swapSection($ection);
+                         }
+                     });
                  }
              }
          });
@@ -263,43 +300,28 @@
      $('#hello-graphic').css('top', helloPadding + "px");
  }
 
- function swapSection($ection, addLinks) {
-     $('main').animate({
-         scrollTop: 0
-     }, {
-         complete: function () {
-             $ection.css({
-                 'display': 'flex',
-                 'top': H + 'px'
-             });
-             if ($ection.attr('id') === 'hello') {
-                 centreHello($ection);
-             }
-             if (addLinks) {
-                 addLinkListeners($ection);
-             }
-
-             $ection.animate({
-                 'top': '0'
-             }, {
-                 duration: 1000,
-                 start: function () {
-                     if (current$ection != undefined) {
-                         current$ection.fadeOut(1000);
-                     }
-                 },
-                 complete: function () {
-                     current$ection = $ection;
-                     //If a queue section was called, calls populateQueue().
-                     var sectionID = current$ection.attr('id');
-                     if (sectionID === 'works' || sectionID === 'custom-queue') {
-                         populateQueue();
-                     }
-                 }
-             });
-         }
+ function swapSection($ection) {
+     $ection.css({
+         'display': 'flex',
+         'top': H + 'px'
      });
 
+     $ection.animate({
+         'top': '0'
+     }, {
+         duration: 1000,
+         start: function () {
+             $('main section').not(this).each(function () {
+                 $(this).fadeOut(1000);
+             });
+
+             //Fade in nav panels as needed.
+             nav.fade();
+         },
+         complete: function () {
+             current$ection = $ection;
+         }
+     });
  }
 
  //============ QUEUE FUNCTIONS
@@ -312,11 +334,15 @@
          section: q.section,
          tag: q.tag
      };
+     $('#queue .works-tray').animate({
+         scrollTop: 0
+     });
      if ($('#queue').css('display') === 'block') {
          $('#queue .work-card').fadeOut(400, function () {
              $(this).remove();
          });
      }
+     populateQueue();
  }
 
  function populateQueue() {
@@ -359,10 +385,6 @@
          $('#queue h5').html("CREATED FOR");
          $('.queue-label').attr('class', 'queue-label custom-label').html($('#company-name').html());
      }
-
-     //Animate queue in if not already on screen, also add force field.
-     showNavIcons(true);
-     showQueue(true);
  }
 
  function updateActiveCard(section) {
@@ -397,48 +419,55 @@
      }
  }
 
- function showNavIcons(show) {
-     var display = $('#nav-icons').css('display');
-     if (show && display === 'none') {
-             $('#nav-icons').fadeIn(400, function () {
-                 fields.navIcons = {
-                     angle: 5 * Math.PI / 6,
-                     magnitude: 0.02,
-                     x: $('#nav-icons').offset().left,
-                     y: $('#nav-icons').offset().top,
-                     w: $('#nav-icons').width(),
-                     h: $('#nav-icons').width()
-                 };
-             });
-     } else if (!show && display === 'block') {
-         if ($('#nav-icons').css('display') == 'block') {
-             $('#nav-icons').fadeOut(400, function () {
-                 delete fields.navIcons;
-             });
-         }
+ function Nav() {
+     this.$elem;
+     this.panels = {};
+     this.addNav = function ($elem) {
+         this.$elem = $elem;
      }
+     this.addPanel = function ($elem) {
+         this.panels[$elem.attr('id')] = $elem;
+     };
+     this.show = function (elemId, showPanel) {
+         // Attempt to queue a fadeIn or fadeOut for the panel whether the boolean is true or false. If the boolean argument is not given then this function does nothing.
+         if (typeof showPanel === 'boolean') {
+             var display = this.panels[elemId].css('display');
+             if (showPanel && display === 'none') {
+                 this.fadeList[elemId] = {
+                     show: true
+                 };
+             } else if (!showPanel && display === 'block') {
+                 this.fadeList[elemId] = {
+                     show: false
+                 };
+             }
+         }
+     };
+     this.fadeList = {};
+     this.fade = function () {
+         for (var elemId in this.fadeList) {
+             var p = this.fadeList[elemId],
+                 $elem = this.panels[elemId];
+             console.log('Panel(id: ' + elemId + ', show: ' + p.show + ')');
+             if (p.show === true) {
+                 $elem.fadeIn(1000, function () {
+                     fields[elemId] = {
+                         angle: 5 * Math.PI / 6,
+                         magnitude: 0.02,
+                         x: $elem.offset().left,
+                         y: $elem.offset().top,
+                         w: $elem.width(),
+                         h: $elem.width()
+                     };
+                 });
+             } else {
+                 if ($elem.css('display') == 'block') {
+                     $elem.fadeOut(1000, function () {
+                         delete fields[p.id];
+                     });
+                 }
+             }
+         }
+         this.fadeList = {};
+     };
  }
-
-function showQueue(show) {
-    var display = $('#queue').css('display');
-    if (show && display === 'none') {
-             $('#queue').fadeIn(400, function () {
-                 fields.queue = {
-                     angle: 5 * Math.PI / 6,
-                     magnitude: 0.02,
-                     x: $('#queue').offset().left,
-                     y: $('#queue').offset().top,
-                     w: $('#queue').width(),
-                     h: $('#queue').width()
-                 };
-             });
-     } else if (!show && display === 'block') {
-         if ($('#queue').css('display') == 'block') {
-             $('#queue').fadeOut(400, function () {
-                 delete fields.queue;
-             });
-         }
-     }
-}
-         
-         

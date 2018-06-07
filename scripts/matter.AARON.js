@@ -140,7 +140,7 @@ Events.on(render, "afterRender", function (e) {
         $('#welcome .instruction').html('Drag the letters and have fun!');
         begun = true;
     }
-    
+
     //update SVGs for letterBodies that aren't sleeping
     for (l in letterBodies) {
         if (!letterBodies[l].isSleeping) {
@@ -162,7 +162,7 @@ Events.on(render, "afterRender", function (e) {
             }
         }
     }
-    
+
     //for every letter...
     for (l in letterBodies) {
         var letter = letterBodies[l];
@@ -305,10 +305,6 @@ function pullTo(body, x, y, angle, strength) {
 function continueToSite() {
     rollCall();
     $('#welcome').fadeOut(2000);
-    //Add link listeners to any sections already in the display panel on page load.
-    $('main section').each(function () {
-        addLinkListeners($(this));
-    });
     setTimeout(displayEnter, 3000);
 }
 
@@ -382,9 +378,10 @@ function vertAnimation(delta, displaySpace) {
 }
 
 function displayEnter(dur) {
-    
-    var introSection = $('.intro-section');
-    var displaySpace = (introSection.attr('id') == 'custom-queue') ? 1224 : 960;
+
+    var introSection = $('.intro-section'),
+        introId = introSection.attr('id'),
+        displaySpace = (introId == 'custom-queue') ? 1224 : 960;
     introSection.css('display', 'flex');
     $('main').animate({
         'right': '0'
@@ -397,7 +394,14 @@ function displayEnter(dur) {
                 vertAnimation(parseFloat(document.getElementsByTagName('main')[0].style.right) + displaySpace, displaySpace);
             }
         },
+        start: function () {
+            if (introId === 'custom-queue') {
+                nav.show('nav-icons', true);
+                nav.show('queue', true);
+            }
+        },
         complete: function () {
+            nav.fade();
             fields.main = {
                 angle: 7 * Math.PI / 6,
                 magnitude: 0.01,
@@ -407,9 +411,6 @@ function displayEnter(dur) {
                 h: $('main').height()
             }
             current$ection = introSection;
-            if (current$ection.attr('id') == 'custom-queue') {
-                populateQueue();
-            }
         }
     });
 }
