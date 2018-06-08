@@ -8,15 +8,15 @@
     
     <div class="copy">
     
+    <?php single_photo($section_name, false, 'gala-banner-in-situ.jpg', 320, 'right', 'I stopped by Waldorf one afternoon to see my design hung on the fence out front.') ?>
+    
     <p>A regular client of Mouse Graphics is the Waldorf School of Orange County. They hold an annual charity gala and auction, and for the 2018 event I was asked to create a design for a flier, web graphic, and vinyl banner. The theme for this event was "Around the World", and the school's representative supplied me with a painted globe image to based my designs around.</p>
 
     <p>To compliment the painterly look of the globe, I decided to go with a felt-textured paper background. To compliment the blues and greens of the globe, I made the background into a light ivory paper by overlaying a sepia color set to multiply blend. I wanted the vibrant colors of the globe to stand out though, so the multiply overlay included a white radial gradient around the globe so that it was bordered with pure white.</p>
-    
-    <?php single_photo($section_name, false, 'text-on-globe.png', 320, 'right', 'I loved the way this loopy script looked, but the client wanted something more upright.') ?>
 
+   <?php single_photo($section_name, false, 'flier-draft-v2.png', 320, 'left', 'The color stripe emphasized the mission statement, which I felt wasn\'t clear from the event\'s title.') ?>
+   
     <p>To drive the theme home, I placed the title text ("Around the World") over the globe and created a white glow around the text to ensure legibility. The text in the design was also colored with dominant colors from the globe in order to create unity. </p>
-
-    <?php single_photo($section_name, false, 'flier-draft-v2.png', 320, 'left', 'The color stripe emphasized the mission statement, which I felt wasn\'t clear from the event\'s title.') ?>
 
     <p>I began with the flier design since it was the most normally sized piece in the project. Once it was approved however, I began adapting it into the banner and web graphic. Both of these designs had their own challenges that I needed to overcome.</p>
     

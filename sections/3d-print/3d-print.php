@@ -7,7 +7,7 @@
     </header>
     <div class="copy">
     
-    <p>Several years ago when I was beginning college, my major was industrial design. I eventually decided that web design would be a better major due to my affinity for design, but before this I took a class on computer-aided design. My final project was to design an item in 3D, and optionally have it 3D printed in the school's lab.</p>
+    <p>Several years ago when I was beginning college, my major was industrial design. I eventually decided that web design would be a better major due to my affinity for programming, but before that I took a class on computer-aided design. My final project was to design a 3-dimensional item, and optionally have it printed in the school's lab.</p>
     
     <?php single_photo($section_name, false, 'raspberry-Pi-case-01.png', 240, 'right', 'The source DWG file, with the two halves of the case laid out for printing.'); ?>
     

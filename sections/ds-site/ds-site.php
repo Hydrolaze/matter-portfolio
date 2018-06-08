@@ -22,7 +22,7 @@
         Sorry, I don't have this video in a format that your browser can view!
     </video>
     
-    <p>Expanding on the graphical themes of physical ribbons and buttons, I added animations which reinforced the spatial qualities of the elements. Buttons would rize up on hover and depress into the page when pressed. Subsection tags hovered over seams in the page, and when clicked, the seams would split open, revealing content beneath. In this way I gave the web site a tactile appearance; reinforcing the users understanding of the interface’s function with intuitive concepts.</p>
+    <p>Expanding on the graphical themes of physical ribbons and buttons, I added animations which reinforced the spatial qualities of the elements. Buttons would rise up on hover and depress into the page when pressed. Subsection tags hovered over seams in the page, and when clicked, the seams would split open, revealing content beneath. In this way I gave the web site a tactile appearance; reinforcing the users understanding of the interface’s function with intuitive concepts.</p>
     
     <video width="496" height="496" autoplay loop>
         <source src="sections/ds-site/deco-serv-subsections.webm" type="video/webm">
@@ -34,7 +34,7 @@
     
     <?php single_photo($section_name, 'works/hakas-gallery/index.html', 'hakas-gallery-screenshot.png', 720, 'centre', 'The entirely custom gallery I coded to use in the Decorative Services site. This plugin was coded with jQuery and supports any number of galleries on a single page, so long as image data is supplied to it.'); ?>
     
-    <p>We met with my supervisor to present the site draft and take notes on her feedback, and we got plenty of insight into her stylistic preferences as well as features that she wanted to include. We set to work, meeting regularly to develop the site further and polish the interactions. I even coded a custom gallery plugin to display product images. In July of 2016 we presented a semifinal draft for last revisions, and we hope to complete the project later this year.</p>
+    <p>We met with my supervisor to present the site draft and take notes on her feedback, and we got plenty of insight into her stylistic preferences as well as features that she wanted to include. We set to work, meeting regularly to develop the site further and polish the interactions. I even coded a custom gallery plugin to display product images. The project is on hold pending the completion of my move to SD County, but I hope to finalize the site soon.</p>
     
     </div>
 

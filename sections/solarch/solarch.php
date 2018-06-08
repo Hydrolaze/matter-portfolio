@@ -8,7 +8,7 @@
     
     <div class="copy">
     
-    <p>Last year, I teamed up with three other web designers to create a new website for a local charity. The first action we took was to come up with a team name and a logo. We decided that we wanted to represent ourselves as architects of web solutions, so we chose the name “Solarch”.</p>
+    <p>In my web design 3 class, I teamed up with three other web designers to create a new website for a local charity. The first action we took was to come up with a team name and a logo. We decided that we wanted to represent ourselves as solutions architects for the web, so we chose the name “Solarch”.</p>
     
     <?php single_photo($section_name, false, 'Solarch-font-study.png', 720, 'centre', 'I felt that the word “architect” called for a strong, structured font, so I began experimenting with them.'); ?>
     

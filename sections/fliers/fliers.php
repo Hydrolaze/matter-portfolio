@@ -14,7 +14,7 @@
 
         <h4>Yearbook Advertisement</h4>
 
-        <p>Yearbook was a natural choice of extracurricular activity for me; I got the chance to practice photography and layouts, as well as contribute to something that would be enjoyed by the entire school. I was asked to make a flier to announce preorders for yearbooks, so I created something interesting and relatable.</p>
+        <p>Yearbook was a natural choice of extracurricular activity for me; I got the chance to practice photography and layouts, as well as contribute to something that would be enjoyed by the entire school. I was asked to make a flier to announce preorders for yearbooks, so I created something interesting and relatable that featured a current "internet meme".</p>
     </div>
     
     <div class="block">
@@ -22,7 +22,7 @@
 
         <h4>Concert Flier</h4>
 
-        <p>I am a musician at heart, and in high school I played the cello in orchestra. We were a part of a "mega concert" with choir and drumline, and I had the honor of being asked to design the flier. I was perhaps a bit biased in representing the event with a violin, but it communicated the concept of music effectively.</p>
+        <p>I am a musician at heart, and in high school I played the cello in orchestra. We were a part of a "mega concert" with choir and drumline, and I had the honor of being asked to design the flier. I was perhaps a bit biased in favor of the orchestra when I used a violin to represent the event, but it communicated the concept of music effectively.</p>
     </div>
 
     <div class="block">

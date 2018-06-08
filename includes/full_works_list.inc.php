@@ -8,6 +8,10 @@ $works_list = array(
         'desc' => 'Coffee Flier',
         'tags' => array('illustrator')
     ),
+    'waldorf-gala' => array(
+        'desc' => 'Waldorf School Gala',
+        'tags' => array('photoshop','illustrator')
+    ),
     'komax-brochure' => array(
         'desc' => 'Brochure Recreation',
         'tags' => array('indesign','illustrator')
