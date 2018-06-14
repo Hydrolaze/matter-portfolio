@@ -40,8 +40,9 @@
             right: 82rem;
             top: 0;
         }
-        
-        nav > *, section {
+
+        nav>*,
+        section {
             display: none;
         }
 
@@ -54,7 +55,10 @@
 
 <body>
 
-    <?php include('includes/functions.inc.php'); ?>
+    <?php 
+    include('includes/functions.inc.php'); 
+    include('includes/validate_key.inc.php');
+    ?>
 
     <div id="welcome">
         <p>Welcome to the portfolio of</p>
@@ -73,53 +77,46 @@
             </header>
 
             <div class="copy">
-                <p>I'm a graphic designer who is currently looking for challenging and rewarding work in North San Diego county. Print design is my specialty, but I have have considerable experience in web graphics and programming as well. </p>
+                <p>I'm a graphic designer who is currently looking for challenging and rewarding work in North San Diego county. I have been working in print design for 5 years <!-- I began working at Logo Expressions in June 2013, exactly five years before now. -->, and in that time I've learned to design for a wide range of printing methods. I have considerable experience in web graphics and programming as well. </p>
 
-                <p>Pick an option below to explore my work and history.</p>
+                <?php if ($key_is_valid): ?>
+
+                <p>I designed my portfolio to serve up a custom experience to visitors with a unique URL key. Your key unlocks an exclusive queue of portfolio pieces that I'd love you to see.</p>
+
             </div>
 
             <div class="queue-container">
                 <img src="vectors/icons/anim-custom-queue.svg" class="icon custom-queue-link link">
                 <span class="icon-desc">
-                    <h4>CUSTOM QUEUE</h4>
-                    A collection of works picked specially for you at COMPANY NAME to show my 
-                </span>
+                        <h4>CUSTOM QUEUE</h4>
+                    A collection of works picked specially for you at <span class="variable-info"><?php echo $company['name']; ?></span> to show my qualification for the position of <span class="variable-info"><?php echo $company['position']; ?></span>.
+                    </span>
             </div>
+
+            <p>Or if you'd prefer to browse, pick an option below to learn more about who I am and what I can do for you.</p>
+
+            <?php else: ?>
+
+            <p>Pick an option below to learn more about who I am and what I can do for you.</p>
+
+            </div>
+
+            <?php endif; ?>
 
             <div class="icon-tray">
                 <div class="portfolio-container">
                     <div class="icon-block">
-
-                        <?php
-                            $key_is_valid = false;
-                            if(isset($_GET['key'])) {
-                                include('sections/custom-queue/queues.php');
-                                if(isset($queues[$_GET['key']])) {
-                                    $key_is_valid = true;
-                                };
-                            };
-
-                            if ($key_is_valid): ?>
-                            <img src="vectors/icons/whole-portfolio.svg" class="works-link all-tag link whole-portfolio-icon" alt="everything">
-                            <div class="tags-column">
-                                <img src="vectors/icons/css-portfolio-half.svg" class="sub-portfolio-half works-link css-tag link" alt="CSS styles">
-                                <img src="vectors/icons/php-portfolio-half.svg" class="sub-portfolio-half works-link php-tag link" alt="PHP coding">
-                                <img src="vectors/icons/js-portfolio-half.svg" class="sub-portfolio-half works-link js-tag link" alt="Javascript">
-                            </div>
-                            <div class="tags-column">
-                                <img src="vectors/icons/illustrator-portfolio.svg" class="sub-portfolio works-link illustrator-tag link" alt="Adobe Illustrator">
-                                <img src="vectors/icons/photoshop-portfolio.svg" class="sub-portfolio works-link photoshop-tag link" alt="Adobe Photoshop">
-                                <img src="vectors/icons/indesign-portfolio.svg" class="sub-portfolio works-link indesign-tag link" alt="Adobe InDesign">
-                            </div>
-                            <?php else: ?>
-                            <img src="vectors/icons/whole-portfolio.svg" class="works-link all-tag link" class="whole-portfolio-icon" alt="everything">
-                            <div class="tags-column">
-                                <img src="vectors/icons/web-portfolio.svg" class="sub-portfolio works-link web-tag link">
-                                <img src="vectors/icons/design-portfolio.svg" class="sub-portfolio works-link design-tag link">
-                                <img src="vectors/icons/code-portfolio.svg" class="sub-portfolio works-link code-tag link">
-                            </div>
-                            <?php endif; ?>
-
+                        <img src="vectors/icons/whole-portfolio.svg" class="works-link all-tag link whole-portfolio-icon" alt="everything">
+                        <div class="tags-column">
+                            <img src="vectors/icons/css-portfolio-half.svg" class="sub-portfolio-half works-link css-tag link" alt="CSS styles">
+                            <img src="vectors/icons/php-portfolio-half.svg" class="sub-portfolio-half works-link php-tag link" alt="PHP coding">
+                            <img src="vectors/icons/js-portfolio-half.svg" class="sub-portfolio-half works-link js-tag link" alt="Javascript">
+                        </div>
+                        <div class="tags-column">
+                            <img src="vectors/icons/illustrator-portfolio.svg" class="sub-portfolio works-link illustrator-tag link" alt="Adobe Illustrator">
+                            <img src="vectors/icons/photoshop-portfolio.svg" class="sub-portfolio works-link photoshop-tag link" alt="Adobe Photoshop">
+                            <img src="vectors/icons/indesign-portfolio.svg" class="sub-portfolio works-link indesign-tag link" alt="Adobe InDesign">
+                        </div>
                     </div>
                     <span class="icon-desc">
                     VIEW MY PORTFOLIO<br>

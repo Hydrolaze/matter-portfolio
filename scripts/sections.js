@@ -46,7 +46,7 @@
      $('main').css('right', '-80rem');
      addLinkListeners($('nav'));
      addLinkListeners($('#hello'));
-     centreHello($('#hello'));
+     //centreHello($('#hello'));
      $('section').css('display', 'none');
 
      //Set up navbar.
@@ -156,14 +156,17 @@
          var filePath = 'sections/' + this.section + '/' + this.section + '.php' + this.querystring(false),
              $ection;
 
-         $.ajax(filePath, {
+         $.ajax({
+             url: filePath, 
              context: this,
+             dataType: 'html',
              success: function (data, textStatus, jqXHR) {
                  $ection = $(data);
              },
              error: function (jqXHR, textStatus, errorThrown) {
                  //Generates an "error" section if there was an AJAX error
                  $ection = $('<section id="error"><header><h1><span class="span-icon hello-link link">AARON</span> / ' + textStatus + '</h1><h2>' + errorThrown + '</h2></header><div class="copy"><p>Unfortunately, there was an AJAX error. Sorry about that! You may use the "AARON" link above to return to the home section.</p></div></section>');
+                 console.log('AJAX failed');
              },
              complete: function () {
                  clearInterval(letterSpinInterval);
@@ -294,11 +297,14 @@
  //var XHR = new XMLHttpRequest();
  var letterSpinInterval = 0;
 
+/*
+//This function is more trouble than it's worth.
  function centreHello($ection) {
      var helloPadding = ($ection.outerHeight() - 490) / 2 - 106.8;
      $ection.css('padding-top', helloPadding + "px");
      $('#hello-graphic').css('top', helloPadding + "px");
  }
+*/
 
  function swapSection($ection) {
      $ection.css({
@@ -373,7 +379,7 @@
      });
 
      //Write the number of .work-cards to the "BEGIN QUEUE" button.
-     $('.begin-link').parent().attr('data-content', 'OF ' + count + ' WORKS');
+     $('.begin-link').parent().attr('data-content', (count > 1) ? 'OF ' + count + ' WORKS' : 'OF ' + count + ' WORK');
 
      $('.link-card').eq(0).addClass('active-card');
 

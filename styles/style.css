@@ -361,7 +361,7 @@ main .icon-tray > * + * {
 }
 
 .icon-desc {
-    font-size: 1.25rem;
+    font-size: 1.15rem;
 }
 
 .icon-tray img, .icon {
@@ -375,9 +375,9 @@ main .icon-tray > * + * {
 }
 
 .queue-container .icon-desc {
-    width: 14em;
+    width: 25em;
     margin-left: 1em;
-    margin-top: 2.1em;
+    margin-top: 1.5em;
 }
 
 
@@ -556,12 +556,19 @@ main .work {
 .link-card, #prev-label, #next-label, #queue .work-desc-container {
     display: flex;
     align-items: center;
-    background-color: rgba(85, 87, 89, 0.75);
 }
 
 .link-card, #prev-label, #next-label {
     justify-content: center;
     flex-direction: column;
+}
+
+.link-card, #queue .work-desc-container {
+    background-color: rgba(85, 87, 89, 0.75);
+}
+
+#prev-label, #next-label {
+    background-color: rgba(0, 0, 0, 0.75);
 }
 
 .link-card::before {
