@@ -1,6 +1,6 @@
 <?php
 $key_is_valid = false;
-$company = null;
+$company = NULL;
 if(isset($_GET['key'])) {
     include('sections/custom-queue/queues.php');
     if(isset($queues[$_GET['key']])) {

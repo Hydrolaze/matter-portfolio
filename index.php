@@ -77,7 +77,7 @@
             </header>
 
             <div class="copy">
-                <p>I'm a graphic designer who is currently looking for challenging and rewarding work in North San Diego county. I have been working in print design for 5 years <!-- I began working at Logo Expressions in June 2013, exactly five years before now. -->, and in that time I've learned to design for a wide range of printing methods. I have considerable experience in web graphics and programming as well. </p>
+                <p>I'm a graphic designer who is currently looking for challenging and rewarding work in San Diego county. I have been working in print design for 5 years <!-- I began working at Logo Expressions in June 2013, exactly five years before now. -->, and in that time I've learned to design for a wide range of printing methods. I have considerable experience in web graphics and programming as well. </p>
 
                 <?php if ($key_is_valid): ?>
 

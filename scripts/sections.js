@@ -343,19 +343,25 @@
      $('#queue .works-tray').animate({
          scrollTop: 0
      });
-     if ($('#queue').css('display') === 'block') {
-         $('#queue .work-card').fadeOut(400, function () {
-             $(this).remove();
-         });
+     if (nav.queueIsFilled === true) {
+         $('#queue .work-card').fadeOut();
+         setTimeout(function () {
+             $('#queue .work-card').remove();
+             nav.queueIsFilled = false;
+             populateQueue();
+         }, 400);
+     } else {
+         populateQueue();
      }
-     populateQueue();
+     
  }
 
  function populateQueue() {
      //Clones works from the current queue section into the queue panel.
      //console.log('Populating queue with works...');
-     var count = 0;
-     $('#' + queue.section + ' .work').each(function (i) {
+     var count = 0,
+         $mainWorks = $('#' + queue.section + ' .work');
+     $mainWorks.each(function (i) {
          //Remove tags, set display to none, then fade in the works.
          var $work = $(this).clone(true, true);
          $work.children('.label').remove();
@@ -376,7 +382,11 @@
              }
          }
          count++;
+         if (count === $mainWorks.length) {
+             nav.queueIsFilled = true;
+         }
      });
+     
 
      //Write the number of .work-cards to the "BEGIN QUEUE" button.
      $('.begin-link').parent().attr('data-content', (count > 1) ? 'OF ' + count + ' WORKS' : 'OF ' + count + ' WORK');
@@ -439,6 +449,7 @@
      this.addPanel = function ($elem) {
          this.panels[$elem.attr('id')] = $elem;
      };
+     this.queueIsFilled = false;
      this.show = function (elemId, showPanel) {
          // Attempt to queue a fadeIn or fadeOut for the panel whether the boolean is true or false. If the boolean argument is not given then this function does nothing.
          if (typeof showPanel === 'boolean') {

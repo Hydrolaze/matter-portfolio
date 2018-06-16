@@ -1,7 +1,6 @@
 <?php
 
 $tag = 'all';
-$display_tag = '';
 $tag_full_name = '';
 
 if (isset($_GET['tag'])) {
@@ -10,7 +9,7 @@ if (isset($_GET['tag'])) {
 
     foreach ($tags_list as $valid_tag => $full_name) {
         if ($valid_tag == $_GET['tag']) {
-            $tag = $display_tag = $valid_tag;
+            $tag = $valid_tag;
             $tag_full_name = $full_name;
         };
     };
