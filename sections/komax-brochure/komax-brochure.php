@@ -12,9 +12,9 @@
 
         <p>Komax was not yet ready to commit to a full redesign of their advertising materials, so my task was to simply recreate the old brochures in a modern format. I was given all of the diagrams and art assets that they could locate, and asked to complete the project by a deadline. Realizing the scope of the project, I created a timeline of smaller tasks so that I could be sure to not fall behind.</p>
         
+        <?php single_photo($section_name, false, 'typesetting.png', 320, 'left', 'I really dug into the typographic settings to match the appearance as closely as possible to the original.') ?>
+        
         <p>I placed the scans of the old brochures in one layer, and piece by piece, I built the new versions in a layer atop them. The modern versions I had of Futura and Helvetica aligned perfectly with the old lettering in many places, but where they didn't, I adjusted tracking, line height, and other typographic features until the text laid out nicely.</p>
-
-        <!-- single_photo(right) of some freshly typeset text over top of the old brochure -->
 
         <p>Some old diagrams were simply too low-quality to use, and I tasked myself with recreating them in vectors for perfect sharpness. I paid attention to the content I was manipulating as I worked, ensuring that the intended meanings were as clear as they were before, or even more so if I found opportunities for improvements.</p>
         

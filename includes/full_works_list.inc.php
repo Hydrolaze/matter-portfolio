@@ -8,17 +8,29 @@ $works_list = array(
         'desc' => 'Coffee Flier',
         'tags' => array('illustrator')
     ),
+    'waldorf-program' => array(
+        'desc' => 'Charity Auction Program',
+        'tags' => array('indesign')
+    ),
     'waldorf-gala' => array(
-        'desc' => 'Waldorf School Gala',
+        'desc' => 'Banners and Fliers',
         'tags' => array('photoshop','illustrator')
     ),
     'komax-brochure' => array(
         'desc' => 'Brochure Recreation',
         'tags' => array('indesign','illustrator')
     ),
+    'ds-guide' => array(
+        'desc' => 'Training Manual',
+        'tags' => array('indesign', 'illustrator')
+    ),
     'oats-stationery' => array(
         'desc' => 'Stationery Suite',
         'tags' => array('illustrator')
+    ),
+    'ds-proof' => array(
+        'desc' => 'Proof Sheet Design',
+        'tags' => array('illustrator','photoshop')
     ),
     'planetarium' => array(
         'desc' => 'Planetarium Blog',
@@ -67,10 +79,6 @@ $works_list = array(
     'solarch' => array(
         'desc' => 'Solarch Logo Study',
         'tags' => array('illustrator')
-    ),
-    'ds-proof' => array(
-        'desc' => 'Proof Sheet Design',
-        'tags' => array('illustrator','photoshop')
     ),
     'minecraft' => array(
         'desc' => 'Browser Quiz',
