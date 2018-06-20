@@ -9,7 +9,7 @@ $works_list = array(
         'tags' => array('illustrator')
     ),
     'waldorf-program' => array(
-        'desc' => 'Charity Auction Program',
+        'desc' => 'Auction Program',
         'tags' => array('indesign')
     ),
     'waldorf-gala' => array(

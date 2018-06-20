@@ -5,7 +5,7 @@
     </header>
 
     <div class="copy">
-        <p>Hello! I'm a 24 year old graphic designer who will be moving soon from Irvine to North SD County. I've been working for 5 years in graphics and print, but my interest in design began long before then. I am very skilled with Adobe Illustrator, as well as proficient in Photoshop and InDesign. I also have considerable experience with HTML, CSS, Javascript, and PHP, and I will be earning an Associate's Degree in Web Design within a year.</p>
+        <p>Hello! I'm a 24 year old graphic designer who will be moving soon from Irvine to San Diego County. I've been working for 5 years in graphics and print, but my interest in design began long before then. I am very skilled with Adobe Illustrator, as well as proficient in Photoshop and InDesign. I also have considerable experience with HTML, CSS, Javascript, and PHP, and I will be earning an Associate's Degree in Web Design within a year.</p>
         <p>My life is driven by a passion for dreaming up ideas and bringing them to life, and I am contintually learning and experimenting with new ways to create unique and engaging designs. If you're interested in hiring me, please see the links below and get in touch!</p>
     </div>
     <div class="icon-tray">

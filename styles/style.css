@@ -170,7 +170,7 @@ nav header {
 /*SECTION HEADER STYLES ||||||||||||*/
 
 main header {
-    width: 76rem;
+    width: 80rem;
     padding: 0 6rem;
 }
 
@@ -724,7 +724,7 @@ main .work:active {
 /*WORK DESC STYLES ||||||||||||*/
 /*|||||||||||||||||||||||||||||*/
 
-#works .work-desc-container, #custom-queue .work-desc-container {
+section .work-desc-container {
     width: 100%;
     padding: 0.5rem;
     background-color: rgba(0, 0, 0, 0.5);
@@ -743,7 +743,7 @@ main .work:active {
     color: #262729;
 }
 
-#works .work:hover .work-desc-container {
+section .work:hover .work-desc-container {
     opacity: 1;
 }
 

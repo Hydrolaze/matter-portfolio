@@ -1,8 +1,32 @@
 <?php
 $works_list = array(
+    'oats-ads' => array(
+        'desc' => 'Directory Mall Ad',
+        'tags' => array('illustrator','photoshop')
+    ),
+    'kohana-flier' => array(
+        'desc' => 'Coffee Flier',
+        'tags' => array('illustrator')
+    ),
+    'waldorf-program' => array(
+        'desc' => 'Auction Program',
+        'tags' => array('indesign')
+    ),
+    'waldorf-gala' => array(
+        'desc' => 'Banners and Fliers',
+        'tags' => array('photoshop','illustrator')
+    ),
+    'komax-brochure' => array(
+        'desc' => 'Brochure Recreation',
+        'tags' => array('indesign','illustrator')
+    ),
     'ds-guide' => array(
         'desc' => 'Training Manual',
         'tags' => array('indesign', 'illustrator')
+    ),
+    'oats-stationery' => array(
+        'desc' => 'Stationery Suite',
+        'tags' => array('illustrator')
     ),
     'ds-proof' => array(
         'desc' => 'Proof Sheet Design',
