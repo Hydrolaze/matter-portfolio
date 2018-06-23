@@ -16,6 +16,9 @@
     
     <p>The text styling and reflow tools in InDesign were essential for this project, as they let me easily lay out copy neatly with consistent formatting. To make it easier to wrap the text content around diagrams and images, I arranged it into two columns.  The diagrams I had previously created were resized in Illustrator to fit the column widths, then exported as PDFs and placed into the columns with text wrapping. I also utilized the page numbering feature, which saved me from having to keep track of numbering whenever I needed to reorder pages. Once I completed the booklet, I was able to quickly generate a table of contents.</p>
     
+    <p>The final booklet was 30 pages long and was, at that point, one of my most extensive design projects. I was very pleased with the result, and my skill with InDesign improved greatly. Selected spreads from the booklet are displayed below.</p>
+    
     <?php photogrid($section_name, 'spreads', 2, 3, 'center'); ?>
+    
     </div>
 </section>
