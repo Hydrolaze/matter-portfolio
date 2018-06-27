@@ -63,15 +63,15 @@ body {
     -moz-animation-name: openLeft;
     -moz-animation-iteration-count: 1;
     -moz-animation-timing-function: ease-in-out;
-    -moz-animation-duration: 2s;
+    -moz-animation-duration: 1s;
     -webkit-animation-name: openLeft;
     -webkit-animation-iteration-count: 1;
     -webkit-animation-timing-function: ease-in-out;
-    -webkit-animation-duration: 2s;
+    -webkit-animation-duration: 1s;
     animation-name: openLeft;
     animation-iteration-count: 1;
     animation-timing-function: ease-in-out;
-    animation-duration: 2s;
+    animation-duration: 1s;
 }
 
 @-moz-keyframes openLeft {
@@ -107,15 +107,15 @@ body {
     -moz-animation-name: openRight;
     -moz-animation-iteration-count: 1;
     -moz-animation-timing-function: ease-in-out;
-    -moz-animation-duration: 2s;
+    -moz-animation-duration: 1s;
     -webkit-animation-name: openRight;
     -webkit-animation-iteration-count: 1;
     -webkit-animation-timing-function: ease-in-out;
-    -webkit-animation-duration: 2s;
+    -webkit-animation-duration: 1s;
     animation-name: openRight;
     animation-iteration-count: 1;
     animation-timing-function: ease-in-out;
-    animation-duration: 2s;
+    animation-duration: 1s;
 }
 
 @-moz-keyframes openRight {
@@ -391,8 +391,8 @@ h3 {
 /*=============== TEXTUAL ELEMENTS ===============*/
 
 p {
-    color: #3e3935;
-    font-family: 'Crete Round', 'Georgia';
+    color: #333e48;
+    font-family: 'Roboto Condensed', 'Arial', sans-serif;
 }
 
 p + p {
@@ -519,6 +519,19 @@ centre-block {
 
 .two-column-block {
     column-count: 2;
+}
+
+.block .image {
+    width: 300px;
+    background-size: cover;
+}
+
+.block .full-image {
+    height: 300px;
+}
+
+.block .half-image {
+    height: 150px;
 }
 
 .left-image-wrap-block .image {

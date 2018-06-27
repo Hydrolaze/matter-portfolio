@@ -232,16 +232,15 @@ function Photo(G, index) {
 
 };
 
-configArr = [];
-configArr[0] = {
+configArr = [{
     padding: 24,
     srcArr: [
-    'photos/filler.png',
-    'photos/filler.png',
-    'photos/filler.png',
-    'photos/filler.png',
-    'photos/filler.png',
-    'photos/filler.png',
-    'photos/filler.png'
+    'photos/ice-bucket-pad-printing.png',
+    'photos/laser-etch.png',
+    'photos/heat-transfer.png',
+    'photos/red-ink-silkscreen.png',
+    'photos/pad-printing-knife.png',
+    'photos/pad-printing-glass.png',
+    'photos/2-color-bottles.png'
     ]
-};
+}];

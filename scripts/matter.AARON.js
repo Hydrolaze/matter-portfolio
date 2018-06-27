@@ -49,7 +49,7 @@ var render = Render.create({
         background: '#fafafa',
         wireframeBackground: '#222',
         hasBounds: false,
-        enabled: true,
+        enabled: false,
         wireframes: true,
         showSleeping: false,
         showDebug: false,
@@ -132,8 +132,8 @@ Engine.run(engine);
 //   stCtx.strokeStyle = "#0813DC";
 
 // run the renderer and create its event listener
-Render.run(render);
-Events.on(render, "afterRender", function (e) {
+//Render.run(render);
+Events.on(engine, "afterUpdate", function (e) {
 
     if (!begun) {
         console.log("Simulation started!");
@@ -167,9 +167,12 @@ Events.on(render, "afterRender", function (e) {
     for (l in letterBodies) {
         var letter = letterBodies[l];
         //if the letter is outside of the window bounds...
-        if (letter.position.x < 0 || letter.position.x > W || letter.position.y < 0 || letter.position.y > H) {
+        if (letter.position.x < 0 || letter.position.x > W) {
             //gravitate it back to the centre of the window
             letter.force.x = (letter.position.x - W / 2) * -1e-5;
+        }
+        if (letter.position.y < 0 || letter.position.y > H) {
+            
             letter.force.y = (letter.position.y - H / 2) * -1e-5;
         }
     }
@@ -420,7 +423,7 @@ function displayEnter(dur) {
 $(document).ready(function () {
 
     //place the matter canvas behind the display element so that the display panel can be interacted with
-    $('#matter').insertBefore($('main'))
+    $('#matter').insertBefore($('main'));
 
     //initialise letter SVG so that they track the Matter bodies
     for (l in letterSVGs) {

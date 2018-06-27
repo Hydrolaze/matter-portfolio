@@ -18,7 +18,7 @@ section {
     align-items: center;
     width: 80rem;
     min-height: 100vh;
-    padding: 12rem 2rem;
+    padding: 6rem 2rem;
     color: #CFCECD;
 }
 
@@ -219,7 +219,7 @@ h5 {
 
 .hello-graphic {
     position: absolute;
-    top: 12rem;
+    top: 6rem;
     left: 7.5rem;
     z-index: -1;
     opacity: 0.9;
@@ -375,12 +375,14 @@ main .icon-tray > * + * {
 }
 
 .queue-container .icon-desc {
-    width: 25em;
+    width: 26.25em;
     margin-left: 1em;
     margin-top: 1.5em;
 }
 
-
+.queue-container {
+    width: 44.25rem;
+}
 
 /*PORTFOLIO ICON STYLES ||||||||||||*/
 
@@ -407,9 +409,19 @@ main .icon-tray > * + * {
     flex-direction: column;
 }
 
-.tags-column > img + img {
+.tags-row + .tags-row {
     margin-top: 0.5em;
 }
+
+.tags-row img {
+    display: inline-block;
+}
+
+.tags-row img + img {
+    margin-left: 0.5em;
+}
+
+/* Load this development build to the Optiplex and work from there. */
 
 .sub-portfolio {
     width: 12em;

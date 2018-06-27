@@ -3,6 +3,122 @@
 <?php
 
 $queues = array(
+    'bhhs-asr' => array(
+        'name' => 'Berkshire Hathaway',
+        'position' => 'Agent Services Representative',
+        'my_title' => 'graphic &amp; web designer',
+        'copy' => 'I\'ve been working in the print industry since 2013, where I\'ve had plenty of experience producing work on tight deadlines. In my current job I work as an account manager and graphic designer for a print company. In this role I have been in charge of designing materials for client approval, coordinating project timelines, working with the production team to ensure quality, and communicating with clients to identify goals and solutions. I\'m eager for the opportunity to do more great work, and I hope to hear back from you soon!',
+        'queue' => array(
+            'kohana-flier',
+            'ds-guide',
+            'oats-ads',
+    
+            'oats-stationery',
+            'waldorf-program',
+            'fliers',
+    
+            'typography',
+            'poster',
+            'waldorf-gala'
+        )
+    ),
+    'stance' => array(
+        'name' => 'Stance',
+        'position' => 'Graphic Designer &amp; Content Creator',
+        'my_title' => 'graphic designer - print &amp; digital',
+        'copy' => 'In my current job I work as an account manager and graphic designer for a print company. In this role I\'ve worked with clients to design and print eye-grabbing marketing materials that meet brand guidelines. Aside from printed materials, I\'ve also studied web design, which has given me the knowledge I need to create digital graphics. I\'m eager for the opportunity to find a place in a team of talented designers, and I hope to hear from you soon!',
+        'queue' => array(
+            'oats-ads',
+            'waldorf-gala',
+            'kohana-flier',
+    
+            'ds-guide',
+            'oats-stationery',
+            'waldorf-program',
+            
+            'poster',
+            'ds-proof',
+            'komax-brochure'
+        )
+    ),
+    'lightboard' => array(
+        'name' => 'Lightboard',
+        'position' => 'Designer',
+        'my_title' => 'graphic &amp; web designer',
+        'copy' => 'In my current job I work as an account manager and graphic designer for a print company. In this role I\'ve worked with clients to design and print eye-grabbing marketing materials that meet brand guidelines. Aside from printed materials, I\'ve also studied web design, which has given me the knowledge I need to create digital graphics. I\'m eager for the opportunity to create work that will make a difference for people, and I hope to hear from you soon!',
+        'queue' => array(
+            'waldorf-gala',
+            'oats-ads',
+            'kohana-flier',
+    
+            'ds-guide',
+            'nccs-brand',
+            'ds-proof',
+    
+            'solarch',
+            'poster',
+            'oats-stationery'
+        )
+    ),
+    'lancebase' => array(
+        'name' => 'LanceBase',
+        'position' => 'Graphic Designer & Digital Artist',
+        'my_title' => 'graphic &amp; web designer',
+        'copy' => 'In my current job I work as an account manager and graphic designer for a print company. In this role I\'ve worked with clients to design and print eye-grabbing marketing materials that meet brand guidelines. Aside from printed materials, I\'ve also studied web design, which has given me the knowledge I need to create graphics for the web. I\'m eager for the opportunity to create work that will be used by people on a daily basis, and I hope to hear from you soon!',
+        'queue' => array(
+            'waldorf-gala',
+            'ds-site',
+            'oats-ads',
+    
+            'oats-stationery',
+            'ds-guide',
+            'ds-brand',
+    
+            'typography',
+            'poster',
+            'kohana-flier'
+        )
+    ),
+    'fridays' => array(
+        'name' => 'Casual Fridays',
+        'position' => 'Graphic Designer',
+        'my_title' => 'graphic &amp; web designer',
+        'copy' => 'In my current job I work as an account manager and graphic designer for a print company. In this role I\'ve worked with clients to design and print fresh-looking marketing materials that meet brand guidelines. Aside from printed materials, I\'ve also studied web design, which has given me the knowledge I need to create graphics for the web and social media. I\'m eager for the opportunity to work at a marketing firm like Casual Fridays, and I hope to hear back from you soon!',
+        'queue' => array(
+            'kohana-flier',
+            'ds-guide',
+            'oats-ads',
+    
+            'oats-stationery',
+            'waldorf-program',
+            'ds-brand',
+    
+            'typography',
+            'poster',
+            'waldorf-gala'
+            
+        )
+    ),
+    'bhhs' => array(
+        'name' => 'Berkshire Hathaway',
+        'position' => 'Web &amp; Print Graphic Designer',
+        'my_title' => 'graphic &amp; web designer',
+        'copy' => 'I\'ve been working in the print industry since 2013, where I\'ve had plenty of experience producing work on tight deadlines. In my current job I work as an account manager and graphic designer for a print company. In this role I have been in charge of designing materials for client approval, coordinating project timelines, working with the production team to ensure quality, and communicating with clients to identify goals and solutions. I\'m eager for the opportunity to do more great work, and I hope to hear back from you soon!',
+        'queue' => array(
+            'kohana-flier',
+            'ds-guide',
+            'oats-ads',
+    
+            'oats-stationery',
+            'waldorf-program',
+            'ds-brand',
+    
+            'typography',
+            'poster',
+            'waldorf-gala'
+            
+        )
+    ),
     'housecall' => array(
         'name' => 'Housecall Pro',
         'position' => 'Graphic Designer',

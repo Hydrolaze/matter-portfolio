@@ -49,6 +49,20 @@
      //centreHello($('#hello'));
      $('section').css('display', 'none');
 
+
+     //Create a scroll listener to make letters move
+     $(window).bind('mousewheel', function (event) {
+         var force = 0;
+         if (event.originalEvent.wheelDelta >= 0) {
+             force = 0.05;
+         } else {
+             force = -0.05;
+         }
+         for (letter in letterBodies) {
+             letterBodies[letter].force.y += force;
+         }
+     });
+
      //Set up navbar.
      nav.addNav($('nav'));
      nav.addPanel($('#nav-icons'));
@@ -157,7 +171,7 @@
              $ection;
 
          $.ajax({
-             url: filePath, 
+             url: filePath,
              context: this,
              dataType: 'html',
              success: function (data, textStatus, jqXHR) {
@@ -297,14 +311,14 @@
  //var XHR = new XMLHttpRequest();
  var letterSpinInterval = 0;
 
-/*
-//This function is more trouble than it's worth.
- function centreHello($ection) {
-     var helloPadding = ($ection.outerHeight() - 490) / 2 - 106.8;
-     $ection.css('padding-top', helloPadding + "px");
-     $('#hello-graphic').css('top', helloPadding + "px");
- }
-*/
+ /*
+ //This function is more trouble than it's worth.
+  function centreHello($ection) {
+      var helloPadding = ($ection.outerHeight() - 490) / 2 - 106.8;
+      $ection.css('padding-top', helloPadding + "px");
+      $('#hello-graphic').css('top', helloPadding + "px");
+  }
+ */
 
  function swapSection($ection) {
      $ection.css({
@@ -353,7 +367,7 @@
      } else {
          populateQueue();
      }
-     
+
  }
 
  function populateQueue() {
@@ -386,7 +400,7 @@
              nav.queueIsFilled = true;
          }
      });
-     
+
 
      //Write the number of .work-cards to the "BEGIN QUEUE" button.
      $('.begin-link').parent().attr('data-content', (count > 1) ? 'OF ' + count + ' WORKS' : 'OF ' + count + ' WORK');
@@ -472,21 +486,19 @@
                  $elem = this.panels[elemId];
              console.log('Panel(id: ' + elemId + ', show: ' + p.show + ')');
              if (p.show === true) {
-                 $elem.fadeIn(1000, function () {
-                     fields[elemId] = {
-                         angle: 5 * Math.PI / 6,
-                         magnitude: 0.02,
-                         x: $elem.offset().left,
-                         y: $elem.offset().top,
-                         w: $elem.width(),
-                         h: $elem.width()
-                     };
-                 });
+                 $elem.fadeIn(1000);
+                 fields[elemId] = {
+                     angle: 5 * Math.PI / 6,
+                     magnitude: 0.02,
+                     x: $elem.offset().left,
+                     y: $elem.offset().top,
+                     w: $elem.width(),
+                     h: $elem.width()
+                 };
              } else {
                  if ($elem.css('display') == 'block') {
-                     $elem.fadeOut(1000, function () {
-                         delete fields[p.id];
-                     });
+                     $elem.fadeOut(1000);
+                     delete fields[p.id];
                  }
              }
          }

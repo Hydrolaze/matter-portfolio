@@ -10,7 +10,7 @@
     
     <?php single_photo($section_name, 'http://clement.matmcc.org/portfolio/','wp-portfolio-screenshot.png', 720, 'centre', 'Wordpress let me manage posts and content easily, and plugins gave me easy interactivity.'); ?>
     
-    <p>To aid me in my search for a job, I created a Wordpress portfolio to showcase my work. After installing Wordpress on my server and linking the MySQL database, I set out to find a suitable theme to use.</p>
+    <p>To aid me in my search for a job after finishing my web design courses, I created a Wordpress portfolio to showcase my work. After installing Wordpress on my server and linking the MySQL database, I set out to find a suitable theme to use.</p>
     
     <?php single_photo($section_name, 'https://wordpress.com/themes/blask/', 'blask-theme.jpg', 300, 'right', 'Blask by Automattic.'); ?>
     

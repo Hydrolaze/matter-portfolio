@@ -39,11 +39,13 @@
             position: fixed;
             right: 82rem;
             top: 0;
+            pointer-events: none;
         }
 
         nav>*,
         section {
             display: none;
+            pointer-events: all;
         }
 
     </style>
@@ -77,7 +79,7 @@
             </header>
 
             <div class="copy">
-                <p>I'm a graphic designer who is currently looking for challenging and rewarding work in San Diego county. I have been working in print design for 5 years <!-- I began working at Logo Expressions in June 2013, exactly five years before now. -->, and in that time I've learned to design for a wide range of printing methods. I have considerable experience in web graphics and programming as well. </p>
+                <p>I'm a graphic designer who is looking for challenging and rewarding work where I can put my creative drive to work. I have been working in print design for 5 years <!-- I began working at Logo Expressions in June 2013, exactly five years before now. -->, and in that time I've learned to design for a wide range of printing methods. I have considerable experience in web graphics and programming as well. </p>
 
                 <?php if ($key_is_valid): ?>
 
@@ -89,7 +91,7 @@
                 <img src="vectors/icons/anim-custom-queue.svg" class="icon custom-queue-link link">
                 <span class="icon-desc">
                         <h4>CUSTOM QUEUE</h4>
-                    A collection of works picked specially for you at <span class="variable-info"><?php echo $company['name']; ?></span> to show my qualification for the position of <span class="variable-info"><?php echo $company['position']; ?></span>.
+                    A queue of work chosen for you at <span class="variable-info"><?php echo $company['name']; ?></span> to show my qualification for the position of <span class="variable-info"><?php echo $company['position']; ?></span>
                     </span>
             </div>
 
@@ -108,15 +110,19 @@
                     <div class="icon-block">
                         <img src="vectors/icons/whole-portfolio.svg" class="works-link all-tag link whole-portfolio-icon" alt="everything">
                         <div class="tags-column">
+                           <div class="tags-row">
+                            <img src="vectors/icons/illustrator-portfolio.svg" class="sub-portfolio works-link illustrator-tag link" alt="Adobe Illustrator">
                             <img src="vectors/icons/css-portfolio-half.svg" class="sub-portfolio-half works-link css-tag link" alt="CSS styles">
+                        </div>
+                        <div class="tags-row">    
                             <img src="vectors/icons/php-portfolio-half.svg" class="sub-portfolio-half works-link php-tag link" alt="PHP coding">
+                            <img src="vectors/icons/photoshop-portfolio.svg" class="sub-portfolio works-link photoshop-tag link" alt="Adobe Photoshop">
+                            
+                        </div>
+                            <img src="vectors/icons/indesign-portfolio.svg" class="sub-portfolio works-link indesign-tag link" alt="Adobe InDesign">
                             <img src="vectors/icons/js-portfolio-half.svg" class="sub-portfolio-half works-link js-tag link" alt="Javascript">
                         </div>
-                        <div class="tags-column">
-                            <img src="vectors/icons/illustrator-portfolio.svg" class="sub-portfolio works-link illustrator-tag link" alt="Adobe Illustrator">
-                            <img src="vectors/icons/photoshop-portfolio.svg" class="sub-portfolio works-link photoshop-tag link" alt="Adobe Photoshop">
-                            <img src="vectors/icons/indesign-portfolio.svg" class="sub-portfolio works-link indesign-tag link" alt="Adobe InDesign">
-                        </div>
+                        <!-- Write a PHP script to generate this structure with custom ordering according to info in the works-list -->
                     </div>
                     <span class="icon-desc">
                     VIEW MY PORTFOLIO<br>
@@ -159,12 +165,21 @@
                     ABOUT ME
                     </span>
                 </div>
+                <?php if ($key_is_valid): ?>
                 <div class="minicon-container">
                     <img src="vectors/icons/anim-custom-queue-mini.svg" class="icon minicon custom-queue-link link">
                     <span class="icon-desc">
                     YOUR QUEUE
                     </span>
                 </div>
+                <?php else: ?>
+                <div class="minicon-container">
+                    <a href="mailto:sunyhakas@gmail.com?Subject=Hello%20Aaron" target="_top"><img src="vectors/icons/e-mail-mini.svg" class="icon minicon"></a>
+                    <span class="icon-desc">
+                    EMAIL ME
+                    </span>
+                </div>
+                <?php endif; ?>
             </div>
         </div>
         <div id="queue">
