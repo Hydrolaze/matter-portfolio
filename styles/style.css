@@ -356,7 +356,7 @@ main .icon-tray > * + * {
 
 .icon-desc {
     display: block;
-    padding-top: 0.25em;
+    padding-top: 0.5em;
     color: #FFD980;
 }
 
@@ -364,7 +364,7 @@ main .icon-tray > * + * {
     font-size: 1.15rem;
 }
 
-.icon-tray img, .icon {
+.portfolio-container img, .icon {
     transition: transform 0.5s;
 }
 
@@ -378,10 +378,6 @@ main .icon-tray > * + * {
     width: 26.25em;
     margin-left: 1em;
     margin-top: 1.5em;
-}
-
-.queue-container {
-    width: 44.25rem;
 }
 
 /*PORTFOLIO ICON STYLES ||||||||||||*/
@@ -409,8 +405,12 @@ main .icon-tray > * + * {
     flex-direction: column;
 }
 
-.tags-row + .tags-row {
+.tags-column > * + * {
     margin-top: 0.5em;
+}
+
+.tags-row {
+    height: 3.66em;
 }
 
 .tags-row img {
@@ -451,22 +451,27 @@ main .icon-tray > * + * {
 
 /*HELLO ICON STYLES ||||||||||||*/
 
-#hello .icon-tray div, #hello .icon-tray img {
-    font-size: 12px;
-}
-
-#hello .icon-tray {
-    width: 44.25rem;
-    flex-direction: row;
-}
-
 #hello .portfolio-container {
-    width: 27.75em;
+    width: 34.5em;
+    float: left;
+    margin-top: 2rem;
+    margin-left: 9rem;
+}
+
+#hello .icon-container {
+    float: right;
+    margin-right: 9rem;
+}
+
+#hello .queue-container {
+    width: 44.25rem;
+    height: 12rem;
+    clear: both;
+    margin: 0 auto;
+    padding-top: 4rem;
 }
 
 /*NAV ICON STYLES ||||||||||||*/
-
-
 
 #nav-icons header img {
     width: 16rem;
@@ -645,8 +650,32 @@ main .work:active {
     box-shadow: -1px -1px 3px rgba(0,0,0,0.25), -1px 1px 3px rgba(0,0,0,0.25);
 }
 
+.print-label {
+    background-color: #ED4763;
+}
+
+.print-label::after {
+    content: 'PRINT DESIGN';
+}
+
+.digital-label {
+    background-color: #48CCC3;
+}
+
+.digital-label::after {
+    content: 'DIGITAL GRAPHICS';
+}
+
+.brand-label {
+    background-color: #FF6640;
+}
+
+.brand-label::after {
+    content: 'BRANDING';
+}
+
 .illustrator-label {
-    background-color: #FF772A;
+    background-color: #FF8540;
 }
 
 .illustrator-label::after {
@@ -654,7 +683,7 @@ main .work:active {
 }
 
 .indesign-label {
-    background-color: #FF368C;
+    background-color: #FF59BA;
 }
 
 .indesign-label::after {
@@ -662,16 +691,15 @@ main .work:active {
 }
 
 .photoshop-label {
-    background-color: #00CAF8;
+    background-color: #57D0F8;
 }
 
 .photoshop-label::after {
     content: 'PHOTOSHOP';
 }
 
-
 .css-label {
-    background-color: #1D71BB;
+    background-color: #4181BB;
 }
 
 .css-label::after {
@@ -679,7 +707,7 @@ main .work:active {
 }
 
 .js-label {
-    background-color: #86BE00;
+    background-color: #9ABE43;
 }
 
 .js-label::after {
@@ -693,7 +721,6 @@ main .work:active {
 .php-label::after {
     content: 'PHP';
 }
-
 
 .web-label {
     background-color: #00AF41;
@@ -744,8 +771,6 @@ section .work-desc-container {
     bottom: 0;
     display: flex;
     justify-content: center;
-    opacity: 0;
-    transition: opacity 0.5s;
 }
 
 #queue .work-desc-container {
@@ -753,10 +778,6 @@ section .work-desc-container {
     height: inherit;
     padding: 0 1rem;
     color: #262729;
-}
-
-section .work:hover .work-desc-container {
-    opacity: 1;
 }
 
 .work-desc {
@@ -773,6 +794,30 @@ main .work-desc {
     text-align: left;
 }
 
+/*|||||||||||||||||||||||||||||*/
+/*WORK ANIM STYLES ||||||||||||*/
+/*|||||||||||||||||||||||||||||*/
+
+section .work-desc-container,
+section .label:after {
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+section .label {
+    width: 1.6rem;
+    transition: width 0.5s;
+    overflow-x: hidden;
+}
+
+section .work:hover .work-desc-container,
+section .work:hover .label:after {
+    opacity: 1;
+}
+
+section .work:hover .label {
+    width: 14rem;
+}
 
 /*COPY STYLES ||||||||||||*/
 

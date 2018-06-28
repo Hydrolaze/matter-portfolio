@@ -79,64 +79,61 @@
             </header>
 
             <div class="copy">
-                <p>I'm a graphic designer who is looking for challenging and rewarding work where I can put my creative drive to work. I have been working in print design for 5 years <!-- I began working at Logo Expressions in June 2013, exactly five years before now. -->, and in that time I've learned to design for a wide range of printing methods. I have considerable experience in web graphics and programming as well. </p>
 
-                <?php if ($key_is_valid): ?>
-
-                <p>I designed my portfolio to serve up a custom experience to visitors with a unique URL key. Your key unlocks an exclusive queue of portfolio pieces that I'd love you to see.</p>
-
-            </div>
-
-            <div class="queue-container">
-                <img src="vectors/icons/anim-custom-queue.svg" class="icon custom-queue-link link">
-                <span class="icon-desc">
-                        <h4>CUSTOM QUEUE</h4>
-                    A queue of work chosen for you at <span class="variable-info"><?php echo $company['name']; ?></span> to show my qualification for the position of <span class="variable-info"><?php echo $company['position']; ?></span>
-                    </span>
-            </div>
-
-            <p>Or if you'd prefer to browse, pick an option below to learn more about who I am and what I can do for you.</p>
-
-            <?php else: ?>
-
-            <p>Pick an option below to learn more about who I am and what I can do for you.</p>
-
-            </div>
-
-            <?php endif; ?>
-
-            <div class="icon-tray">
                 <div class="portfolio-container">
                     <div class="icon-block">
-                        <img src="vectors/icons/whole-portfolio.svg" class="works-link all-tag link whole-portfolio-icon" alt="everything">
+                        <img src="vectors/icons/portfolio/portfolio_whole.svg" class="works-link all-tag link whole-portfolio-icon" alt="everything">
                         <div class="tags-column">
-                           <div class="tags-row">
-                            <img src="vectors/icons/illustrator-portfolio.svg" class="sub-portfolio works-link illustrator-tag link" alt="Adobe Illustrator">
-                            <img src="vectors/icons/css-portfolio-half.svg" class="sub-portfolio-half works-link css-tag link" alt="CSS styles">
+                            <div class="tags-row">
+                                <img src="vectors/icons/portfolio/portfolio_digital.svg" class="sub-portfolio works-link digital-tag link" alt="Digital Graphics">
+                                <img src="vectors/icons/portfolio/portfolio_photoshop.svg" class="sub-portfolio-half works-link photoshop-tag link" alt="Photoshop">
+                                <img src="vectors/icons/portfolio/portfolio_php.svg" class="sub-portfolio-half works-link php-tag link" alt="PHP">
+                            </div>
+                            <div class="tags-row">
+                                <img src="vectors/icons/portfolio/portfolio_illustrator.svg" class="sub-portfolio-half works-link illustrator-tag link" alt="Illustrator">
+                                <img src="vectors/icons/portfolio/portfolio_brand.svg" class="sub-portfolio works-link brand-tag link" alt="Branding">
+                                <img src="vectors/icons/portfolio/portfolio_css.svg" class="sub-portfolio-half works-link css-tag link" alt="CSS">
+                            </div>
+                            <div class="tags-row">
+                                <img src="vectors/icons/portfolio/portfolio_print.svg" class="sub-portfolio works-link print-tag link" alt="Print Design">
+                                <img src="vectors/icons/portfolio/portfolio_indesign.svg" class="sub-portfolio-half works-link indesign-tag link" alt="InDesign">
+                                <img src="vectors/icons/portfolio/portfolio_js.svg" class="sub-portfolio-half works-link js-tag link" alt="Javascript">
+                            </div>
                         </div>
-                        <div class="tags-row">    
-                            <img src="vectors/icons/php-portfolio-half.svg" class="sub-portfolio-half works-link php-tag link" alt="PHP coding">
-                            <img src="vectors/icons/photoshop-portfolio.svg" class="sub-portfolio works-link photoshop-tag link" alt="Adobe Photoshop">
-                            
-                        </div>
-                            <img src="vectors/icons/indesign-portfolio.svg" class="sub-portfolio works-link indesign-tag link" alt="Adobe InDesign">
-                            <img src="vectors/icons/js-portfolio-half.svg" class="sub-portfolio-half works-link js-tag link" alt="Javascript">
-                        </div>
-                        <!-- Write a PHP script to generate this structure with custom ordering according to info in the works-list -->
+                        <!-- Write a PHP script to generate this structure with custom ordering according to info in the queue -->
                     </div>
                     <span class="icon-desc">
-                    VIEW MY PORTFOLIO<br>
-                    or choose a skill to focus on
+                    <h4>VIEW MY DESIGN PORTFOLIO</h4>
+                    Explore all of the works in my portfolio, or click one of the tags.
                     </span>
                 </div>
+
                 <div class="icon-container">
                     <img src="vectors/icons/aaron-page.svg" class="icon aaron-link link">
                     <span class="icon-desc">
-                    GET TO KNOW ME<br>
+                    <h4>ABOUT ME</h4>
                     contact info &amp; resume
                 </span>
                 </div>
+
+                <?php if ($key_is_valid): ?>
+
+                <div class="queue-container">
+                    <img src="vectors/icons/anim-custom-queue.svg" class="icon custom-queue-link link">
+                    <span class="icon-desc">
+                        <h4>EXPLORE YOUR QUEUE</h4>
+                    A queue created for you at <span class="variable-info"><?php echo $company['name']; ?></span> to show my qualification for the position of <span class="variable-info"><?php echo $company['position']; ?></span>
+                    </span>
+                </div>
+
+                <?php endif; ?>
+
+                
+
+                <!-- I began working at Logo Expressions in June 2013, exactly five years before now. -->
+
             </div>
+
         </section>
     </main>
 
@@ -148,11 +145,11 @@
             <div class="icon-tray">
                 <div class="portfolio-container">
                     <div class="icon-block">
-                        <img src="vectors/icons/whole-portfolio.svg" class="works-link all-tag link whole-portfolio-icon" alt="everything">
+                        <img src="vectors/icons/portfolio/portfolio_whole.svg" class="works-link all-tag link whole-portfolio-icon" alt="everything">
                         <div class="tags-column">
-                            <img src="vectors/icons/illustrator-portfolio.svg" class="sub-portfolio works-link illustrator-tag link" alt="Adobe Illustrator">
-                            <img src="vectors/icons/photoshop-portfolio.svg" class="sub-portfolio works-link photoshop-tag link" alt="Adobe Photoshop">
-                            <img src="vectors/icons/indesign-portfolio.svg" class="sub-portfolio works-link indesign-tag link" alt="Adobe InDesign">
+                            <img src="vectors/icons/portfolio/portfolio_digital.svg" class="sub-portfolio works-link digital-tag link" alt="Digital Graphics">
+                            <img src="vectors/icons/portfolio/portfolio_brand.svg" class="sub-portfolio works-link brand-tag link" alt="Branding">
+                            <img src="vectors/icons/portfolio/portfolio_print.svg" class="sub-portfolio works-link print-tag link" alt="Print Design">
                         </div>
                     </div>
                     <span class="icon-desc">

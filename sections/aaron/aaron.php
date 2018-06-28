@@ -5,8 +5,10 @@
     </header>
 
     <div class="copy">
-        <p>Hello! I'm a 24 year old graphic designer who will be moving soon from Irvine to San Diego County. I've been working for 5 years in graphics and print, but my interest in design began long before then. I am very skilled with Adobe Illustrator, as well as proficient in Photoshop and InDesign. I also have considerable experience with HTML, CSS, Javascript, and PHP, and I will be earning an Associate's Degree in Web Design within a year.</p>
+        <p>I'm a graphic designer who is looking for a challenging and rewarding job where I can put my creative abilities to the test. I have been working in print design for 5 years, and in that time I've learned to use Adobe software to design for a wide range of printing methods. I work hard to ensure that designs get created and finalized on time, adjusting artwork as necessary to suit my clients needs and the limitations of the printing method.</p>
+        <p>I have considerable education in web design, digital graphics, and programming as well, having used these skills in many projects for both college assignments and personal exploration. I am skilled at creating websites, using CSS and Javascript to enrich the appearance and functionality. I've also studied PHP, both in the development of Wordpress sites and the creation of dynamic content.</p>
         <p>My life is driven by a passion for dreaming up ideas and bringing them to life, and I am contintually learning and experimenting with new ways to create unique and engaging designs. If you're interested in hiring me, please see the links below and get in touch!</p>
+
     </div>
     <div class="icon-tray">
         <div class="icon-container">
