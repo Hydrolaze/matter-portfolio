@@ -43,11 +43,11 @@
      }
 
      //Overrides default css values in index.php to hide elements if the script is loaded.
-     //$('main').css('right', '-80rem');
+     $('main').css('right', '-80rem');
      addLinkListeners($('nav'));
      addLinkListeners($('#hello'));
      //centreHello($('#hello'));
-     //$('section').css('display', 'none');
+     $('section').css('display', 'none');
 
      //Set up navbar.
      nav.addNav($('nav'));
@@ -55,40 +55,32 @@
      nav.addPanel($('#queue'));
 
      //If there was a section in the querystring aside from an intro section, then it will load and enter immediately.
-
-     if (startQuery.section !== '' && startQuery.section !== 'hello') {
+     if (startQuery.section !== '' && startQuery.section !== 'hello' && startQuery.section !== 'custom-queue') {
 
          startQuery.call();
-
-         //$('#continue-icon').css('transform', 'perspective(6rem) rotateX(90deg)');
+         $('main').css({
+             'right': '0'
+         });
+         $('#welcome').css('opacity', '0');
+         fields.main = {
+             angle: 7 * Math.PI / 6,
+             magnitude: 0.01,
+             x: W - $('main').width(),
+             y: 0,
+             w: $('main').width(),
+             h: $('main').height()
+         };
+         $('#continue-icon').css('transform', 'perspective(6rem) rotateX(90deg)');
 
          //If the section is custom-queue, it replaces #hello as the intro section, but does not enter immediately.
      } else if (startQuery.section === 'custom-queue') {
 
-         startQuery.ajax(true);
+         $('#hello').removeClass('intro-section');
+
+         startQuery.ajax(false);
          prepQueue(startQuery);
 
-     } else {
-
-         //$('#hello').removeClass('intro-section');
-
-         swapSection($('#hello'));
-
      }
-
-     $('main').css({
-         'right': '0'
-     });
-     //$('#welcome').css('opacity', '0');
-     fields.main = {
-         angle: 7 * Math.PI / 6,
-         magnitude: 0.01,
-         x: W - $('main').width(),
-         y: 0,
-         w: $('main').width(),
-         h: $('main').height()
-     };
-
  });
 
  function Query(section, tag) {
@@ -185,7 +177,7 @@
 
                  //Determine if the section is one that would contain a queue, and if so, reset the queue object and add the query info.
                  if (this.section === 'works' || this.section === 'custom-queue') {
-                     //$ection.addClass('intro-section');
+                     $ection.addClass('intro-section');
                      prepQueue(this);
                  }
 

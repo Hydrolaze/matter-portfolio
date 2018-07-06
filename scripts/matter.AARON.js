@@ -80,28 +80,28 @@ var mouse,
 var letterBodies = [
     createCompoundBody(getVertsFromPolygons(ApolySet), Common.extend(letterOptions, {
         force: {
-            x: Math.random() * 0.2 + 0.05,
+            x: Math.random() * 0.1 + 0.05,
             y: Math.random() * 0.02 - 0.01
         },
         torque: Math.random() * 3 - 1.5
     })),
     createCompoundBody(getVertsFromPolygons(ApolySet), Common.extend(letterOptions, {
         force: {
-            x: Math.random() * 0.2 + 0.05,
+            x: Math.random() * 0.1 + 0.05,
             y: Math.random() * 0.02 - 0.01
         },
         torque: Math.random() * 3 - 1.5
     })),
     createCompoundBody(getVertsFromPolygons(RpolySet), Common.extend(letterOptions, {
         force: {
-            x: Math.random() * 0.2 + 0.05,
+            x: Math.random() * 0.1 + 0.05,
             y: Math.random() * 0.02 - 0.01
         },
         torque: Math.random() * 3 - 1.5
     })),
     Body.create(Common.extend(letterOptions, {
         force: {
-            x: Math.random() * 0.2 + 0.05,
+            x: Math.random() * 0.1 + 0.05,
             y: Math.random() * 0.02 - 0.01
         },
         vertices: Overts,
@@ -109,7 +109,7 @@ var letterBodies = [
     })),
     createCompoundBody(getVertsFromPolygons(NpolySet), Common.extend(letterOptions, {
         force: {
-            x: Math.random() * 0.2 + 0.05,
+            x: Math.random() * 0.1 + 0.05,
             y: Math.random() * 0.02 - 0.01
         },
         torque: Math.random() * 3 - 1.5
@@ -306,11 +306,13 @@ function pullTo(body, x, y, angle, strength) {
     };
 }
 
+/*
 function continueToSite() {
     rollCall();
     $('#welcome').fadeOut(2000);
     setTimeout(displayEnter, 3000);
 }
+*/
 
 var rollCallInterval = [];
 
@@ -381,6 +383,7 @@ function vertAnimation(delta, displaySpace) {
     }
 }
 
+/*
 function displayEnter(dur) {
 
     var introSection = $('.intro-section'),
@@ -418,6 +421,7 @@ function displayEnter(dur) {
         }
     });
 }
+*/
 
 //============ CODE TO RUN ON DOCUMENT READY
 
@@ -431,11 +435,13 @@ $(document).ready(function () {
         letterSVGs[l].init();
     }
 
+    /*
     //continue to site when continue button is clicked
     $('#continue-icon img').click(function () {
         $('#continue-icon').css('transform', 'perspective(6rem) rotateX(90deg)')
         continueToSite();
     })
+    */
 
     // add a mouse controlled constraint
     mouse = Mouse.create(document.getElementById('matter'));
@@ -490,7 +496,7 @@ $(document).ready(function () {
         };
         //R: run rollCall() script
         if (e.which == 82) {
-            rollCall();
+            //rollCall();
         };
         //Q: twist anticlockwise
         if (e.which == 81) {

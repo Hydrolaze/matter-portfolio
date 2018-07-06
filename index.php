@@ -32,6 +32,10 @@
             overflow-y: scroll;
         }
 
+        #welcome {
+            display: none;
+        }
+
         nav {
             width: 20rem;
             height: 100vh;
@@ -71,67 +75,67 @@
 
     <main>
         <section id="hello" class="intro-section">
-            <img src="rasters/hello-graphic.png" class="hello-graphic">
-            <header>
-                <span class="line-one">Hello and welcome</span>
-                <span class="line-two">I'm Aaron Clement</span>
-                <span class="line-three">graphic designer &amp; web developer</span>
-            </header>
+            <div id="hello-container">
+                <img src="rasters/hello-graphic.png" class="hello-graphic">
+                <header>
+                    <span class="line-one">Hello and welcome</span>
+                    <span class="line-two">I'm Aaron Clement</span>
+                    <span class="line-three">graphic designer &amp; web developer</span>
+                </header>
 
-            <div class="copy">
+                <div class="copy">
 
-                <div class="portfolio-container">
-                    <div class="icon-block">
-                        <img src="vectors/icons/portfolio/portfolio_whole.svg" class="works-link all-tag link whole-portfolio-icon" alt="everything">
-                        <div class="tags-column">
-                            <div class="tags-row">
-                                <img src="vectors/icons/portfolio/portfolio_digital.svg" class="sub-portfolio works-link digital-tag link" alt="Digital Graphics">
-                                <img src="vectors/icons/portfolio/portfolio_photoshop.svg" class="sub-portfolio-half works-link photoshop-tag link" alt="Photoshop">
-                                <img src="vectors/icons/portfolio/portfolio_php.svg" class="sub-portfolio-half works-link php-tag link" alt="PHP">
+                    <div class="portfolio-container">
+                        <div class="icon-block">
+                            <img src="vectors/icons/portfolio/portfolio_whole.svg" class="works-link all-tag link whole-portfolio-icon" alt="everything">
+                            <div class="tags-column">
+                                <div class="tags-row">
+                                    <img src="vectors/icons/portfolio/portfolio_digital.svg" class="sub-portfolio works-link digital-tag link" alt="Digital Graphics">
+                                    <img src="vectors/icons/portfolio/portfolio_photoshop.svg" class="sub-portfolio-half works-link photoshop-tag link" alt="Photoshop">
+                                    <img src="vectors/icons/portfolio/portfolio_php.svg" class="sub-portfolio-half works-link php-tag link" alt="PHP">
+                                </div>
+                                <div class="tags-row">
+                                    <img src="vectors/icons/portfolio/portfolio_illustrator.svg" class="sub-portfolio-half works-link illustrator-tag link" alt="Illustrator">
+                                    <img src="vectors/icons/portfolio/portfolio_brand.svg" class="sub-portfolio works-link brand-tag link" alt="Branding">
+                                    <img src="vectors/icons/portfolio/portfolio_css.svg" class="sub-portfolio-half works-link css-tag link" alt="CSS">
+                                </div>
+                                <div class="tags-row">
+                                    <img src="vectors/icons/portfolio/portfolio_print.svg" class="sub-portfolio works-link print-tag link" alt="Print Design">
+                                    <img src="vectors/icons/portfolio/portfolio_indesign.svg" class="sub-portfolio-half works-link indesign-tag link" alt="InDesign">
+                                    <img src="vectors/icons/portfolio/portfolio_js.svg" class="sub-portfolio-half works-link js-tag link" alt="Javascript">
+                                </div>
                             </div>
-                            <div class="tags-row">
-                                <img src="vectors/icons/portfolio/portfolio_illustrator.svg" class="sub-portfolio-half works-link illustrator-tag link" alt="Illustrator">
-                                <img src="vectors/icons/portfolio/portfolio_brand.svg" class="sub-portfolio works-link brand-tag link" alt="Branding">
-                                <img src="vectors/icons/portfolio/portfolio_css.svg" class="sub-portfolio-half works-link css-tag link" alt="CSS">
-                            </div>
-                            <div class="tags-row">
-                                <img src="vectors/icons/portfolio/portfolio_print.svg" class="sub-portfolio works-link print-tag link" alt="Print Design">
-                                <img src="vectors/icons/portfolio/portfolio_indesign.svg" class="sub-portfolio-half works-link indesign-tag link" alt="InDesign">
-                                <img src="vectors/icons/portfolio/portfolio_js.svg" class="sub-portfolio-half works-link js-tag link" alt="Javascript">
-                            </div>
+                            <!-- Write a PHP script to generate this structure with custom ordering according to info in the queue -->
                         </div>
-                        <!-- Write a PHP script to generate this structure with custom ordering according to info in the queue -->
-                    </div>
-                    <span class="icon-desc">
+                        <span class="icon-desc">
                     <h4>VIEW MY DESIGN PORTFOLIO</h4>
                     Explore all of the works in my portfolio, or click one of the tags.
                     </span>
-                </div>
+                    </div>
 
-                <div class="icon-container">
-                    <img src="vectors/icons/aaron-page.svg" class="icon aaron-link link">
-                    <span class="icon-desc">
+                    <div class="icon-container">
+                        <img src="vectors/icons/aaron-page.svg" class="icon aaron-link link">
+                        <span class="icon-desc">
                     <h4>ABOUT ME</h4>
                     contact info &amp; resume
                 </span>
-                </div>
+                    </div>
 
-                <?php if ($key_is_valid): ?>
+                    <?php if ($key_is_valid): ?>
 
-                <div class="queue-container">
-                    <img src="vectors/icons/anim-custom-queue.svg" class="icon custom-queue-link link">
-                    <span class="icon-desc">
+                    <div class="queue-container">
+                        <img src="vectors/icons/anim-custom-queue.svg" class="icon custom-queue-link link">
+                        <span class="icon-desc">
                         <h4>EXPLORE YOUR QUEUE</h4>
                     A queue created for you at <span class="variable-info"><?php echo $company['name']; ?></span> to show my qualification for the position of <span class="variable-info"><?php echo $company['position']; ?></span>
-                    </span>
+                        </span>
+                    </div>
+
+                    <?php endif; ?>
+
+                    <!-- I began working at Logo Expressions in June 2013, exactly five years before now. -->
+
                 </div>
-
-                <?php endif; ?>
-
-                
-
-                <!-- I began working at Logo Expressions in June 2013, exactly five years before now. -->
-
             </div>
 
         </section>
@@ -193,9 +197,11 @@
     </nav>
 
 
+    <!--
     <div id="continue-icon">
         <img src="vectors/icons/continue.svg" alt="continue button">
     </div>
+-->
 
     <!--A count of frames rendered per second, updated by script in matter.AARON.js-->
     <!--

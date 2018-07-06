@@ -210,6 +210,15 @@ h5 {
 
 /*INTRO SECTION HEADER STYLES ||||||||||||*/
 
+#hello {
+    flex-direction: column;
+    justify-content: center;
+}
+
+#hello-container {
+    position: absolute;
+}
+
 #hello header,
 #custom-queue header {
     padding: 0;
@@ -219,7 +228,7 @@ h5 {
 
 .hello-graphic {
     position: absolute;
-    top: 6rem;
+    top: 0;
     left: 7.5rem;
     z-index: -1;
     opacity: 0.9;
