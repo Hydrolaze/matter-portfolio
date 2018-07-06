@@ -85,8 +85,12 @@
         
         $images_scan = scandir('images');
         
+        foreach ($images_scan as $i => $filename) {
+            $images_scan[$i] = strtolower($filename);
+        }
+        
         //If the specified photo exists in the photos folder
-        if (in_array($image_name, $images_scan)) {
+        if (in_array(strtolower($image_name), $images_scan)) {
             
             //Why didn't I comment to remind myself of what this regex NONSENSE means?!
             $tn_name = preg_replace('/\.[^.]+$/','',$image_name).'-'.$size_tag.'.jpg';

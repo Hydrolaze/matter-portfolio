@@ -49,20 +49,6 @@
      //centreHello($('#hello'));
      $('section').css('display', 'none');
 
-
-     //Create a scroll listener to make letters move
-     $(window).bind('mousewheel', function (event) {
-         var force = 0;
-         if (event.originalEvent.wheelDelta >= 0) {
-             force = 0.05;
-         } else {
-             force = -0.05;
-         }
-         for (letter in letterBodies) {
-             letterBodies[letter].force.y += force;
-         }
-     });
-
      //Set up navbar.
      nav.addNav($('nav'));
      nav.addPanel($('#nav-icons'));
@@ -183,7 +169,7 @@
                  console.log('AJAX failed');
              },
              complete: function () {
-                 clearInterval(letterSpinInterval);
+                 //clearInterval(letterSpinInterval);
                  $ection.css({
                      'display': 'none'
                  }).appendTo('main');
@@ -208,11 +194,12 @@
              }
          });
 
+         /* Loading animation code. Glitched out occasionally and was therefore removed.
          letterSpinInterval = setInterval(function () {
              for (l in letterBodies) {
                  letterBodies[l].torque = 1;
              }
-         }, 100);
+         }, 100);*/
 
      };
 

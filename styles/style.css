@@ -663,7 +663,7 @@ main .work:active {
 }
 
 .digital-label::after {
-    content: 'DIGITAL GRAPHICS';
+    content: 'DIGITAL DESIGN';
 }
 
 .brand-label {
@@ -816,7 +816,7 @@ section .work:hover .label:after {
 }
 
 section .work:hover .label {
-    width: 14rem;
+    width: 12rem;
 }
 
 /*COPY STYLES ||||||||||||*/

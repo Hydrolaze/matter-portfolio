@@ -19,7 +19,8 @@ var begun = false,
             return result;
         }
     },
-    fpsRecord = [];
+    fpsRecord = [],
+    letterScrollOnCooldown = false;
 
 //============ MATTER.JS INITIALISATION
 
@@ -172,7 +173,7 @@ Events.on(engine, "afterUpdate", function (e) {
             letter.force.x = (letter.position.x - W / 2) * -1e-5;
         }
         if (letter.position.y < 0 || letter.position.y > H) {
-            
+
             letter.force.y = (letter.position.y - H / 2) * -1e-5;
         }
     }
@@ -448,7 +449,7 @@ $(document).ready(function () {
 
     $(document).keydown(function (e) {
         //LEFT: push left
-        if (e.which == 37) {
+        if (e.which == 37 || e.which == 65) {
             for (l in letterBodies) {
                 letterBodies[l].force = {
                     x: -0.05,
@@ -458,7 +459,7 @@ $(document).ready(function () {
             e.preventDefault();
         };
         //UP: push up
-        if (e.which == 38) {
+        if (e.which == 38 || e.which == 87) {
             for (l in letterBodies) {
                 letterBodies[l].force = {
                     x: 0,
@@ -468,7 +469,7 @@ $(document).ready(function () {
             e.preventDefault();
         };
         //RIGHT: push right
-        if (e.which == 39) {
+        if (e.which == 39 || e.which == 68) {
             for (l in letterBodies) {
                 letterBodies[l].force = {
                     x: 0.05,
@@ -478,7 +479,7 @@ $(document).ready(function () {
             e.preventDefault();
         };
         //DOWN: push down
-        if (e.which == 40) {
+        if (e.which == 40 || e.which == 83) {
             for (l in letterBodies) {
                 letterBodies[l].force = {
                     x: 0,
@@ -514,6 +515,24 @@ $(document).ready(function () {
         }
     });
 
+    //Create a scroll listener to make letters move. Scroll force has a cooldown to prevent excessive forces being applied on continuous scrolling inputs such as un-incremented scroll wheels and trackpads.
+    $(window).bind('mousewheel', function (event) {
+        if (!letterScrollOnCooldown) {
+            var force = 0;
+            if (event.originalEvent.wheelDelta >= 0) {
+                force = 0.02;
+            } else {
+                force = -0.02;
+            }
+            for (letter in letterBodies) {
+                letterBodies[letter].force.y += force;
+            }
+            letterScrollOnCooldown = true;
+            setTimeout(function () {
+                letterScrollOnCooldown = false;
+            }, 50);
+        }
+    });
 })
 
 

@@ -20,7 +20,7 @@
 
     <p>I began with the flier design since it was the most normally sized piece in the project. Once it was approved however, I began adapting it into the banner and web graphic. Both of these designs had their own challenges that I needed to overcome.</p>
     
-    <p>The web banner was landscape-oriented to fit at the top of a webpage, so I needed to adjust the layout accordingly. The header graphic moved to the left, and the mission statement filled up the remaining space on the right side. I was also careful to save any designs for this web graphic in the correct RGB color space so that the colors could be as vibrant as possible.</p>
+    <p>The web banner was landscape-oriented to fit at the top of a webpage, so I needed to adjust the layout accordingly. The header graphic moved to the left, and the mission statement filled up the remaining space on the right side. I also saved this web graphic in the RGB color space so that the colors could be as vibrant as possible.</p>
     
     <?php single_photo($section_name, false, 'drop-shadow-web-banner.png', 600, 'centre', 'To give my client the freedom to choose whichever background they pleased, I created the web banner with a transparent background and drop shadow.') ?>
     

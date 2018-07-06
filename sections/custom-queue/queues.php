@@ -3,6 +3,25 @@
 <?php
 
 $queues = array(
+    'luxury' => array(
+        'name' => 'Creative Circle Client',
+        'position' => 'graphic designer',
+        'my_title' => 'graphic &amp; web designer',
+        'copy' => '',
+        'queue' => array(
+            'kohana-flier',
+            'solarch',
+            'wp-portfolio',
+    
+            'oats-ads',
+            'fliers',
+            'ds-brand',
+    
+            'typography',
+            'oats-stationery',
+            'waldorf-gala'
+        )
+    ),
     'bhhs-asr' => array(
         'name' => 'Berkshire Hathaway',
         'position' => 'Agent Services Representative',
