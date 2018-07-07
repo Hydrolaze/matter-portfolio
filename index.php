@@ -76,7 +76,7 @@
     <main>
         <section id="hello" class="intro-section">
             <div id="hello-container">
-                <img src="rasters/hello-graphic.png" class="hello-graphic">
+               <div class="hello-graphic" style="background-image:url('rasters/hello-graphic.png');width:780px;height:393px;"></div>
                 <header>
                     <span class="line-one">Hello and welcome</span>
                     <span class="line-two">I'm Aaron Clement</span>

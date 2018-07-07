@@ -26,7 +26,7 @@
                 </span>
         </div>
         <div class="icon-container">
-            <a href="https://drive.google.com/open?id=0B2XQSoYT1cH8YmNHOW1nTzZEOVk" target="_blank">
+            <a href="https://drive.google.com/open?id=13coW353ZjBsUHvvO_iiYMUeNwq4yUIug" target="_blank">
             <img src="vectors/icons/resume.svg" class="icon" id="resume-icon"></a>
             <span class="icon-desc">
                     VIEW RESUME<br>
