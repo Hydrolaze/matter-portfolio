@@ -46,8 +46,7 @@
             pointer-events: none;
         }
 
-        nav>*,
-        section {
+        nav>* {
             display: none;
             pointer-events: all;
         }
@@ -175,9 +174,9 @@
                 </div>
                 <?php else: ?>
                 <div class="minicon-container">
-                    <a href="mailto:sunyhakas@gmail.com?Subject=Hello%20Aaron" target="_top"><img src="vectors/icons/e-mail-mini.svg" class="icon minicon"></a>
+                    <a href="https://drive.google.com/open?id=1yj-w2HRfEJUIgWx-54sP4Gh7VLT4AcFk" target="_top"><img src="vectors/icons/print-portfolio-mini.svg" class="icon minicon"></a>
                     <span class="icon-desc">
-                    EMAIL ME
+                    PRINT&nbsp;&nbsp;WORK
                     </span>
                 </div>
                 <?php endif; ?>

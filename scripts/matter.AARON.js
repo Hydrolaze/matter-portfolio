@@ -591,10 +591,10 @@ function Façade(src, value, id, index, antiCen) {
         var angle = normaliseAngle(rads);
         this.$elem.css({
             '-webkit-transform': 'rotate(' + angle + 'rad)',
-            '-moz-transform': 'rotate(' + angle + ')',
-            '-ms-transform': 'rotate(' + angle + ')',
-            '-o-transform': 'rotate(' + angle + ')',
-            'transform': 'rotate(' + angle + ')'
+            '-moz-transform': 'rotate(' + angle + 'rad)',
+            '-ms-transform': 'rotate(' + angle + 'rad)',
+            '-o-transform': 'rotate(' + angle + 'rad)',
+            'transform': 'rotate(' + angle + 'rad)'
         });
         //the angle of the façade from the closest half Pi
         var cornerAngle = angle % (PI / 2);

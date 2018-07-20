@@ -3,6 +3,25 @@
 <?php
 
 $queues = array(
+    'skoollive' => array(
+        'name' => 'SkoolLive',
+        'position' => 'graphic &amp; UI/UX designer',
+        'my_title' => 'graphic &amp; web designer',
+        'copy' => '',
+        'queue' => array(
+            'kohana-flier',
+            'ds-site',
+            'wp-portfolio',
+    
+            'planetarium',
+            'oats-ads',
+            'ds-brand',
+    
+            'ds-guide',
+            'oats-stationery',
+            'nccs-brand'
+        )
+    ),
     'luxury' => array(
         'name' => 'Creative Circle Client',
         'position' => 'graphic designer',

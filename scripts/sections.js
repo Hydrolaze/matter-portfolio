@@ -24,16 +24,16 @@
      if (startParams.length > 0) {
          //Then process and save them.
          for (p in startParams) {
-             if (startParams[p].startsWith('section=')) {
+             if (startParams[p].indexOf('section=') >= 0) {
                  startQuery.section = startParams[p].substr(startParams[p].indexOf('=') + 1);
              }
-             if (startParams[p].startsWith('tag=')) {
+             if (startParams[p].indexOf('tag=') >= 0) {
                  startQuery.tag = startParams[p].substr(startParams[p].indexOf('=') + 1);
              }
-             if (startParams[p].startsWith('dev=')) {
+             if (startParams[p].indexOf('dev=') >= 0) {
                  user.dev = startParams[p].substr(startParams[p].indexOf('=') + 1);
              }
-             if (startParams[p].startsWith('key=')) {
+             if (startParams[p].indexOf('key=') >= 0) {
                  user.key = startParams[p].substr(startParams[p].indexOf('=') + 1);
              }
          }
@@ -70,9 +70,7 @@
 
      } else {
 
-         //$('#hello').removeClass('intro-section');
-
-         swapSection($('#hello'));
+         //swapSection($('#hello'));
 
      }
 
@@ -247,10 +245,10 @@
                  tag = '',
                  classes = $(this).attr('class').split(' ');
              for (c in classes) {
-                 if (classes[c].endsWith('-tag')) {
+                 if (classes[c].indexOf('-tag') >= 0) {
                      tag = classes[c].substring(0, classes[c].lastIndexOf('-tag'));
                  }
-                 if (classes[c].endsWith('-link')) {
+                 if (classes[c].indexOf('-link') >= 0) {
                      section = classes[c].substring(0, classes[c].lastIndexOf('-link'));
                  }
              }
@@ -386,7 +384,7 @@
          queue.pos = 0;
          var classes = $queueCard.children('.link').attr('class').split(' ');
          for (c in classes) {
-             if (classes[c].endsWith('-link')) {
+             if (classes[c].indexOf('-link') >= 0) {
                  queue.array[i] = classes[c].substring(0, classes[c].lastIndexOf('-link'));
              }
          }
