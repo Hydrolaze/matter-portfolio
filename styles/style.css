@@ -1,7 +1,8 @@
 html {
     font-family: 'Lato', "Trebuchet MS", Helvetica, sans-serif;
     font-size: 12px;
-    background: #8086ff;
+    background: #9f99de;
+    /*background: #7B80BD;*/
 }
 
 * {
@@ -107,7 +108,7 @@ nav header {
 }
 
 #welcome > * {
-    color: #0813DC;
+    color: #394C9F;
     text-align: center;
 }
 
@@ -133,14 +134,14 @@ nav header {
     position: absolute;
     top: 0;
     left: 0;
-    color: #0813DC;
+    color: #394C9F;
 }
 
 #FPS-graph {
     position: absolute;
     bottom: 0;
     left: 0;
-    outline: 1px solid #0813DC;
+    outline: 1px solid #394C9F;
 }
 
 
@@ -251,7 +252,7 @@ h5 {
 #hello .line-two,
 #custom-queue .line-two {
     font-size: 4.8rem;
-    color: #8086ff;
+    color: #7B80BD;
 }
 
 #hello .line-three,
@@ -295,7 +296,7 @@ a {
 }
 
 .variable-info {
-    color: #8086ff;
+    color: #7B80BD;
     font-weight: 900;
 }
 
@@ -653,7 +654,7 @@ main .work:active {
 }
 
 .print-label {
-    background-color: #ED4763;
+    background-color: #EA304E;
 }
 
 .print-label::after {
@@ -661,7 +662,7 @@ main .work:active {
 }
 
 .digital-label {
-    background-color: #48CCC3;
+    background-color: #55C2BD;
 }
 
 .digital-label::after {
@@ -669,7 +670,7 @@ main .work:active {
 }
 
 .brand-label {
-    background-color: #FF6640;
+    background-color: #F15842;
 }
 
 .brand-label::after {
@@ -677,7 +678,7 @@ main .work:active {
 }
 
 .illustrator-label {
-    background-color: #FF8540;
+    background-color: #F48C3D;
 }
 
 .illustrator-label::after {
@@ -685,7 +686,7 @@ main .work:active {
 }
 
 .indesign-label {
-    background-color: #FF59BA;
+    background-color: #FF5CA2;
 }
 
 .indesign-label::after {
@@ -693,7 +694,7 @@ main .work:active {
 }
 
 .photoshop-label {
-    background-color: #57D0F8;
+    background-color: #7FC8E3;
 }
 
 .photoshop-label::after {
@@ -701,7 +702,7 @@ main .work:active {
 }
 
 .css-label {
-    background-color: #4181BB;
+    background-color: #4080BB;
 }
 
 .css-label::after {
@@ -709,7 +710,7 @@ main .work:active {
 }
 
 .js-label {
-    background-color: #9ABE43;
+    background-color: #98BD43;
 }
 
 .js-label::after {
@@ -717,7 +718,7 @@ main .work:active {
 }
 
 .php-label {
-    background-color: #767AB7;
+    background-color: #7F83BB;
 }
 
 .php-label::after {
@@ -741,7 +742,7 @@ main .work:active {
 }
 
 .code-label {
-    background-color: #0813DC;
+    background-color: #394C9F;
 }
 
 .code-label::after {

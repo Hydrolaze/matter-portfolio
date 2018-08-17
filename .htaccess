@@ -1,3 +1,7 @@
 RewriteEngine On
+
 RewriteCond %{REMOTE_ADDR} ^68\.167\.236\.18
 RewriteRule ^$ /portfolio [R=302,L]
+
+RewriteCond %{HTTP_HOST} ^print\.sunyhakas\.com$ [NC]
+RewriteRule ^(.*)$ https://drive.google.com/open?id=1yj-w2HRfEJUIgWx-54sP4Gh7VLT4AcFk [R=302,L]
