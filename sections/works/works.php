@@ -25,7 +25,30 @@ if (isset($_GET['tag'])) {
                 <?php echo $tag_full_name; ?> pieces I have worked on in the past.</h2>
         </header>
         <div class="copy">
-            <p>Here are links to some of my works. Tags in the top right of each icon describe the skills I employed in creating them. You may use the queue control panel on the left to navigate your queue even after leaving this page.</p>
+
+            <div class="portfolio-container">
+                <div class="icon-block">
+                    <img src="vectors/icons/portfolio/portfolio_whole.svg" class="works-link all-tag link whole-portfolio-icon" alt="everything">
+                    <div class="tags-column">
+                        <div class="tags-row">
+                            <img src="vectors/icons/portfolio/portfolio_digital.svg" class="sub-portfolio works-link digital-tag link" alt="Digital Graphics">
+                            <img src="vectors/icons/portfolio/portfolio_photoshop.svg" class="sub-portfolio-half works-link photoshop-tag link" alt="Photoshop">
+                            <img src="vectors/icons/portfolio/portfolio_php.svg" class="sub-portfolio-half works-link php-tag link" alt="PHP">
+                        </div>
+                        <div class="tags-row">
+                            <img src="vectors/icons/portfolio/portfolio_illustrator.svg" class="sub-portfolio-half works-link illustrator-tag link" alt="Illustrator">
+                            <img src="vectors/icons/portfolio/portfolio_brand.svg" class="sub-portfolio works-link brand-tag link" alt="Branding">
+                            <img src="vectors/icons/portfolio/portfolio_css.svg" class="sub-portfolio-half works-link css-tag link" alt="CSS">
+                        </div>
+                        <div class="tags-row">
+                            <img src="vectors/icons/portfolio/portfolio_print.svg" class="sub-portfolio works-link print-tag link" alt="Print Design">
+                            <img src="vectors/icons/portfolio/portfolio_indesign.svg" class="sub-portfolio-half works-link indesign-tag link" alt="InDesign">
+                            <img src="vectors/icons/portfolio/portfolio_js.svg" class="sub-portfolio-half works-link js-tag link" alt="Javascript">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p>Here are links to some of my works. You may use the queue control panel on the left to navigate your queue even after leaving this page.</p>
         </div>
         <div class="works-tray">
 

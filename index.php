@@ -60,6 +60,34 @@
 
 <body>
 
+    <script>
+        //Break up the URL querystring into individual parameters.
+        var startParams = location.search.substr(1).split('&'),
+            startValues = {section: ''};
+        //If there are parameters...
+        if (startParams.length > 0) {
+            //Then process and save them.
+            for (p in startParams) {
+                if (startParams[p].indexOf('section=') >= 0) {
+                    startValues.section = startParams[p].substr(startParams[p].indexOf('=') + 1);
+                }
+                if (startParams[p].indexOf('tag=') >= 0) {
+                    startValues.tag = startParams[p].substr(startParams[p].indexOf('=') + 1);
+                }
+                if (startParams[p].indexOf('dev=') >= 0) {
+                    startValues.dev = startParams[p].substr(startParams[p].indexOf('=') + 1);
+                }
+                if (startParams[p].indexOf('key=') >= 0) {
+                    startValues.key = startParams[p].substr(startParams[p].indexOf('=') + 1);
+                }
+            }
+            if (startValues.section === 'works' && startValues.tag === '') {
+                startValues.tag = 'all';
+            }
+        }
+
+    </script>
+
     <?php 
     include('includes/functions.inc.php'); 
     include('includes/validate_key.inc.php');
@@ -75,7 +103,7 @@
     <main>
         <section id="hello" class="intro-section">
             <div id="hello-container">
-               <div class="hello-graphic" style="background-image:url('rasters/hello-graphic.png');width:780px;height:393px;"></div>
+                <div class="hello-graphic" style="background-image:url('rasters/hello-graphic.png');width:780px;height:393px;"></div>
                 <header>
                     <span class="line-one">Hello and welcome</span>
                     <span class="line-two">I'm Aaron Clement</span>

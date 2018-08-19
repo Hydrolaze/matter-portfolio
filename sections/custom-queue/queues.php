@@ -3,6 +3,21 @@
 <?php
 
 $queues = array(
+    'memberful' => array(
+        'name' => 'Memberful',
+        'position' => 'designer',
+        'my_title' => 'web &amp; graphic designer',
+        'copy' => '',
+        'queue' => array(
+            'ds-site',
+            'matterjs',
+            'wp-portfolio',
+    
+            'planetarium',
+            'typography',
+            'nccs-brand'
+        )
+    ),
     'skoollive' => array(
         'name' => 'SkoolLive',
         'position' => 'graphic &amp; UI/UX designer',

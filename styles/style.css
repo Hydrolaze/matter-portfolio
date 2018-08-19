@@ -454,8 +454,15 @@ main .icon-tray > * + * {
 
 /*HELLO ICON STYLES ||||||||||||*/
 
-#hello .portfolio-container {
+.portfolio-container {
     width: 34.5em;
+}
+
+#works .portfolio-container {
+    margin-left: 2rem;
+}
+
+#hello .portfolio-container {
     float: left;
     margin-top: 2rem;
     margin-left: 9rem;
