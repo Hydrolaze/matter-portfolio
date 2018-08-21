@@ -10,7 +10,7 @@
     
     <?php single_photo($section_name, 'works/deco-serv/index.html', 'deco-serv-screenshot.png', 720, 'centre', 'The completed draft as of July 2016. Please note that the orange striped boxes represent future content that will be supplied by Decorative Services.'); ?>
     
-    <p>Decorative Services, one of my employers, is an Oceanside based contract printer specializing in the promotions industry. Although they do work for a multitude of high profile clients, they had a decade-old website with a very outdated style that was based on tables. My final project for web design 2 was coming up, so I decided to make a prototype of a new website for them.</p>
+    <p>Decorative Services, one of my past employers, is an Oceanside based contract printer specializing in the promotions industry. Although they do work for a multitude of high profile clients, they had a decade-old website with a very outdated style that was based on tables. My final project for web design 2 was coming up, so I decided to make a prototype of a new website for them.</p>
     
     <?php single_photo($section_name, false, 'deco-serv-resource-tag-example.png', 720, 'centre', 'An example of the proof sheet design. Information is imprinted on thick orange ribbons, and dynamic content is elevated on white boxes.'); ?>
 

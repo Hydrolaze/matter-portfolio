@@ -24,9 +24,7 @@ if(isset($queues[$_GET['key']])):
     </header>
 
     <div class="copy">
-        <p>I'm a designer looking for a challenging and rewarding job where I can put my creative abilities to the test. I have been working in print design for 5 years, and in that time I've learned to use Adobe software to design for a wide range of printing methods. I work hard to ensure that designs get created and finalized on time, adjusting artwork as necessary to suit my clients needs and the limitations of the printing method.</p>
-
-        <p>I have considerable education in web design, digital graphics, and programming as well, having used these skills in many projects for both college assignments and personal exploration. I am skilled at creating websites, using CSS and Javascript to enrich the appearance and functionality. I've also studied PHP, both in the development of Wordpress sites and the creation of dynamic content.</p>
+        <p>Hello, my name is Aaron! I’ve been a graphic designer in the print industry for four years. In this time I’ve developed a specialty in print design, utilizing modern style trends and professional file management practices to meet clients’ needs quickly. I’ve been learning to design for the web as well through both college courses and my own experimental projects. I live to create and I’m ready to get to work!</p>
 
         <p>I hand-selected the pieces below for you at <span class="variable-info" id="company-name"><?php echo $company['name']; ?></span> to demonstrate my qualification for the position of <span class="variable-info"><?php echo $company['position']; ?></span>. You may use the panel to the left to navigate the queue. Enjoy!</p>
     </div>

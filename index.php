@@ -31,6 +31,10 @@
             overflow-x: hidden;
             overflow-y: scroll;
         }
+        
+        #hello {
+            display: none;
+        }
 
         #welcome {
             display: none;
@@ -174,7 +178,7 @@
                 </div>
                 <?php else: ?>
                 <div class="minicon-container">
-                    <a href="https://drive.google.com/open?id=1yj-w2HRfEJUIgWx-54sP4Gh7VLT4AcFk" target="_top"><img src="vectors/icons/print-portfolio-mini.svg" class="icon minicon"></a>
+                    <a href="https://drive.google.com/open?id=19pg2X_VygucQKkbzAVQu1BAZjTWVM6kK" target="_top"><img src="vectors/icons/print-portfolio-mini.svg" class="icon minicon"></a>
                     <span class="icon-desc">
                     PRINT&nbsp;&nbsp;WORK
                     </span>

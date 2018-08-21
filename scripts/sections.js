@@ -70,7 +70,7 @@
 
      } else {
 
-         //swapSection($('#hello'));
+         $('#hello').fadeIn(400);
 
      }
 
