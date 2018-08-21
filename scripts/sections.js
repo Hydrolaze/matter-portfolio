@@ -10,15 +10,44 @@
          tag: ''
      };
 
+ var remBasis = 12;
+
+ function updateRemBasis() {
+     remBasis = parseInt(window.getComputedStyle(document.documentElement, null).getPropertyValue('font-size'));
+ }
+
  $(document).ready(function () {
 
-     startQuery.section = startValues.section || '';
-     startQuery.tag = startValues.tag || '';
-     user.dev = startValues.dev || '';
-     user.key = startValues.key || '';
+     //Break up the URL querystring into individual parameters.
+     var startParams = location.search.substr(1).split('&');
+     //If there are parameters...
+     if (startParams.length > 0) {
+         //Then process and save them.
+         for (p in startParams) {
+             if (startParams[p].indexOf('section=') >= 0) {
+                 startQuery.section = startParams[p].substr(startParams[p].indexOf('=') + 1);
+             }
+             if (startParams[p].indexOf('tag=') >= 0) {
+                 startQuery.tag = startParams[p].substr(startParams[p].indexOf('=') + 1);
+             }
+             if (startParams[p].indexOf('dev=') >= 0) {
+                 user.dev = startParams[p].substr(startParams[p].indexOf('=') + 1);
+             }
+             if (startParams[p].indexOf('key=') >= 0) {
+                 user.key = startParams[p].substr(startParams[p].indexOf('=') + 1);
+             }
+         }
+         if (startQuery.section === 'works' && startQuery.tag === '') {
+             startQuery.tag = 'all';
+         }
+     }
 
+     //Overrides default css values in index.php to hide elements if the script is loaded.
+     //$('main').css('right', '-80rem');
      addLinkListeners($('nav'));
      addLinkListeners($('#hello'));
+     //centreHello($('#hello'));
+     //$('section').css('display', 'none');
 
      //Set up navbar.
      nav.addNav($('nav'));
@@ -27,14 +56,21 @@
 
      //If there was a section in the querystring aside from an intro section, then it will load and enter immediately.
 
-     if (startQuery.section === 'custom-queue') {
+     if (startQuery.section !== '' && startQuery.section !== 'hello') {
+
+         startQuery.call();
+
+         //$('#continue-icon').css('transform', 'perspective(6rem) rotateX(90deg)');
+
+         //If the section is custom-queue, it replaces #hello as the intro section, but does not enter immediately.
+     } else if (startQuery.section === 'custom-queue') {
 
          startQuery.ajax(true);
          prepQueue(startQuery);
 
-     } else if (startQuery.section !== '' && startQuery.section !== 'hello') {
+     } else {
 
-         startQuery.call();
+         //swapSection($('#hello'));
 
      }
 
@@ -52,12 +88,6 @@
      };
 
  });
-
- var remBasis = 12;
-
- function updateRemBasis() {
-     remBasis = parseInt(window.getComputedStyle(document.documentElement, null).getPropertyValue('font-size'));
- }
 
  function Query(section, tag) {
      this.section = section || '';
